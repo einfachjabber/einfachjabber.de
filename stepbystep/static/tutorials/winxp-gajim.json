@@ -1,0 +1,29 @@
+{
+  "os": "Windows XP",
+  "client": "Gajim",
+  "client-version": "not ready",
+  "tutorial": [
+    {
+      "image":  "winxp-pidgin1.png",
+      "text":   "Besuchen Sie die Seite http://www.pidgin.im/download/windows, und laden Sie Pidgin durch einen Klick auf \"Download Pidgin\" herunter."
+    },
+    {
+      "image":  "winxp-pidgin2.png",
+      "text":   "Nach einem Doppelklick auf die Installationsdatei erscheint das obige Bild. Dort klicken Sie bitte auf \"Weiter\"."
+    },
+	{
+      "image":  "winxp-pidgin3.png",
+      "text":   "Nach einem Doppelklick auf die Installationsdatei erscheint das obige Bild. Dort klicken Sie bitte auf \"Weiter\"."
+    }
+  ],
+  "links": [
+    {
+      "linktext": "Pidgin Homepage",
+      "url":      "http://pidgin.im"
+    },
+    {
+      "linktext": "OTR-Tutorial",
+      "url":      "http://wiki.jabber.zeroathome.de/OTR-Pidgin"
+    }
+  ]
+}

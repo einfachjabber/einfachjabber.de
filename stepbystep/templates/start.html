@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block head %}
+
+{% endblock %}
+{% block title %}{{ pagetitle }}{% endblock %}
+{% block content %}
+
+<div id="content">
+  <h1>Bitte wähle Dein Betriebssystem</h1>
+  <ul >
+    <li class="top"><img src="{{ url_for('static', file='images/os/logo_windows.png') }}" />
+      <ul>
+        <li><a href="{{ url_for('clientlist', osystem='winxp') }}"><img src="{{ url_for('static', file='images/os/logo_windows-xp.png') }}" /></a></li>
+        <li><a href="{{ url_for('clientlist', osystem='winvista') }}"><img width="331" src="{{ url_for('static', file='images/os/logo_windows-vista.png') }}" /></a></li>
+        <li><a href="{{ url_for('clientlist', osystem='win7') }}"><img src="{{ url_for('static', file='images/os/logo_windows-7.png') }}" /></a></li>
+      </ul>
+    </li>
+    <li class="top"><img src="{{ url_for('static', file='images/os/logo_linux.png') }}" />
+      <ul class="box">
+        <li><img src="{{ url_for('static', file='images/os/logo_ubuntu.png') }}" /></li>
+        <li><img src="{{ url_for('static', file='images/os/logo_fedora.png') }}" /></li>
+        <li><img src="{{ url_for('static', file='images/os/logo_opensuse.png') }}" /></li>
+      </ul>
+    </li>
+    <li><img src="{{ url_for('static', file='images/os/logo_osx.png') }}" /></li>
+  </ul>
+</div>
+{% endblock %}

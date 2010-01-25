@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block head %}
+
+{% endblock %}
+{% block title %}{{ pagetitle }}{% endblock %}
+{% block content %}
+<h1>Clients für {{ system }}
+<div id="content">
+  {% for client in clist %} 
+  <a href="{{ url_for('tutorial', tid=osystem + '-' + client) }}"><img class="clientimage" src="{{ url_for('static', file='images/client/logo-' + client + '.png') }}" /></a>
+  {% endfor %}
+
+</div>
+{% endblock %}

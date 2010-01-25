@@ -1,0 +1,108 @@
+body {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: #74BF04;
+    text-decoration: none;
+}
+
+h1 {
+    color: #74BF04;
+    text-align: center;
+}
+
+#content {
+    background-color: #f6f6f6;
+    border: 4px solid #74BF04;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    margin: 20px auto;
+    padding: 5px 15px 15px 15px;
+    text-align: center;
+    width: 960px;
+}
+
+.clientimage {
+    padding: 10px;
+}
+
+#tut-image {
+    background-color: white;
+    border: 1px solid #74BF04;
+    -moz-box-shadow: rgba(0, 0, 0, 0.5) 5px 5px 5px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.5) 5px 5px 5px;
+    margin-top: 20px;
+    padding: 15px;
+}
+
+#caption {
+    color: black;
+    padding: 0 25px 25px;
+}
+
+#navigation {
+    position: relative;
+    top: -30px;
+}
+
+#navigation a {
+    border: 1px solid #74BF04;
+    padding: 5px;
+}
+
+#navigation a:hover {
+    color: white;
+    background-color: #74BF04;
+}
+
+.nav-back {
+    float: left;
+}
+
+.nav-next {
+    float: right;
+}
+
+ul {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+}
+
+li {
+    display: inline;
+    position: relative;
+}
+
+li ul {
+    display: none;
+    left: 0;
+    position: absolute;
+    text-align: left;
+    top: 1em;
+    width: 400px;
+}
+
+li.top:hover {
+    background: url(../images/ui/down-32px.png) 50px 15px no-repeat;
+    padding-bottom: 55px;
+}
+
+li:hover ul {
+    background-color: #f6f6f6;
+    border: 4px solid #74BF04;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    display: block;
+    margin-top: 50px;
+    padding: 10px;
+}
+
+img {
+    border: none;
+}
+

@@ -16,8 +16,10 @@ def clientlist(request, osystem):
     clients = Clients()
     clist = clients.clientlist(osystem)
     system = clients.oslist(osystem)
-    pagetitle = system
-    return render_template('clientlist.html', pagetitle=pagetitle, clist=clist, osystem=osystem, system=system)
+    pagetitle = system[0]
+    default = system[1]
+    print default
+    return render_template('clientlist.html', pagetitle=pagetitle, clist=clist, osystem=osystem, default=default)
 
 @expose('/tutorial/<tid>/', defaults={'page':1})
 @expose('/tutorial/<tid>/<int:page>')

@@ -1,15 +1,46 @@
 body {
     font-family: Helvetica, Arial, sans-serif;
+    font-size: 66.7%
+    margin: 0;
+    padding: 0;
 }
 
 a {
     color: #74BF04;
+    font-size: 1em;
     text-decoration: none;
 }
 
 h1 {
     color: #74BF04;
+    font-size: 2.5em;
     text-align: center;
+}
+
+#toolbar {
+    background-color: #74BF04;
+    color: white;
+    font-size: 1.2em;
+    height: 30px;
+    left: 0;
+    opacity: 0.2;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    width: 100%;
+}
+
+#toolbar:hover {
+    opacity: 1;
+}
+
+#toolbar a {
+    color: white;
+    font-size: 1.2em;
+}
+
+#toolbar a:hover {
+    text-decoration: underline;
 }
 
 #content {
@@ -18,14 +49,44 @@ h1 {
     border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
-    margin: 20px auto;
-    padding: 5px 15px 15px 15px;
+    margin: 35px auto;
+    padding: 15px 15px 15px 15px;
     text-align: center;
     width: 960px;
 }
 
 .clientimage {
     padding: 10px;
+}
+
+a.defaultclient span.deftext {
+    display: none;
+}
+
+a.defaultclient {
+    position: relative;
+}
+
+a.defaultclient:hover span.deftext {
+    background-color: white;
+    border: 1px solid #74BF04;
+    border-radius: 10px;
+    display: inline;
+    font-size: 1.0em;
+    left: 0;
+    /*margin-left: 10px;*/
+    opacity: 0.8;
+    padding: 5px;
+    position: absolute;
+    top: -25px;
+    width: 150px;
+}
+
+.asterisk {
+    font-size: 8em;
+    right: 0;
+    position: absolute;
+    bottom: 60px;
 }
 
 #tut-image {
@@ -39,7 +100,10 @@ h1 {
 
 #caption {
     color: black;
+    font-size: 1.2em;
     padding: 0 25px 25px;
+    margin: 0 auto;
+    width: 70%;
 }
 
 #navigation {

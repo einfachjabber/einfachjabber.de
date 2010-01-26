@@ -18,20 +18,18 @@ class Clients(object):
         for i in files:
             i = re.sub(osystem + '-', '', i)
             i = re.sub('.json', '', i)
-            print i
             clist = clist + [i]
             
-        print clist    
         return clist
 
     def oslist(self, osystem):
         """Maps the OS short-names to their long pendants"""
         if osystem == 'winxp':
-            system = 'Windows XP'
-        if osystem == 'win7':
-            system = 'Windows 7'
+            system = ['Windows XP', 'pidgin']
         if osystem == 'winvista':
-            system = 'Windows Vista'
+            system = ['Windows Vista', 'pidgin']
+        if osystem == 'win7':
+            system = ['Windows 7', 'pidgin']
         return system
 
 

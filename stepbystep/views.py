@@ -18,7 +18,6 @@ def clientlist(request, osystem):
     system = clients.oslist(osystem)
     pagetitle = system[0]
     default = system[1]
-    print default
     return render_template('clientlist.html', pagetitle=pagetitle, clist=clist, osystem=osystem, default=default)
 
 @expose('/tutorial/<tid>/', defaults={'page':1})
@@ -34,7 +33,6 @@ def tutorial(request, tid, page):
     if page==0:
         flpage = 0
     elif page==numpages:
-        print "gleich"
         flpage = 2
     elif page>numpages:
        raise NotFound() 
@@ -44,3 +42,7 @@ def tutorial(request, tid, page):
 def impressum(request):
     pagetitle = 'Impressum'
     return render_template('imprint.html', pagetitle=pagetitle)
+
+def not_found(request):
+    """Handles 404s"""
+    return render_template('not_found.html')

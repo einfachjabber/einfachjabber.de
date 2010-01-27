@@ -8,21 +8,20 @@
 <div id="content">
   <h1>Bitte wähle Dein Betriebssystem</h1>
   <ul >
-    <li class="top"><img src="{{ url_for('static', file='images/os/logo_windows.png') }}" />
+    <li class="top oslogo"><img src="{{ url_for('static', file='images/os/logo-win.png') }}" /><span>Windows</span>
       <ul>
-        <li><a href="{{ url_for('clientlist', osystem='winxp') }}"><img src="{{ url_for('static', file='images/os/logo_windows-xp.png') }}" /></a></li>
-        <li><a href="{{ url_for('clientlist', osystem='winvista') }}"><img width="331" src="{{ url_for('static', file='images/os/logo_windows-vista.png') }}" /></a></li>
-        <li><a href="{{ url_for('clientlist', osystem='win7') }}"><img src="{{ url_for('static', file='images/os/logo_windows-7.png') }}" /></a></li>
+        <li><a href="{{ url_for('clientlist', osystem='winxp') }}"><img src="{{ url_for('static', file='images/os/logo-winxp.png') }}" /> Windows XP</a></li>
+        <li><a href="{{ url_for('clientlist', osystem='win7') }}"><img src="{{ url_for('static', file='images/os/logo-win7.png') }}" />Windows Vista/7</a></li>
       </ul>
     </li>
-    <li class="top"><img src="{{ url_for('static', file='images/os/logo_linux.png') }}" />
+    <li class="top oslogo"><img src="{{ url_for('static', file='images/os/logo-linux.png') }}" /><span>Linux</span>
       <ul class="box">
-        <li><img src="{{ url_for('static', file='images/os/logo_ubuntu.png') }}" /></li>
-        <li><img src="{{ url_for('static', file='images/os/logo_fedora.png') }}" /></li>
-        <li><img src="{{ url_for('static', file='images/os/logo_opensuse.png') }}" /></li>
+        <li><a href="{{ url_for('clientlist', osystem='fedora') }}"><img src="{{ url_for('static', file='images/os/logo-fedora.png') }}" />Fedora</a></li>
+        <li><a href="{{ url_for('clientlist', osystem='suse') }}"><img src="{{ url_for('static', file='images/os/logo-suse.png') }}" />OpenSuSe</a></li>
+          <li><a href="{{ url_for('clientlist', osystem='ubuntu') }}"><img src="{{ url_for('static', file='images/os/logo-ubuntu.png') }}" />Ubuntu</a></li>
       </ul>
     </li>
-    <li><img src="{{ url_for('static', file='images/os/logo_osx.png') }}" /></li>
+    <li class="oslogo"><a href="{{ url_for('clientlist', osystem='osx') }}"><img src="{{ url_for('static', file='images/os/logo-osx.png') }}" /><span>MacOS X</span></a></li>
   </ul>
 </div>
 {% endblock %}

@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block head %}
+
+{% endblock %}
+{% block title %}{{ pagetitle }}{% endblock %}
+{% block content %}
+<h1>Seite nicht gefunden</h1>
+<div id="content">
+  <div id="notfound"><strong>404</strong></div>
+  <a href="{{ url_for('start') }}">Zurück zur Startseite</a>
+</div>
+{% endblock %}

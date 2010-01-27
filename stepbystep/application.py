@@ -28,7 +28,8 @@ class Stepbystep(object):
             handler = getattr(views, endpoint)
             response = handler(request, **values)
         except NotFound, e:
-            response = Response("Not found!")
+            response= views.not_found(request)
+            #response = Response("Not found!")
             response.status_code = 404
         except HTTPException, e:
             response = e

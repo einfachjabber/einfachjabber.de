@@ -18,7 +18,8 @@
       <a class="nav-next" href="{{ url_for('tutorial', tid=tid, page=page+2) }}">Weiter</a>
     {% endif %}
     {% if flpage == 2 %}
-    <a class="nav-back" href="{{ url_for('tutorial', tid=tid, page=page) }}">Zurück</a>
+      <a class="nav-back" href="{{ url_for('tutorial', tid=tid, page=page) }}">Zurück</a>
+      <a class="nav-next" href="{{ url_for('tutoriallinks', tid=tid) }}">weiterführende Links</a>
     {% endif %}
   </div>
   </div>

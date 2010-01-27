@@ -38,6 +38,15 @@ def tutorial(request, tid, page):
        raise NotFound() 
     return render_template('tutorial.html', pagetitle=pagetitle, data=data, page=page, tid=tid, maxpage=numpages, flpage=flpage)
 
+@expose('/tutorial/<tid>/links')
+def tutoriallinks(request, tid):
+    from stepbystep.tutorialutils import Tutorial
+    tut = Tutorial()
+    data = tut.gettutorial(tid)
+    numpages = len(data['tutorial'])
+    pagetitle = 'Links (experimental)'
+    return render_template('tutoriallinks.html', pagetitle=pagetitle, data=data, maxpage=numpages, tid=tid)
+
 @expose('/impressum/')
 def impressum(request):
     pagetitle = 'Impressum'

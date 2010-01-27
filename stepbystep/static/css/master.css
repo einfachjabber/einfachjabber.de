@@ -188,6 +188,11 @@ img {
     border: none;
 }
 
+ul#links li {
+    display: block;
+    padding: 5px;
+}
+
 #notfound {
     color: #74BF04;
     font-size: 5em;

@@ -1,29 +1,25 @@
 {
   "os": "Windows XP",
-  "client": "Pidgin",
-  "client-version": "2.6.5",
+  "client": "Psi",
+  "client-version": "dummy",
   "tutorial": [
     {
-      "image":  "winxp-pidgin1.png",
-      "text":   "Besuchen Sie die Seite http://www.pidgin.im/download/windows, und laden Sie Pidgin durch einen Klick auf \"Download Pidgin\" herunter."
+      "image":  "",
+      "text":   "First step."
     },
     {
-      "image":  "winxp-pidgin2.png",
-      "text":   "Nach einem Doppelklick auf die Installationsdatei erscheint das obige Bild. Dort klicken Sie bitte auf \"Weiter\"."
-    },
-	{
-      "image":  "winxp-pidgin3.png",
-      "text":   "Nach einem Doppelklick auf die Installationsdatei erscheint das obige Bild. Dort klicken Sie bitte auf \"Weiter\"."
+      "image":  "",
+      "text":   "Second step"
     }
   ],
   "links": [
     {
-      "linktext": "Pidgin Homepage",
-      "url":      "http://pidgin.im"
+      "linktext": "Psi Homepage",
+      "url":      "http://psi-im.org"
     },
     {
       "linktext": "OTR-Tutorial",
-      "url":      "http://wiki.jabber.zeroathome.de/OTR-Pidgin"
+      "url":      "http://wiki.jabber.zeroathome.de/OTR-Psi"
     }
   ]
 }

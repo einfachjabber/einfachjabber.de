@@ -8,7 +8,7 @@
 <div id="content">
   {% for client in clist %}
   <a class="{% if client == default %}defaultclient{% endif %}" href="{{ url_for('tutorial', tid=osystem + '-' + client) }}">
-    <img class="clientimage" src="{{ url_for('static', file='images/client/logo-' + client + '.png') }}" />
+    <img class="clientimage" src="{{ url_for('static', file='images/client/logo-' + client + '.png') }}" alt="{{ client }}" />
     {% if client == default %}
       <span class="asterisk">*</span>
       <span class="deftext">Empfohlener Client</span>

@@ -10,15 +10,16 @@
   <ul >
     <li class="top oslogo"><img src="{{ url_for('static', file='images/os/logo-win.png') }}" /><span>Windows</span>
       <ul>
-        <li><a href="{{ url_for('clientlist', osystem='winxp') }}"><img src="{{ url_for('static', file='images/os/logo-winxp.png') }}" /> Windows XP</a></li>
-        <li><a href="{{ url_for('clientlist', osystem='win7') }}"><img src="{{ url_for('static', file='images/os/logo-win7.png') }}" />Windows Vista/7</a></li>
+        <li><a href="{{ url_for('clientlist', osystem='winxp') }}"><img src="{{ url_for('static', file='images/os/logo-winxp.png') }}" /><span class="osname">Windows XP</span></a></li>
+        <li><a href="{{ url_for('clientlist', osystem='win7') }}"><img src="{{ url_for('static', file='images/os/logo-win7.png') }}" /><span class="osname">Windows Vista/7</span></a></li>
       </ul>
     </li>
     <li class="top oslogo"><img src="{{ url_for('static', file='images/os/logo-linux.png') }}" /><span>Linux</span>
       <ul class="box">
-        <li><a href="{{ url_for('clientlist', osystem='fedora') }}"><img src="{{ url_for('static', file='images/os/logo-fedora.png') }}" />Fedora</a></li>
-        <li><a href="{{ url_for('clientlist', osystem='suse') }}"><img src="{{ url_for('static', file='images/os/logo-suse.png') }}" />OpenSuSe</a></li>
-          <li><a href="{{ url_for('clientlist', osystem='ubuntu') }}"><img src="{{ url_for('static', file='images/os/logo-ubuntu.png') }}" />Ubuntu</a></li>
+        <li><a href="{{ url_for('clientlist', osystem='fedora') }}"><img src="{{ url_for('static', file='images/os/logo-fedora.png') }}" /><span class="osname">Fedora</a></li>
+        <li><a href="{{ url_for('clientlist', osystem='kubuntu') }}"><img src="{{ url_for('static', file='images/os/logo-kubuntu.png') }}" /><span class="osname">Kubuntu</a></li>
+        <li><a href="{{ url_for('clientlist', osystem='suse') }}"><img src="{{ url_for('static', file='images/os/logo-suse.png') }}" /><span class="osname">OpenSuSe</a></li>
+          <li><a href="{{ url_for('clientlist', osystem='ubuntu') }}"><img src="{{ url_for('static', file='images/os/logo-ubuntu.png') }}" /><span class="osname">Ubuntu</a></li>
       </ul>
     </li>
     <li class="oslogo"><a href="{{ url_for('clientlist', osystem='osx') }}"><img src="{{ url_for('static', file='images/os/logo-osx.png') }}" /><span>MacOS X</span></a></li>

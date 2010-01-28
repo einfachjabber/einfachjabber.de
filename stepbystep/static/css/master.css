@@ -1,26 +1,31 @@
 body {
     font-family: Helvetica, Arial, sans-serif;
-    font-size: 66.7%
+    font-size: 66.7%;
     margin: 0;
     padding: 0;
+}
+
+span {
+    font-size: 1.4em;
 }
 
 a {
     color: #74BF04;
     font-size: 1em;
     text-decoration: none;
+    white-space:nowrap;
 }
 
 h1 {
     color: #74BF04;
-    font-size: 2.5em;
+    font-size: 3em;
     text-align: center;
 }
 
 #toolbar {
     background-color: #74BF04;
     color: white;
-    font-size: 1.2em;
+    font-size: 2em;
     height: 30px;
     left: 0;
     opacity: 0.2;
@@ -36,7 +41,6 @@ h1 {
 
 #toolbar a {
     color: white;
-    font-size: 1.2em;
 }
 
 #toolbar a:hover {
@@ -72,9 +76,8 @@ a.defaultclient span.deftext {
     border: 1px solid #74BF04;
     border-radius: 10px;
     display: inline;
-    font-size: 1.0em;
+    font-size: 1.4em;
     left: 0;
-    /*margin-left: 10px;*/
     opacity: 0.8;
     padding: 5px;
     position: absolute;
@@ -83,7 +86,7 @@ a.defaultclient span.deftext {
 }
 
 .asterisk {
-    font-size: 8em;
+    font-size: 12em;
     right: 0;
     position: absolute;
     bottom: 60px;
@@ -100,7 +103,7 @@ a.defaultclient span.deftext {
 
 #caption {
     color: black;
-    font-size: 1.2em;
+    font-size: 1.6em;
     padding: 0 25px 25px;
     margin: 0 auto;
     width: 70%;
@@ -108,17 +111,16 @@ a.defaultclient span.deftext {
 
 #navigation {
     position: relative;
-    top: -30px;
 }
 
 #navigation a {
-    border: 1px solid #74BF04;
-    padding: 5px;
+    font-size: 10em;
 }
 
 #navigation a:hover {
-    color: white;
-    background-color: #74BF04;
+}
+
+.nav-all {
 }
 
 .nav-back {
@@ -144,10 +146,11 @@ li {
 li ul {
     display: none;
     left: 0;
+    padding-right:10px;
     position: absolute;
     text-align: left;
     top: 1em;
-    width: 170px;
+    /*width: 190px;*/
 }
 
 li.top:hover {
@@ -176,12 +179,20 @@ li:hover ul {
     -moz-border-radius: 10px;
     -webkit-border-radius: 0 0 10px 10px;
     display: block;
-    margin-top: 17px;
+    margin-top: 18px;
     padding: 10px;
 }
 
 li ul li {
     display: block;
+}
+
+li ul li span.osname {
+    background: none;
+    border: none;
+    border-radius: none;
+    left: 0px;
+    position: relative;
 }
 
 img {

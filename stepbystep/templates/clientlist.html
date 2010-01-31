@@ -6,15 +6,16 @@
 {% block content %}
 <h1>Clients für {{ pagetitle }}</h1>
 <div id="content">
+  <ul id="clientlist">
   {% for client in clist %}
-  <a class="{% if client == default %}defaultclient{% endif %}" href="{{ url_for('tutorial', tid=osystem + '-' + client) }}">
-    <img class="clientimage" src="{{ url_for('static', file='images/client/logo-' + client + '.png') }}" alt="{{ client }}" />
+  <li class="overlay"><a class="{% if client == default %}defaultclient{% endif %}" href="{{ url_for('tutorial', tid=osystem + '-' + client) }}">
+    <img class="logos" src="{{ url_for('static', file='images/client/logo-' + client + '.png') }}" alt="{{ client }}" />
     {% if client == default %}
       <span class="asterisk">*</span>
-      <span class="deftext">Empfohlener Client</span>
+      <span class="text">Empfohlener Client</span>
     {% endif %}
-  </a>
+  </a></li>
   {% endfor %}
-
+  </ul>
 </div>
 {% endblock %}

@@ -7,14 +7,14 @@
 
 <div id="content">
   <h1>Bitte wähle Dein Betriebssystem</h1>
-  <ul >
-    <li class="top oslogo"><img src="{{ url_for('static', file='images/os/logo-win.png') }}" /><span>Windows</span>
+  <ul id="oslist">
+    <li class="top overlay"><img src="{{ url_for('static', file='images/os/logo-win.png') }}" /><span class="text">Windows</span>
       <ul>
         <li><a href="{{ url_for('clientlist', osystem='winxp') }}"><img src="{{ url_for('static', file='images/os/logo-winxp.png') }}" /><span class="osname">Windows XP</span></a></li>
         <li><a href="{{ url_for('clientlist', osystem='win7') }}"><img src="{{ url_for('static', file='images/os/logo-win7.png') }}" /><span class="osname">Windows Vista/7</span></a></li>
       </ul>
     </li>
-    <li class="top oslogo"><img src="{{ url_for('static', file='images/os/logo-linux.png') }}" /><span>Linux</span>
+    <li class="top overlay"><img src="{{ url_for('static', file='images/os/logo-linux.png') }}" /><span class="text">Linux</span>
       <ul class="box">
         <li><a href="{{ url_for('clientlist', osystem='fedora') }}"><img src="{{ url_for('static', file='images/os/logo-fedora.png') }}" /><span class="osname">Fedora</span></a></li>
         <li><a href="{{ url_for('clientlist', osystem='kubuntu') }}"><img src="{{ url_for('static', file='images/os/logo-kubuntu.png') }}" /><span class="osname">Kubuntu</span></a></li>
@@ -22,7 +22,7 @@
         <li><a href="{{ url_for('clientlist', osystem='ubuntu') }}"><img src="{{ url_for('static', file='images/os/logo-ubuntu.png') }}" /><span class="osname">Ubuntu</span></a></li>
       </ul>
     </li>
-    <li class="oslogo"><a href="{{ url_for('clientlist', osystem='osx') }}"><img src="{{ url_for('static', file='images/os/logo-osx.png') }}" /><span>MacOS X</span></a></li>
+    <li class="overlay"><a href="{{ url_for('clientlist', osystem='osx') }}"><img src="{{ url_for('static', file='images/os/logo-osx.png') }}" /><span class="text">MacOS X</span></a></li>
   </ul>
 </div>
 {% endblock %}

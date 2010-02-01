@@ -4,29 +4,15 @@
 {% endblock %}
 {% block title %}{{ pagetitle }}{% endblock %}
 {% block content %}
-  <h1>{{ data['client'] }}  {{ data['client-version'] }} unter {{ data['os']}}</h1>
-  <div id="content">
-    <div id="navigation">
-    {% if flpage == 1 %}
-      <a class="nav-all nav-back" href="{{ url_for('tutorial', tid=tid, page=page) }}" title="Zurück">&lt;</a>
-      <a class="nav-all nav-next" href="{{ url_for('tutorial', tid=tid, page=page+2) }}" title="Weiter">&gt;</a>
-    {% endif %}
-    {% if flpage == 0 %}
-      <a class="nav-all nav-next" href="{{ url_for('tutorial', tid=tid, page=page+2) }}" title="Weiter">&gt;</a>
-    {% endif %}
-    {% if flpage == 2 %}
-      <a class="nav-all nav-back" href="{{ url_for('tutorial', tid=tid, page=page) }}" title="Zurück">&lt;</a>
-      <a class="nav-all nav-next" href="{{ url_for('tutoriallinks', tid=tid) }}" title="Weiter">&gt;</a>
-    {% endif %}
-    </div>
-
-    {% if data['tutorial'][page]['image'] %}
-    <img id="tut-image" src="{{ url_for('static', file='tutorials/' + tid + '/' + data['tutorial'][page]['image']) }}" alt="{{data['tutorial'][page]['image']}}" />
-    {% else %}
-    <img id="tut-image" src="{{ url_for('static', file='images/ui/404.png') }}" />
-    {% endif %}
-    <p id="caption">{{ data['tutorial'][page]['text'] }}</p>
+  <h1>{{ data['client'] }} {{ data['client-version'] }} unter {{ data['os']}}</h1>
+  {% include "tutorial-navigation.html"%}
+      {% if data['tutorial'][page]['image'] %}
+        <img id="tut-image" src="{{ url_for('static', file='tutorials/' + tid + '/' + data['tutorial'][page]['image']) }}" alt="{{data['tutorial'][page]['image']}}" />
+      {% endif %}
+        <p id="caption">{{ data['tutorial'][page]['text'] }}</p>
+      {% if data['tutorial'][page]['more'] %}
+      <a href="{{ url_for('tutorial', tid=tid, page=page+2) }}">{{ data['tutorial'][page]['defaultlink'] }}</a>
+      <a href="{{ url_for('tutorialmore', tid=tid, page=page+1) }}">{{ data['tutorial'][page]['morelink'] }}</a>
+      {% endif %}
   
-  </div>
-
 {% endblock %}

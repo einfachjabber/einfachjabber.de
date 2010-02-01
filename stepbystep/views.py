@@ -35,7 +35,7 @@ def tutorial(request, tid, page):
     elif page==numpages:
         flpage = 2
     elif page>numpages:
-       raise NotFound() 
+       raise NotFound()
     return render_template('tutorial.html', pagetitle=pagetitle, data=data, page=page, tid=tid, maxpage=numpages, flpage=flpage)
 
 @expose('/tutorial/<tid>/links')
@@ -44,8 +44,30 @@ def tutoriallinks(request, tid):
     tut = Tutorial()
     data = tut.gettutorial(tid)
     numpages = len(data['tutorial'])
-    pagetitle = 'Links (experimental)'
+    pagetitle = u'weiterführende Links (experimental)'
     return render_template('tutoriallinks.html', pagetitle=pagetitle, data=data, maxpage=numpages, tid=tid)
+
+@expose('/tutorial/<tid>/<int:page>/more', defaults={'morepage':1})
+@expose('/tutorial/<tid>/<int:page>/more/<int:morepage>')
+def tutorialmore(request, tid, page, morepage):
+    from stepbystep.tutorialutils import Tutorial
+    tut = Tutorial()
+    data = tut.gettutorial(tid)
+    page = page-1
+    morepage = morepage-1
+    numpages = len(data['tutorial'][page]['more'])-1
+    moredata = data
+    data = data['tutorial'][page]['more']
+    pagetitle = 'More'
+    flpage = 1
+    if morepage==0:
+        flpage = 0
+    elif morepage==numpages:
+        flpage = 2
+    elif morepage>numpages:
+       raise NotFound()
+
+    return render_template('more.html', pagetitle=pagetitle, data=data, moredata=moredata, maxpage=numpages, tid=tid, morepage=morepage, page=page, flpage=flpage)
 
 @expose('/impressum/')
 def impressum(request):

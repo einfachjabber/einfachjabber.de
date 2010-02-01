@@ -5,7 +5,6 @@
 {% block title %}{{ pagetitle }}{% endblock %}
 {% block content %}
 
-<div id="content">
   <h1>Bitte wähle Dein Betriebssystem</h1>
   <ul id="oslist">
     <li class="top overlay"><img src="{{ url_for('static', file='images/os/logo-win.png') }}" /><span class="text">Windows</span>
@@ -24,5 +23,4 @@
     </li>
     <li class="overlay"><a href="{{ url_for('clientlist', osystem='osx') }}"><img src="{{ url_for('static', file='images/os/logo-osx.png') }}" /><span class="text">MacOS X</span></a></li>
   </ul>
-</div>
 {% endblock %}

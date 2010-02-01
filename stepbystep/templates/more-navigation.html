@@ -1,0 +1,22 @@
+<div id="navigation">
+
+    {% if not data[morepage]['more'] %}
+    {# middle page #}
+    {% if flpage == 1 %}
+      <a class="nav-all nav-back" href="{{ url_for('tutorialmore', tid=tid, page=page+1, morepage=morepage) }}" title="Zurück">&lt;</a>
+      <a class="nav-all nav-next" href="{{ url_for('tutorialmore', tid=tid, page=page+1, morepage=morepage+2) }}" title="Weiter">&gt;</a>
+    {% endif %}
+    {# first page #}
+    {% if flpage == 0 %}
+      <a class="nav-all nav-back" href="{{ url_for('tutorial', tid=tid, page=page+1) }}" title="Zurück">&lt;</a>
+      <a class="nav-all nav-next" href="{{ url_for('tutorialmore', tid=tid, page=page+1, morepage=morepage+2) }}" title="Weiter">&gt;</a>
+    {% endif %}
+    {# last page #}
+    {% if flpage == 2 %}
+      <a class="nav-all nav-back" href="{{ url_for('tutorialmore', tid=tid, page=page+1, morepage=morepage) }}" title="Zurück">&lt;</a>
+      <a class="nav-all nav-next" href="{{ url_for('tutorial', tid=tid, page=page+3) }}" title="Weiter">&gt;</a>
+    {% endif %}
+    {% else %}
+    <a class="nav-all nav-back" href="{{ url_for('tutorial', tid=tid, page=page) }}" title="Zurück">&lt;</a>
+    {% endif %}
+  </div>

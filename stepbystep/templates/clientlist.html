@@ -4,8 +4,7 @@
 {% endblock %}
 {% block title %}{{ pagetitle }}{% endblock %}
 {% block content %}
-<h1>Clients für {{ pagetitle }}</h1>
-<div id="content">
+  <h1>Clients für {{ pagetitle }}</h1>
   <ul id="clientlist">
   {% for client in clist %}
   <li class="overlay"><a class="{% if client == default %}defaultclient{% endif %}" href="{{ url_for('tutorial', tid=osystem + '-' + client) }}">
@@ -17,5 +16,4 @@
   </a></li>
   {% endfor %}
   </ul>
-</div>
 {% endblock %}

@@ -48,6 +48,7 @@ ul {
     text-align: center;
     width: 960px;
 }
+
 /* logo overlay text */
 /*********************/
 ul li.overlay span.text {
@@ -149,13 +150,17 @@ ul#links li {
 
 #navigation {
     position: relative;
+    top: -30px;
 }
 
 #navigation a {
     font-size: 6em;
 }
 
-#navigation a:hover {
+#navigation a.nav-links-back {
+    font-size: 2em;
+    position: relative;
+    top: 30px;
 }
 
 .nav-all {
@@ -202,3 +207,4 @@ ul#links li {
 #toolbar a:hover {
     text-decoration: underline;
 }
+

@@ -4,14 +4,13 @@
 {% block title %}{{ pagetitle }}{% endblock %}
 {% block content %}
 <h1>{{ pagetitle }}</h1>
-<div id="content">
+  <div id="navigation">
+    <a class="nav-links-back" href="{{ url_for('tutorial', tid=tid, page=maxpage) }}">Zurück zum Tutorial</a>
+  </div>
   <ul id="links">
   {% for link in data['links'] %}
     <li><a href="{{ link['url'] }}">{{ link['linktext'] }}</a></li>
   {% endfor %}
   </ul>
-  <div id="navigation">
-    <a class="nav-back" href="{{ url_for('tutorial', tid=tid, page=maxpage) }}">Zurück zum Tutorial</a>
-  </div>
-</div>
+
 {% endblock %}

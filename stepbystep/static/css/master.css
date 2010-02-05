@@ -184,27 +184,4 @@ ul#links li {
 
 /* temporary stuff */
 /*******************/
-#toolbar {
-    background-color: #74BF04;
-    color: white;
-    height: 30px;
-    left: 0;
-    opacity: 0.2;
-    position: fixed;
-    text-align: center;
-    top: 0;
-    width: 100%;
-}
-
-#toolbar:hover {
-    opacity: 1;
-}
-
-#toolbar a {
-    color: white;
-}
-
-#toolbar a:hover {
-    text-decoration: underline;
-}
 

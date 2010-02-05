@@ -1,73 +1,66 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
+import re
 from werkzeug.exceptions import NotFound
 from stepbystep.utils import expose, render_template
 
 
 @expose('/')
 def start(request):
-    pagetitle = 'Start'
+    pagetitle = u'Jabber Tutorial Portal'
     return render_template('start.html', pagetitle=pagetitle)
 
 @expose('/<osystem>')
 def clientlist(request, osystem):
     from stepbystep.clientutils import Clients
-    clients = Clients()
-    clist = clients.clientlist(osystem)
-    system = clients.oslist(osystem)
-    pagetitle = system[0]
-    default = system[1]
-    return render_template('clientlist.html', pagetitle=pagetitle, clist=clist, osystem=osystem, default=default)
+    cl = Clients(osystem).clientlist
+    osys = Clients(osystem).oslist
+    pagetitle = u'Clients für ' + osys[0]
+    defaultclient = osys[1]
+    return render_template('clientlist.html', pagetitle=pagetitle, clist=cl, osystem=osystem, defaultclient=defaultclient)
 
-@expose('/tutorial/<tid>/', defaults={'page':1})
+@expose('/tutorial/<tid>/', defaults={'page':0})
 @expose('/tutorial/<tid>/<int:page>')
 def tutorial(request, tid, page):
     from stepbystep.tutorialutils import Tutorial
-    tut = Tutorial()
-    data = tut.gettutorial(tid)
-    page = page-1
-    numpages = len(data['tutorial'])-1
+    gt = Tutorial(tid).gettutorial
+    pag = Tutorial(tid).pagination
+    metadata = {'client':gt['client'], 'clientversion':gt['clientversion'], 'os':gt['os']}
+    pagedata = gt['tutorial'][page]
+    maxpage = len(gt['tutorial'])-1
     pagetitle = 'Tutorial'
-    flpage = 1
-    if page==0:
-        flpage = 0
-    elif page==numpages:
-        flpage = 2
-    elif page>numpages:
-       raise NotFound()
-    return render_template('tutorial.html', pagetitle=pagetitle, data=data, page=page, tid=tid, maxpage=numpages, flpage=flpage)
+    flpage = pag(page, maxpage)
+    osystem = tid.partition('-')[0]
+    return render_template('tutorial.html', pagetitle=pagetitle, metadata=metadata, pagedata=pagedata, page=page, tid=tid, maxpage=maxpage, flpage=flpage, osystem=osystem)
 
 @expose('/tutorial/<tid>/links')
 def tutoriallinks(request, tid):
     from stepbystep.tutorialutils import Tutorial
-    tut = Tutorial()
-    data = tut.gettutorial(tid)
-    numpages = len(data['tutorial'])
-    pagetitle = u'weiterführende Links (experimental)'
-    return render_template('tutoriallinks.html', pagetitle=pagetitle, data=data, maxpage=numpages, tid=tid)
+    gt = Tutorial(tid).gettutorial
+    pag = Tutorial(tid).pagination
+    metadata = {'client':gt['client'], 'clientversion':gt['clientversion'], 'os':gt['os']}
+    linkdata = gt['links']
+    maxpage = len(gt['tutorial'])-1
+    pagetitle = 'Tutorial'
+    return render_template('tutoriallinks.html', pagetitle=pagetitle, metadata=metadata, linkdata=linkdata, tid=tid, maxpage=maxpage)
+
 
 @expose('/tutorial/<tid>/<int:page>/more', defaults={'morepage':1})
 @expose('/tutorial/<tid>/<int:page>/more/<int:morepage>')
 def tutorialmore(request, tid, page, morepage):
     from stepbystep.tutorialutils import Tutorial
-    tut = Tutorial()
-    data = tut.gettutorial(tid)
+    tut = Tutorial(tid)
+    data = tut.gettutorial
     page = page-1
     morepage = morepage-1
     numpages = len(data['tutorial'][page]['more'])-1
     moredata = data
+    jumpto = data['tutorial'][page]['jumpto']
     data = data['tutorial'][page]['more']
-    pagetitle = 'More'
-    flpage = 1
-    if morepage==0:
-        flpage = 0
-    elif morepage==numpages:
-        flpage = 2
-    elif morepage>numpages:
-       raise NotFound()
-
-    return render_template('more.html', pagetitle=pagetitle, data=data, moredata=moredata, maxpage=numpages, tid=tid, morepage=morepage, page=page, flpage=flpage)
+    pagetitle = 'Tutorial'
+    flpage = tut.pagination(morepage, numpages)
+    return render_template('more.html', pagetitle=pagetitle, data=data, moredata=moredata, maxpage=numpages, tid=tid, morepage=morepage, page=page, flpage=flpage, jumpto=jumpto)
 
 @expose('/impressum/')
 def impressum(request):
@@ -76,4 +69,6 @@ def impressum(request):
 
 def not_found(request):
     """Handles 404s"""
-    return render_template('not_found.html')
+    pagetitle = '404 - Seite nicht gefunden'
+    return render_template('not_found.html', pagetitle=pagetitle)
+

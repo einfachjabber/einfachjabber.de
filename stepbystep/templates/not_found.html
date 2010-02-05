@@ -5,8 +5,7 @@
 {% block title %}{{ pagetitle }}{% endblock %}
 {% block content %}
 <h1>Seite nicht gefunden</h1>
-<div id="content">
   <div id="notfound"><strong>404</strong></div>
-  <a href="{{ url_for('start') }}">Zurück zur Startseite</a>
-</div>
+  Benutze den Zurück-Button deines Browsers oder kehre 
+  <a href="{{ url_for('start') }}">zurück zur Startseite</a>
 {% endblock %}

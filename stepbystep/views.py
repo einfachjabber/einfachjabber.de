@@ -46,21 +46,21 @@ def tutoriallinks(request, tid):
     return render_template('tutoriallinks.html', pagetitle=pagetitle, metadata=metadata, linkdata=linkdata, tid=tid, maxpage=maxpage)
 
 
-@expose('/tutorial/<tid>/<int:page>/more', defaults={'morepage':1})
+@expose('/tutorial/<tid>/<int:page>/more', defaults={'morepage':0})
 @expose('/tutorial/<tid>/<int:page>/more/<int:morepage>')
 def tutorialmore(request, tid, page, morepage):
     from stepbystep.tutorialutils import Tutorial
-    tut = Tutorial(tid)
-    data = tut.gettutorial
+    gt = Tutorial(tid).gettutorial
+    pag = Tutorial(tid).pagination
+    metadata = {'client':gt['client'], 'clientversion':gt['clientversion'], 'os':gt['os']}
     page = page-1
-    morepage = morepage-1
-    numpages = len(data['tutorial'][page]['more'])-1
-    moredata = data
-    jumpto = data['tutorial'][page]['jumpto']
-    data = data['tutorial'][page]['more']
+    maxpage = len(gt['tutorial'][page]['more'])-1
+    moredata = gt['tutorial'][page]['more']
+    jumpto = gt['tutorial'][page]['jumpto']
+    data = gt['tutorial'][page]['more']
     pagetitle = 'Tutorial'
-    flpage = tut.pagination(morepage, numpages)
-    return render_template('more.html', pagetitle=pagetitle, data=data, moredata=moredata, maxpage=numpages, tid=tid, morepage=morepage, page=page, flpage=flpage, jumpto=jumpto)
+    flpage = pag(morepage, maxpage)
+    return render_template('more.html', pagetitle=pagetitle, data=data, metadata=metadata, moredata=moredata, maxpage=maxpage, tid=tid, morepage=morepage, page=page, flpage=flpage, jumpto=jumpto)
 
 @expose('/impressum/')
 def impressum(request):

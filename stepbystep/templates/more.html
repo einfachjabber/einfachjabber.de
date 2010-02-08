@@ -4,7 +4,7 @@
 {% endblock %}
 {% block title %}{{ pagetitle }}{% endblock %}
 {% block content %} 
-  <h1>{{ moredata['client'] }} {{ moredata['client-version'] }} unter {{ moredata['os']}}</h1>
+  <h1>{{ metadata.client }} {{ metadata.clientversion }} unter {{ metadata.os }}</h1>
   {% include "more-navigation.html" %}
       <img id="tut-image" src="{{ url_for('static', file='tutorials/' + tid + '/' + data[morepage]['image']) }}" alt="{{data[morepage]['image']}}" />
       <p id="caption">{{ data[morepage]['text'] }}</p>

@@ -1,0 +1,11 @@
+<div id="navigation">
+  <ul>
+    {% for outlink, url, text in navigation %}
+    {% if outlink %}
+    <li><a href="{{ url }}" title="{{ text }}">{{ text }}</a></li>
+    {% else %}
+      <li><a href="{{ url_for(url) }}" title="{{ text }}">{{ text }}</a></li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</div>

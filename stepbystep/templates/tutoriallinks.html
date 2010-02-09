@@ -4,16 +4,24 @@
 {% block title %}{{ pagetitle }}{% endblock %}
 {% block content %}
 <h1>weiterführende Links zu {{ metadata.client }}</h1>
-  <div id="navigation">
+  <div id="tut-navigation">
     <a class="nav-links-back" href="{{ url_for('tutorial', tid=tid, page=maxpage) }}">Zurück zum Tutorial</a>
   </div>
   <ul id="links">
   {% for link in linkdata %}
     <li><a href="{{ link.url }}">{{ link.linktext }}</a></li>
   {% endfor %}
-  {% if authordata %}
-    <li>Autor dieses Tutorials: <a href="{{ data.authorlink }}" title="{{ data.author }}">{{ data.author }}</a></li>
-  {% endif %}
   </ul>
 
+  Autor dieses Tutorials: 
+    {% if authordata.email %}
+    <a href="mailto:{{ authordata.email }}" title="E-Mail an {{ authordata.name }}">{{ authordata.name }}</a>
+    {% else %}
+    {{ authordata.name }}
+    {% endif %}
+    {% if authordata.website %}
+     | <a href="{{ authordata.website }}" title="{{ authordata.website }}">{{ authordata.website }}</a>
+    {% endif %}
+  </ul>
+    
 {% endblock %}

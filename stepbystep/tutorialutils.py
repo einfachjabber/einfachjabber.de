@@ -12,7 +12,6 @@ class Tutorial(object):
 
     def __init__(self, id):
         self.id = id
-        self.test = "Test"
 
     @cached_property
     def gettutorial(self):

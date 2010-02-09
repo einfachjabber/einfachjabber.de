@@ -1,21 +1,39 @@
+#!/usr/bin/python
+#-*- coding: utf-8 -*-
+
 from os import path
 from datetime import datetime
 from jinja2 import Environment, PackageLoader
+from stepbystep.config import TEMPLATE_PATH, IMAGE_PATH
 from werkzeug import Local, LocalManager, Response
 from werkzeug.routing import Map, Rule
-from stepbystep.config import TEMPLATE_PATH, IMAGE_PATH
 
 local = Local()
 local_manager = LocalManager([local])
 
-
+### template-environment settings ###
 jinja_env = Environment(loader=PackageLoader('stepbystep', TEMPLATE_PATH)) 
 jinja_env.globals['imagepath'] = IMAGE_PATH
 jinja_env.globals['currentyear'] = datetime.now().strftime("%Y")
+jinja_env.globals['trackingcode'] = """ 
+<!-- Piwik -->
+<script type="text/javascript">
+var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.firefly-it.de/" : "http://stats.firefly-it.de/");
+document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+try {
+var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 5);
+piwikTracker.trackPageView();
+piwikTracker.enableLinkTracking();
+} catch( err ) {}
+</script><noscript><p><img src="http://stats.firefly-it.de/piwik.php?idsite=5" style="border:0" alt=""/></p></noscript>
+<!-- End Piwik Tag -->"""
 
+### URL Routing ###
 url_map = Map()
 url_map.add(Rule('/static/<file>', endpoint='static', build_only=True))
 def expose(rule, **kw):
+    '''Routing decorator'''
     def decorate(f):
         kw['endpoint'] = f.__name__
         url_map.add(Rule(rule, **kw))
@@ -31,11 +49,11 @@ jinja_env.globals['url_for'] = url_for
 def navigation():
     """Navigation links"""
     links = [
-            ('willkommen', 'Home'),
-            ('services', 'Services'),
-            ('portfolio', 'Portfolio'),
-            ('kontakt', 'Kontakt'),
-            ('impressum', 'Impressum'),
+            #(outlink, url/endpoint, linktext),
+            (False, 'start', 'Home'),
+            (False, 'start', u'Jabber einfach erklärt'),
+            (True, 'http://wiki.firefly-it.de/doku.php?id=jabber-projekt', 'Projekt-Wiki'),
+            (False, 'start', 'Kontakt'),
     ]
     return links
 jinja_env.globals['navigation'] = navigation()

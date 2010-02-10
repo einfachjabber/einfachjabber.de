@@ -13,7 +13,7 @@
     {% endif %}
     {# last page #}
     {% if flpage == 2 %}
-      <a class="nav-all nav-back" href="{{ url_for('tutorialmore', tid=tid, page=page+1, morepage=morepage) }}" title="Zurück">&lt;</a>
+      <a class="nav-all nav-back" href="{{ url_for('tutorialmore', tid=tid, page=page+1, morepage=morepage-1) }}" title="Zurück">&lt;</a>
       {% if jumpto == 'links' %}
         <a class="nav-all nav-next" href="{{ url_for('tutoriallinks', tid=tid) }}" title="Weiter">&gt;</a>
       {% else %}

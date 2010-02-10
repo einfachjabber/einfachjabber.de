@@ -34,6 +34,8 @@ class Clients(object):
             system = ['Windows XP', 'pidgin']
         if self.osystem == 'win7':
             system = ['Windows 7', 'pidgin']
+        if self.osystem == 'fedora':
+            system = ['Fedora', 'empathy']
         return system
 
 

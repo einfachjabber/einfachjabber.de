@@ -130,6 +130,11 @@ ul#oslist li {
     position: relative;
 }
 
+ul#oslist li.top {
+    height: 150px;
+    width: 150px;
+}
+
 ul#oslist li.top ul {
     background-color: #f6f6f6;
     border: 4px solid #74BF04;

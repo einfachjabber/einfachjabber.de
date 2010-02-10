@@ -20,7 +20,10 @@
     {{ authordata.name }}
     {% endif %}
     {% if authordata.website %}
-     | <a href="{{ authordata.website }}" title="{{ authordata.website }}">{{ authordata.website }}</a>
+     | Webseite: <a href="{{ authordata.website }}" title="{{ authordata.website }}">{{ authordata.website }}</a>
+    {% endif %}
+    {% if authordata.jabber %}
+     | Jabber: <a href="xmpp:{{ authordata.jabber }}" title="{{ authordata.jabber}}">{{ authordata.jabber }}</a>
     {% endif %}
   </ul>
     

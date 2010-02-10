@@ -36,6 +36,10 @@ class Clients(object):
             system = ['Windows 7', 'pidgin']
         if self.osystem == 'fedora':
             system = ['Fedora', 'empathy']
+        if self.osystem == 'ubuntu':
+            system = ['Ubuntu', 'empathy']
+        if self.osystem == 'kubuntu':
+            system = ['Kubuntu', 'kopete']
         return system
 
 

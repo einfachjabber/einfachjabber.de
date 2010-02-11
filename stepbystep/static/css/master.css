@@ -62,23 +62,54 @@ ul {
     width: 960px;
 }
 
-#navigation ul {
+#nav, #nav ul {
     position: relative;
 }
 
-#navigation li {
+#nav a {
+    display: block;
+}
+
+#nav li {
     float: left;
-    position: relative;
 }
 
-#navigation ul li a {
+#nav li a {
     display: block;
     padding: 4px 20px 4px 20px;
 }
 
-#navigation a:hover {
+#nav li ul {
+    background-color: #f6f6f6;
+    border: 4px solid #74BF04;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    -moz-border-radius: 0 0 10px 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    left: -999em;
+    position: absolute;
+    top: 30px;
+    width: 6.5em;
+    z-index: 100;
+}
+#nav li ul li {
+    clear: left;
+}
+
+#nav li:hover ul {
+    left: auto; 
+}
+
+#nav li a:hover {
     background-color: #74BF04;
     color: white;
+}
+#nav li ul li a {
+    width: 4em;
+}
+
+#nav li ul li a:hover {
 }
 
 /* footer.html specific */
@@ -138,6 +169,7 @@ ul#oslist li.top {
 ul#oslist li.top ul {
     background-color: #f6f6f6;
     border: 4px solid #74BF04;
+    border-top: none;
     border-radius: 0 0 10px 10px;
     -moz-border-radius: 0 0 10px 10px;
     -webkit-border-bottom-left-radius: 10px;
@@ -175,6 +207,10 @@ ul#oslist li ul li span.osname {
 
 /* clientlist.html specific */
 /****************************/
+#clientlist {
+    margin-top: 25px;
+}
+
 ul#clientlist li {
     display: inline;
     position: relative;
@@ -185,6 +221,14 @@ ul#clientlist li span.asterisk {
     right: 10px;
     position: absolute;
     bottom: 25px;
+}
+
+ul#clientlist li span.clientname {
+    font-size: 1.2em;
+    left: 10px;
+    min-width: 150px;
+    position: absolute;
+    top: -175px;
 }
 
 /* tutorial.html specific */

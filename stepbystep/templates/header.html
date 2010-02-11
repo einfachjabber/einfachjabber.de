@@ -1,11 +1,17 @@
 <div id="navigation">
-  <ul>
+  <ul id="nav">
     {% for outlink, url, text in navigation %}
     {% if outlink %}
-    <li><a href="{{ url }}" title="{{ text }}">{{ text }}</a></li>
+      <li><a href="{{ url }}" title="{{ text }}">{{ text }}</a></li>
     {% else %}
       <li><a href="{{ url_for(url) }}" title="{{ text }}">{{ text }}</a></li>
     {% endif %}
     {% endfor %}
+    <li><a href="#">Follow us</a>
+      <ul>
+        <li><a href="http://twitter.com/jabbergermany">Twitter</a></li>
+        <li><a href="http://identi.ca/jabbergermany">identi.ca</a></li>
+      </ul>
+    </li>
   </ul>
 </div>

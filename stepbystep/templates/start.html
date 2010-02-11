@@ -22,5 +22,11 @@
       </ul>
     </li>
     <li class="overlay"><a href="{{ url_for('clientlist', osystem='osx') }}"><img src="{{ url_for('static', file='images/os/logo-osx.png') }}" /><span class="text">MacOS X</span></a></li>
+    <li class="top overlay"><img src="{{ url_for('static', file='images/os/logo-mobile.png') }}" /><span class="text">Smartphone</span>
+      <ul class="box">
+        <li><a href="{{ url_for('clientlist', osystem='android') }}"><img src="{{ url_for('static', file='images/os/logo-android.png') }}" /><span class="osname">Android</span></a></li>
+        <li><a href="{{ url_for('clientlist', osystem='iphone') }}"><img src="{{ url_for('static', file='images/os/logo-iphone.png') }}" /><span class="osname">iPhone</span></a></li>
+      </ul>
+    </li>
   </ul>
 {% endblock %}

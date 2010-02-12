@@ -7,26 +7,16 @@
 
   <h1>Bitte wähle Dein Betriebssystem</h1>
   <ul id="oslist">
-    <li class="top overlay"><img src="{{ url_for('static', file='images/os/logo-win.png') }}" /><span class="text">Windows</span>
+    {% for cat in oslist|sort %}
+    <li class="{% if oslist[cat] %}top {% endif %}overlay">{% if not oslist[cat] %}<a href="{{ url_for('clientlist', osystem=cat|lower) }}">{% endif %}<img src="{{ url_for('static', file='images/os/logo-' + cat|lower + '.png') }}" />{% if not oslist[cat] %}</a>{% endif %}<span class="overlaytext">{{ cat }}</span>
+      {% if oslist[cat] %}
       <ul>
-        <li><a href="{{ url_for('clientlist', osystem='winxp') }}"><img src="{{ url_for('static', file='images/os/logo-winxp.png') }}" /><span class="osname">Windows XP</span></a></li>
-        <li><a href="{{ url_for('clientlist', osystem='win7') }}"><img src="{{ url_for('static', file='images/os/logo-win7.png') }}" /><span class="osname">Windows Vista/7</span></a></li>
+        {% for os in oslist[cat]|sort %}
+        <li><a href="{{ url_for('clientlist', osystem=os.short) }}"><img src="{{ url_for('static', file='images/os/logo-' + os.short + '.png') }}" /><span class="osname">{{ os.name }}</span></a></li>
+        {% endfor %}
       </ul>
+      {% endif %}
     </li>
-    <li class="top overlay"><img src="{{ url_for('static', file='images/os/logo-linux.png') }}" /><span class="text">Linux</span>
-      <ul class="box">
-        <li><a href="{{ url_for('clientlist', osystem='fedora') }}"><img src="{{ url_for('static', file='images/os/logo-fedora.png') }}" /><span class="osname">Fedora</span></a></li>
-        <li><a href="{{ url_for('clientlist', osystem='kubuntu') }}"><img src="{{ url_for('static', file='images/os/logo-kubuntu.png') }}" /><span class="osname">Kubuntu</span></a></li>
-        <li><a href="{{ url_for('clientlist', osystem='suse') }}"><img src="{{ url_for('static', file='images/os/logo-suse.png') }}" /><span class="osname">OpenSuSe</span></a></li>
-        <li><a href="{{ url_for('clientlist', osystem='ubuntu') }}"><img src="{{ url_for('static', file='images/os/logo-ubuntu.png') }}" /><span class="osname">Ubuntu</span></a></li>
-      </ul>
-    </li>
-    <li class="overlay"><a href="{{ url_for('clientlist', osystem='osx') }}"><img src="{{ url_for('static', file='images/os/logo-osx.png') }}" /><span class="text">MacOS X</span></a></li>
-    <li class="top overlay"><img src="{{ url_for('static', file='images/os/logo-mobile.png') }}" /><span class="text">Smartphone</span>
-      <ul class="box">
-        <li><a href="{{ url_for('clientlist', osystem='android') }}"><img src="{{ url_for('static', file='images/os/logo-android.png') }}" /><span class="osname">Android</span></a></li>
-        <li><a href="{{ url_for('clientlist', osystem='iphone') }}"><img src="{{ url_for('static', file='images/os/logo-iphone.png') }}" /><span class="osname">iPhone</span></a></li>
-      </ul>
-    </li>
+    {% endfor %}
   </ul>
 {% endblock %}

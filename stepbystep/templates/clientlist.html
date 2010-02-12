@@ -7,13 +7,13 @@
   <h1>{{ pagetitle }}</h1>
   <ul id="clientlist">
   {% for client in clist %}
-  <li class="overlay"><a class="{% if client == defaultclient %}defaultclient{% endif %}" href="{{ url_for('tutorial', tid=osystem + '-' + client) }}">
+  <li class="overlay"><a href="{{ url_for('tutorial', tid=osystem + '-' + client) }}">
     <img class="logos" src="{{ url_for('static', file='images/client/logo-' + client + '.png') }}" alt="{{ client }}" />
     {% if client == defaultclient %}
       <span class="asterisk">*</span>
-      <span class="text">Empfohlener Client</span>
+      <span class="defaultclient">Empfohlener Client</span>
     {% endif %}
-      <span class="clientname">{{ client|capitalize }}</span>
+      <span class="overlaytext">{{ client|capitalize }}</span>
   </a></li>
   {% endfor %}
   </ul>

@@ -7,6 +7,7 @@
 body {
     color: #74BF04;
     font-family: Helvetica, Arial, sans-serif;
+    overflow: auto;
 }
 
 span {
@@ -112,6 +113,30 @@ ul {
 #nav li ul li a:hover {
 }
 
+#nav li ul li {
+    position: relative;
+}
+
+#nav li ul li ul {
+    background-color: none;
+    border: 4px solid #74BF04;
+    border-radius: 0 0 10px 10px;
+    -moz-border-radius: 0 0 10px 10px;
+    display: none;
+    margin-left: 104px;
+    position: absolute;
+    top: 0px;
+    width: 10em;
+}
+
+#nav li ul li ul li a {
+    width: 7.5em;
+}
+
+#nav li ul li:hover ul {
+    display: block;
+}
+
 /* footer.html specific */
 /************************/
 #footer {
@@ -140,7 +165,7 @@ ul {
 
 /* logo overlay text */
 /*********************/
-ul li.overlay span.text {
+ul li.overlay span.overlaytext {
     background-color: white;
     border: 1px solid #74BF04;
     border-radius: 10px;
@@ -201,8 +226,9 @@ ul#oslist li ul li {
 ul#oslist li ul li span.osname {
     background: none;
     border: none;
-    left: 0px;
+    left: 5px;
     position: relative;
+    top: -20px;
 }
 
 /* clientlist.html specific */
@@ -223,12 +249,12 @@ ul#clientlist li span.asterisk {
     bottom: 25px;
 }
 
-ul#clientlist li span.clientname {
+ul#clientlist li span.defaultclient {
     font-size: 1.2em;
-    left: 10px;
+    left: 0px;
     min-width: 150px;
     position: absolute;
-    top: -175px;
+    top: -180px;
 }
 
 /* tutorial.html specific */

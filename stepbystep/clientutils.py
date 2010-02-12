@@ -27,19 +27,3 @@ class Clients(object):
         print(clist)
         return clist
 
-    @cached_property
-    def oslist(self):
-        """Maps the OS short-names to their long pendants and their default client"""
-        if self.osystem == 'winxp':
-            system = ['Windows XP', 'pidgin']
-        if self.osystem == 'win7':
-            system = ['Windows 7', 'pidgin']
-        if self.osystem == 'fedora':
-            system = ['Fedora', 'empathy']
-        if self.osystem == 'ubuntu':
-            system = ['Ubuntu', 'empathy']
-        if self.osystem == 'kubuntu':
-            system = ['Kubuntu', 'kopete']
-        return system
-
-

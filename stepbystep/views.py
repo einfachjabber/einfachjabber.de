@@ -14,8 +14,9 @@ def start(request):
 @expose('/<osystem>')
 def clientlist(request, osystem):
     from stepbystep.clientutils import Clients
+    from stepbystep.tutorialutils import OsCatalog
     cl = Clients(osystem).clientlist
-    osys = Clients(osystem).oslist
+    osys = OsCatalog(osystem).defclient
     pagetitle = u'Clients für ' + osys[0]
     defaultclient = osys[1]
     return render_template('clientlist.html', pagetitle=pagetitle, clist=cl,\
@@ -34,6 +35,7 @@ def tutorial(request, tid, page):
     pagetitle = 'Tutorial'
     flpage = pag(page, maxpage)
     osystem = tid.partition('-')[0]
+    print(gt)
     return render_template('tutorial.html', pagetitle=pagetitle, page=page,\
                            metadata=metadata, pagedata=pagedata, tid=tid,\
                            maxpage=maxpage, flpage=flpage, osystem=osystem)

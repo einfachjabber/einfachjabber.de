@@ -7,6 +7,21 @@
       <li><a href="{{ url_for(url) }}" title="{{ text }}">{{ text }}</a></li>
     {% endif %}
     {% endfor %}
+    <li><a href="/">Tutorials</a>
+      <ul>
+      {% for cat in oslist|sort %}
+      <li><a href="{% if not oslist[cat]%} {{ url_for('clientlist', osystem=cat|lower ) }}{% else %}{{ url_for('start') }}{% endif %}">{{ cat }}</a>
+        {% if oslist[cat] %}
+        <ul>
+          {% for os in oslist[cat]|sort %}
+          <li><a href="{{ url_for('clientlist', osystem=os.short) }}">{{ os.name }}</a></li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </li>
+      {% endfor %}
+  </ul></li>
+
     <li><a href="#">Follow us</a>
       <ul>
         <li><a href="http://twitter.com/jabbergermany">Twitter</a></li>

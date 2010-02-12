@@ -7,6 +7,7 @@ from jinja2 import Environment, PackageLoader
 from stepbystep.config import TEMPLATE_PATH, IMAGE_PATH
 from werkzeug import Local, LocalManager, Response
 from werkzeug.routing import Map, Rule
+from stepbystep.tutorialutils import OsCatalog
 
 local = Local()
 local_manager = LocalManager([local])
@@ -28,6 +29,8 @@ piwikTracker.enableLinkTracking();
 } catch( err ) {}
 </script><noscript><p><img src="http://stats.firefly-it.de/piwik.php?idsite=5" style="border:0" alt=""/></p></noscript>
 <!-- End Piwik Tag -->"""
+
+jinja_env.globals['oslist'] = OsCatalog('None').oslist()
 
 ### URL Routing ###
 url_map = Map()

@@ -24,6 +24,5 @@ class Clients(object):
             i = re.sub(self.osystem + '-', '', i)
             i = re.sub('.json', '', i)
             clist = clist + [i]
-        print(clist)
         return clist
 

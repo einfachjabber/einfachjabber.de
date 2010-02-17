@@ -35,7 +35,6 @@ def tutorial(request, tid, page):
     pagetitle = 'Tutorial'
     flpage = pag(page, maxpage)
     osystem = tid.partition('-')[0]
-    print(gt)
     return render_template('tutorial.html', pagetitle=pagetitle, page=page,\
                            metadata=metadata, pagedata=pagedata, tid=tid,\
                            maxpage=maxpage, flpage=flpage, osystem=osystem)

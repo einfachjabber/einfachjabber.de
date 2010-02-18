@@ -3,7 +3,7 @@
 
 import random
 from wtforms import Form, TextField, TextAreaField, SelectField,\
-                    PasswordField, validators
+                    PasswordField, HiddenField, validators
 from stepbystep.utils import sendmail
 
 serverlist = [
@@ -30,6 +30,7 @@ def randomserver():
 
     return server
 
+
 class RegForm(Form):
     nick    = TextField(u'gewünschte Jabber-Adresse',
                         [validators.Required(message=u'Bitte einen\
@@ -46,6 +47,10 @@ class RegForm(Form):
                                                     message=u'Bitte gib ein\
                                                     Passwort ein.')
                                                 ])
+    recaptcha_challenge_field = TextAreaField()
+    recaptcha_response_field = HiddenField()
+
+
 
 def composemail(email, jid, passwd):
     """Use the form-contents to create an email to send"""

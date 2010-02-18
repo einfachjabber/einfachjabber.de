@@ -4,7 +4,11 @@
 <script type="text/javascript" src="{{ url_for('static', file='js/passwordStrengthMeter.js') }}"></script>
 <script language="javascript">
 	jQuery(document).ready(function() {
-	
+
+  $('.colorbar').show()
+  $('.percent').show()
+  $('.result').show()
+
 	var bpos = "";
 	var perc = 0 ;
 	var minperc = 0 ;
@@ -98,6 +102,12 @@
 			Bitte Passwort eingeben
 		</span>
   </p>
+  {% if captchaerror %}
+    <ul class="errors">
+      <li>Das waren nicht die richtigen Worte, bitte versuche es erneut.</li>
+    </ul>
+  {% endif %}
+      {{ captchahtml }}
   <p>
     <button type="submit" value="Absenden" class="submit">
       <span><span>Absenden</span></span>

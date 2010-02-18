@@ -19,8 +19,12 @@ def oslist(request):
 @expose('/reg')
 def jabberreg(request):
     pagetitle = u'Account Registration'
+    from recaptcha.client import captcha
+    captchahtml = captcha.displayhtml('6LeIRwsAAAAAAFM_vdWOyCyHjlGz2A4XDsw6DqcU')
     from stepbystep.forms import RegForm, composemail, randomserver
     form = RegForm(request.form)
+    #print(form.recaptcha_challenge_field.data)
+    #print(form.recaptcha_response_field.data)
     form.domain.choices = randomserver()
     if request.method == 'POST' and form.validate():
         nick = form.nick.data
@@ -28,7 +32,14 @@ def jabberreg(request):
         email = form.email.data
         passwd = form.passwd.data
         jid = nick + '@' + domain
-        print(nick, domain, email, jid)
+        subresult = captcha.submit(form.recaptcha_challenge_field.data,
+                                   form.recaptcha_response_field.data,
+                                   '6LeIRwsAAAAAAHvwuh2jEJhK_vN5oSYl_aglyky-',
+                                   '127.0.0.1')
+        if subresult.is_valid is False:
+            return render_template('jabberreg.html', form=form, success=False,
+                               pagetitle=pagetitle, captchahtml=captchahtml,
+                                   captchaerror=True)
         from stepbystep.xmppreg import RegError, xmppreg
         #rr = xmppreg(nick, passwd, domain)
         rr = [1, None]
@@ -42,7 +53,7 @@ def jabberreg(request):
                                    jid=jid, pagetitle=pagetitle)
     else:
         return render_template('jabberreg.html', form=form, success=False,
-                               pagetitle=pagetitle)
+                               pagetitle=pagetitle, captchahtml=captchahtml)
 
 @expose('/<osystem>')
 def clientlist(request, osystem):

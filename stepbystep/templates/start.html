@@ -4,19 +4,7 @@
 {% endblock %}
 {% block title %}{{ pagetitle }}{% endblock %}
 {% block content %}
-
-  <h1>Bitte wähle Dein Betriebssystem</h1>
-  <ul id="oslist">
-    {% for cat in oslist|sort %}
-    <li class="{% if oslist[cat] %}top {% endif %}overlay">{% if not oslist[cat] %}<a href="{{ url_for('clientlist', osystem=cat|lower) }}">{% endif %}<img src="{{ url_for('static', file='images/os/logo-' + cat|lower + '.png') }}" />{% if not oslist[cat] %}</a>{% endif %}<span class="overlaytext">{{ cat }}</span>
-      {% if oslist[cat] %}
-      <ul>
-        {% for os in oslist[cat]|sort %}
-        <li><a href="{{ url_for('clientlist', osystem=os.short) }}"><img src="{{ url_for('static', file='images/os/logo-' + os.short + '.png') }}" /><span class="osname">{{ os.name }}</span></a></li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-    </li>
-    {% endfor %}
-  </ul>
+<h1>Willkommen</h1>
+<a href="{{ url_for('jabberreg') }}">Falls du noch keinen Jabber-Konto hast, geht es hier weiter</a>
+<a href="{{ url_for('oslist') }}">Wenn du bereits einen Jabber-Konto besitzt, geht es hier direkt zur Einrichtung eines Clientprogrammes.</a>
 {% endblock %}

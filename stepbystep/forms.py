@@ -1,37 +1,61 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-from wtforms import Form, TextField, TextAreaField, validators
+import random
+from wtforms import Form, TextField, TextAreaField, SelectField,\
+                    PasswordField, validators
 from stepbystep.utils import sendmail
 
-class ContactForm(Form):
-    name    = TextField('Name', [validators.Required(message=u'Bitte einen\
-                                                     Namen angeben, damit\
-                                                     wir Sie persönlich\
-                                                     erreichen können.')
+serverlist = [
+#    ('brauchen.info', 'brauchen.info'),
+    #('deshalbfrei.org', 'deshalbfrei.org'),
+    #('draugr.de', 'draugr.de'),
+    #('freies-im.de', 'freies-im.de'),
+    #('jabber.ccc.de', 'jabber.ccc.de'),
+    #('jabber-server.de', 'jabber-server.de'),
+    #('ubuntu-jabber.de', 'ubuntu-jabber.de'),
+    #('ubuntu-jabber.net', 'ubuntu-jabber.net'),
+    #('verdammung.org', 'verdammung.org'),
+    #('xabber.de', 'xabber.de'),
+    ('firefly-it.de', 'firefly-it.de')
+    ]
+
+def randomserver():
+    server = []
+    sl = serverlist[:]
+    while sl:
+        element = random.choice(sl)
+        sl.remove(element)
+        server.append(element)
+
+    return server
+
+class RegForm(Form):
+    nick    = TextField(u'gewünschte Jabber-Adresse',
+                        [validators.Required(message=u'Bitte einen\
+                                                     Namen angeben.')
                                 ])
-    email   = TextField('E-Mail', [validators.Length(min=5, 
-                                                     max=120, 
-                                                     message=u'Ihre E-Mail\
-                                                     Adresse ist zu kurz,\
-                                                     bitte überprüfen Sie\
-                                                     noch einmal die\
-                                                     Eingabe'),
-                                   validators.Email(message=u'Sie haben leider\
+    domain  = SelectField(u'Domain')
+    email   = TextField(u'E-Mail',
+                                [validators.Email(message=u'Du hast leider\
                                                     keine valide E-Mail\
                                                     Adresse angegeben. Bitte\
-                                                    versuchen Sie es erneut.')
+                                                    versuche es erneut.')
                                   ])
-    message = TextAreaField('Nachricht/Frage', [validators.Required(
-                                                    message=u'Sie haben leider\
-                                                    vergessen uns Ihr Anliegen\
-                                                    mitzuteilen. Bitte füllen\
-                                                    Sie das Feld Nachricht aus')
+    passwd  = PasswordField(u'Passwort', [validators.Required(
+                                                    message=u'Bitte gib ein\
+                                                    Passwort ein.')
                                                 ])
 
-def composemail(name, email, message):
+def composemail(email, jid, passwd):
     """Use the form-contents to create an email to send"""
-    mailbody = 'Eine Nachricht von ' + str(name) + ' (' + str(email)\
-                + ')\n\n' + 'Nachricht:\n' + message
-    sendmail(name, email, message)
+    mailbody = u'Du hast eben über jabber.zeroathome.de einen neuen\
+Jabber-Account registriert.\n\
+Die Benutzerdaten dazu lauten:\n\n\
+Benutzername: ' + str(jid) + '\n' + u'Passwort: ' + str(passwd)\
++ u'\n\nAuf http://jabber.zeroathome.de findest du Anleitungen zur für\
+verschiedene Client-Programme.'
+    subject = u'jabber.zeroathome.de - Jabber-Konto Registrierung'
+    email = [email]
+    sendmail(email, subject, mailbody)
 

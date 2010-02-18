@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+{% block head %}
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', file='js/passwordStrengthMeter.js') }}"></script>
+<script language="javascript">
+	jQuery(document).ready(function() {
+	
+	var bpos = "";
+	var perc = 0 ;
+	var minperc = 0 ;
+	$('#passwd').css( {backgroundPosition: "0 0"} );
+	$('#email').keyup(function(){
+		$('#result').html(passwordStrength($('#passwd').val(),$('#email').val())) ;
+		perc = passwordStrengthPercent($('#passwd').val(),$('#email').val());
+
+		bpos=" $('#colorbar').css( {backgroundPosition: \"0px -" ;
+		bpos = bpos + perc + "px";
+		bpos = bpos + "\" } );";
+		bpos=bpos +" $('#colorbar').css( {width: \"" ;
+		bpos = bpos + (perc * 2.5) + "px";
+		bpos = bpos + "\" } );";
+		eval(bpos);
+	    	$('#percent').html(" " + perc  + "% ");
+	              })
+	$('#passwd').keyup(function(){
+		$('#result').html(passwordStrength($('#passwd').val(),$('#email').val())) ; 
+		perc = passwordStrengthPercent($('#passwd').val(),$('#email').val());
+		
+		bpos=" $('#colorbar').css( {backgroundPosition: \"0px -" ;
+		bpos = bpos + perc + "px";
+		bpos = bpos + "\" } );";
+		bpos=bpos +" $('#colorbar').css( {width: \"" ;
+		bpos = bpos + (perc * 2.56) + "px";
+		bpos = bpos + "\" } );";
+		eval(bpos);
+	    	$('#percent').html(" " + perc  + "% ");
+		})
+	})
+	function showMore()
+	{
+		$('#more').slideDown()
+	}
+</script>
+{% endblock %}
+{% block title %}{{ pagetitle }}{% endblock %}
+{% block content %}
+{% if success %}
+  <h1>Registrierung erfolgreich!</h1>
+  <p>Die Registrierung deines Benutzernames ({{ jid }}) war erfolgreich. Deine Zugangsdaten wurden die auch noch einmal per E-Mail an {{ email }} gesendet. Falls du Hilfe beim Einrichten eines Programmes zur Nutzung deines Jabber-Kontos brauchst, klicke bitte <a href="{{ url_for('start') }}">hier</a>.</p>  
+{% else %}
+{% if regerror %}
+  {% if regerror == 'conflict' %}
+  Der Benutzername {{ jid }} ist leider schon vergeben, wähle bitte einen anderen.
+  {% else %}
+    unbekannt
+  {% endif %}
+{% else %}
+  <h1>Hier kannst du einen neuen Jabber-Account anlegen.</h1>
+  <p>Dazu trage einfach deinen gewünschten Benutzernamen ein und wähle eine Domain aus. Deine E-Mail-Adresse benötigen wir nur um dir deinen Benutzernamen und dein Passwort zuzusenden. Sie wird nicht bei uns gespeichert! Als letztes fehlt nur noch ein Passwort und ein Klick auf "Anlegen".</p> 
+{% endif %}
+<div id="regform">
+<form action="{{ url_for('jabberreg') }}" method="post" accept-charset="utf-8">
+  <p>
+    {% if form.nick.errors %}
+      <ul class="errors">
+        {% for error in form.nick.errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {{ form.nick.label }}<br /> {{ form.nick(class='reg-textfield') }} <span>@</span> {{ form.domain(class='reg-selectfield') }}<br />
+  </p>
+  <p>
+    {% if form.email.errors %}
+      <ul class="errors">
+        {% for error in form.email.errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {{ form.email.label }}<br /> {{ form.email(class='reg-textfield') }}
+  </p>
+  <p>
+    {% if form.passwd.errors %}
+      <ul class="errors">
+        {% for error in form.passwd.errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {{ form.passwd.label }}<br /> {{ form.passwd(class='reg-textfield') }}
+    <div class="colorbar" id="colorbar"></div>
+    <br /><span class="percent" id="percent">
+			0%
+		</span>
+		&nbsp;&nbsp;
+		<span class="result" id='result'>
+			Bitte Passwort eingeben
+		</span>
+  </p>
+  <p>
+    <button type="submit" value="Absenden" class="submit">
+      <span><span>Absenden</span></span>
+    </button><br />
+  </p>
+</form>
+</div>
+{% endif %}
+{% endblock %}

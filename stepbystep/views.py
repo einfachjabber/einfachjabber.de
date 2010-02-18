@@ -11,6 +11,39 @@ def start(request):
     pagetitle = u'Jabber Tutorial Portal'
     return render_template('start.html', pagetitle=pagetitle)
 
+@expose('/oslist')
+def oslist(request):
+    pagetitle = u'Jabber Tutorial Portal'
+    return render_template('oslist.html', pagetitle=pagetitle)
+
+@expose('/reg')
+def jabberreg(request):
+    pagetitle = u'Account Registration'
+    from stepbystep.forms import RegForm, composemail, randomserver
+    form = RegForm(request.form)
+    form.domain.choices = randomserver()
+    if request.method == 'POST' and form.validate():
+        nick = form.nick.data
+        domain = form.domain.data
+        email = form.email.data
+        passwd = form.passwd.data
+        jid = nick + '@' + domain
+        print(nick, domain, email, jid)
+        from stepbystep.xmppreg import RegError, xmppreg
+        #rr = xmppreg(nick, passwd, domain)
+        rr = [1, None]
+        if rr[0] is 1:
+            #composemail(email, jid, passwd)
+            return render_template('jabberreg.html', form=form, regerror=False,
+                                   success=True, jid=jid, email=email,
+                                   pagetitle=pagetitle)
+        else:
+            return render_template('jabberreg.html', form=form, regerror=rr[1],
+                                   jid=jid, pagetitle=pagetitle)
+    else:
+        return render_template('jabberreg.html', form=form, success=False,
+                               pagetitle=pagetitle)
+
 @expose('/<osystem>')
 def clientlist(request, osystem):
     from stepbystep.clientutils import Clients

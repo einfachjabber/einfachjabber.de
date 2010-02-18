@@ -65,21 +65,20 @@ def render_template(template, **context):
     return Response(jinja_env.get_template(template).render(**context),
                    mimetype='text/html')
 
-def sendmail(name, email, mailbody):
+def sendmail(email, subject, mailbody):
     """function for sending all kinds of email"""
     from mailtools import SMTPMailer
-    from stepbystep.config import MAILSERVER, MAILUSER, MAILPWD, MAILTO
+    from stepbystep.config import MAILSERVER, MAILUSER, MAILPWD, MAILFROM
     mailer = SMTPMailer(
         MAILSERVER,
         username=MAILUSER,
         password=MAILPWD,
         log_messages=False
     )
-
     mailer.send_plain(
+        MAILFROM,
         email,
-        MAILTO,
-        u'Kontaktformular stepbystep-it.de - Eine Nachricht',
-        unicode(mailbody)
+        subject,
+        mailbody
     )
 

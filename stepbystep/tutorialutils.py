@@ -52,6 +52,7 @@ class OsCatalog(object):
                     { 'name': 'Windows XP', 'short': 'winxp' }
                    ],
             'Linux': [
+                    { 'name': 'Debian', 'short': 'debian' },
                     { 'name': 'Fedora', 'short': 'fedora' },
                     { 'name': 'Kubuntu', 'short': 'kubuntu' },
                     { 'name': 'OpenSUSE', 'short': 'opensuse' },
@@ -74,6 +75,8 @@ class OsCatalog(object):
         """Maps the OS short-names to their long pendants and their default client"""
         if self.osystem == 'android':
             system = ['Android', 'beem']
+        if self.osystem == 'debian':
+            system = ['Debian', 'pidgin']
         if self.osystem == 'fedora':
             system = ['Fedora', 'empathy']
         if self.osystem == 'iphone':

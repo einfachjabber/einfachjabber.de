@@ -16,12 +16,24 @@ span {
 }
 
 a {
-    color: #27282C;
+    color: #498929;
     text-decoration: none;
     white-space:nowrap;
 }
 
+a:hover {
+    color: #27282C;
+    text-decoration: underline;
+    white-space:nowrap;
+}
+
+ul a:hover {
+    color: #498929;
+    text-decoration: none;
+}
+
 p {
+    margin-bottom: 10px;
     text-align: left;
 }
 
@@ -30,6 +42,16 @@ h1 {
     font-size: 2em;
     margin: 10px 0 15px 0;
     text-align: center;
+}
+
+h2 {
+    font-size: 1.6em;
+    text-align: left;
+}
+
+h3 {
+    font-size: 1.4em;
+    text-align: left;
 }
 
 img {
@@ -49,7 +71,7 @@ ul {
     border-right: 4px solid #27282C;
     margin: 0 auto;
     min-height: 400px;
-    padding: 1px 15px 15px 15px;
+    padding: 1px 15px 35px 15px;
     text-align: center;
     width: 922px;
 }
@@ -59,6 +81,8 @@ ul {
     color: white;
     height: 30px;
     margin: -25px auto;
+    padding: 8px 0 2px 0;
+    text-align: right;
     width: 960px;
 }
 
@@ -78,11 +102,13 @@ ul {
 
 #nav a img {
     position: relative;
-    top: 18px;
+    top: 15px;
 }
 #nav a {
     color: #fff;
     display: block;
+    font-size: 0.9em;
+    text-decoration: none;
 }
 
 #nav li {
@@ -94,7 +120,7 @@ ul {
 
 #nav li a {
     display: block;
-    padding: 4px 10px 4px 10px;
+    padding: 4px 8px 4px 8px;
 }
 
 #nav li a:hover {
@@ -159,6 +185,9 @@ ul {
 /* footer.html specific */
 /************************/
 
+#footer img {
+    padding-right: 4px;
+}
 
 /* logo overlay text */
 /*********************/

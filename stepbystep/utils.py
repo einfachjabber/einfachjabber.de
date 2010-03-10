@@ -52,11 +52,11 @@ jinja_env.globals['url_for'] = url_for
 def navigation():
     """Navigation links"""
     links = [
-            #(outlink, url/endpoint, linktext),
-            (False, 'start', 'Home'),
-            (False, 'start', u'Jabber einfach erklärt'),
-            (True, 'http://wiki.firefly-it.de/doku.php?id=jabber-projekt', 'Projekt-Wiki'),
-            (False, 'start', 'Kontakt'),
+            #(outlink, url/endpoint, linktext, icon),
+            (False, 'start', 'Home', 'home.png'),
+            (False, 'oslist', 'Anleitungen', 'anleitungen.png'),
+            (False, 'jabberreg', 'Neues Konto', 'neueskonto.png'),
+            (False, 'start', 'Jabber?', 'jabber.png'),
     ]
     return links
 jinja_env.globals['navigation'] = navigation()

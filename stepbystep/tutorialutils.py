@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-import json 
+import json
 import os.path
 from werkzeug.exceptions import NotFound
 from werkzeug.utils import cached_property
@@ -54,7 +54,7 @@ class OsCatalog(object):
             'Linux': [
                     { 'name': 'Fedora', 'short': 'fedora' },
                     { 'name': 'Kubuntu', 'short': 'kubuntu' },
-                    { 'name': 'OpenSuSe', 'short': 'suse' },
+                    { 'name': 'OpenSUSE', 'short': 'opensuse' },
                     { 'name': 'Ubuntu', 'short': 'ubuntu' },
                     ],
             'MacOSX': [],
@@ -72,12 +72,16 @@ class OsCatalog(object):
     @cached_property
     def defclient(self):
         """Maps the OS short-names to their long pendants and their default client"""
+        if self.osystem == 'android':
+            system = ['Android', 'beem']
         if self.osystem == 'fedora':
             system = ['Fedora', 'empathy']
         if self.osystem == 'iphone':
             system = ['iPhone', 'None']
         if self.osystem == 'kubuntu':
             system = ['Kubuntu', 'kopete']
+        if self.osystem == 'opensuse':
+            system = ['OpenSUSE', 'kopete']
         if self.osystem == 'ubuntu':
             system = ['Ubuntu', 'empathy']
         if self.osystem == 'win7':

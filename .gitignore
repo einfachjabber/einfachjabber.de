@@ -2,3 +2,4 @@
 *.pyc
 
 stepbystep/static/tutorials/*
+stepbystep/static/wiki/*

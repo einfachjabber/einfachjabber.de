@@ -12,7 +12,7 @@ Information on this piece of software
 -------------------------------------
 
 ### Purpose
-The application was made to show dead-easy step-by-step tutorials, to get more people to use jabber as their primary instant messaging platform.
+The application was to show dead-easy step-by-step tutorials, to get more people to use jabber as their primary instant messaging platform.
 Ok, tutorials could just have been written into static HTML-files, or presented through a wiki engine. There are several downsides on these kinds of approaches, the worst one being the immense investment of time you have to put into maintaining the tutorials spread over a lot of HTML-files or wiki pages.
 This approach uses a single JSON-formatted file together with a folder of screenshots per tutorial. This makes the tutorials easy to update if a new version of the software appears.
 

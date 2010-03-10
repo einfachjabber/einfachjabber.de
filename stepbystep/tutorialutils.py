@@ -88,7 +88,7 @@ class OsCatalog(object):
         if self.osystem == 'ubuntu':
             system = ['Ubuntu', 'empathy']
         if self.osystem == 'win7':
-            system = ['Windows 7', 'pidgin']
+            system = ['Windows Vista / 7', 'pidgin']
         if self.osystem == 'winxp':
             system = ['Windows XP', 'pidgin']
         return system

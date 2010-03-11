@@ -1,0 +1,18 @@
+/* CSS 3 fonts */
+@font-face {
+font-family: Comfortaa;
+src: url('../fonts/Comfortaa/Comfortaa-Regular.ttf');
+}
+
+@font-face {
+font-family: Comfortaa;
+src: url('../fonts/Comfortaa/Comfortaa-Bold.ttf');
+font-weight: bold;
+}
+
+@font-face {
+font-family: Comfortaa;
+src: url('../fonts/Comfortaa/Comfortaa-Thin.ttf');
+font-style: italic;
+}
+

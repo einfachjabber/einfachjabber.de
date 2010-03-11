@@ -3,6 +3,8 @@
 
 from os import path
 from datetime import datetime
+from creoleparser.dialects import create_dialect, creole10_base, creole11_base
+from creoleparser.core import Parser
 from jinja2 import Environment, PackageLoader
 from stepbystep.config import TEMPLATE_PATH, IMAGE_PATH
 from werkzeug import Local, LocalManager, Response
@@ -13,7 +15,7 @@ local = Local()
 local_manager = LocalManager([local])
 
 ### template-environment settings ###
-jinja_env = Environment(loader=PackageLoader('stepbystep', TEMPLATE_PATH)) 
+jinja_env = Environment(loader=PackageLoader('stepbystep', TEMPLATE_PATH), extensions=['jinja2.ext.loopcontrols']) 
 jinja_env.globals['imagepath'] = IMAGE_PATH
 jinja_env.globals['currentyear'] = datetime.now().strftime("%Y")
 jinja_env.globals['trackingcode'] = """ 
@@ -83,3 +85,4 @@ def sendmail(email, subject, mailbody):
         mailbody
     )
 
+my_parser = Parser(dialect=create_dialect(creole11_base), method='html', encoding=None)

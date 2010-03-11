@@ -1,0 +1,13 @@
+  {% for number in range(maxpage) %}
+    {% if number == page %}
+    <a class="pagination active {% if number >= 9 %}overten{% endif %}" href="{{ url_for('tutorial', tid=tid, page=number) }}">{{ number+1 }}</a>
+    {% else %}
+    <a class="pagination {% if number >= 9 %}overten{% endif %}" href="{{ url_for('tutorial', tid=tid, page=number) }}">{{ number+1 }}</a>
+    {% endif %}
+  {% endfor %}
+  {% if linkdata %}
+    <a class="pagination active {% if maxpage+1 >= 9 %}overten{% endif %}" href="{{ url_for('tutoriallinks', tid=tid) }}">{{ maxpage+1 }}</a>
+    {% else %}
+    <a class="pagination {% if maxpage+1 >= 9 %}overten{% endif %}" href="{{ url_for('tutoriallinks', tid=tid) }}">{{ maxpage+1 }}</a>
+    {% endif %}
+

@@ -1,5 +1,5 @@
 <div id="navigation">
-  <div id="logo"></div>
+  <div id="logo"><a href="{{ url_for('start') }}"></a></div>
   <ul id="nav">
     {% for outlink, url, text, icon in navigation %}
     {% if outlink %}

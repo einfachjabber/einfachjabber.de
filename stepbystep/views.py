@@ -69,12 +69,13 @@ def clientlist(request, osystem):
 @expose('/tutorial/<tid>/', defaults={'page':0})
 @expose('/tutorial/<tid>/<int:page>')
 def tutorial(request, tid, page):
+    from stepbystep.utils import my_parser
     from stepbystep.tutorialutils import Tutorial
     gt = Tutorial(tid).gettutorial
     pag = Tutorial(tid).pagination
     metadata = {'client':gt['client'], 'clientversion':gt['clientversion'],\
                 'os':gt['os']}
-    pagedata = gt['tutorial'][page]
+    pagedata = my_parser.generate(gt['tutorial'][page]['text']), gt['tutorial'][page]['image']
     maxpage = len(gt['tutorial'])-1
     pagetitle = 'Tutorial'
     flpage = pag(page, maxpage)

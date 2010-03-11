@@ -4,9 +4,8 @@
 {% block title %}{{ pagetitle }}{% endblock %}
 {% block content %}
 <h1>weiterführende Links zu {{ metadata.client }}</h1>
-  <div id="tut-navigation">
+  {% include "tutorial-pagination.html"%}<br />
     <a class="nav-links-back" href="{{ url_for('tutorial', tid=tid, page=maxpage) }}">Zurück zum Tutorial</a>
-  </div>
   <ul id="links">
   {% for link in linkdata %}
     <li><a href="{{ link.url }}">{{ link.linktext }}</a></li>

@@ -5,11 +5,12 @@
 {% block title %}{{ pagetitle }}{% endblock %}
 {% block content %}
   <h1>{{ metadata.client }} {{ metadata.clientversion }} für {{ metadata.os }}</h1>
+  {% include "tutorial-pagination.html"%}
   {% include "tutorial-navigation.html"%}
-      {% if pagedata.image %}
-        <img id="tut-image" src="{{ url_for('static', file='tutorials/' + tid + '/' + pagedata.image) }}" alt="{{ pagedata.image }}" />
+      {% if pagedata[1] %}
+        <img id="tut-image" src="{{ url_for('static', file='tutorials/' + tid + '/' + pagedata[1]) }}" alt="{{ pagedata[1] }}" />
       {% endif %}
-        <p id="caption">{{ pagedata.text }}</p>
+      <span id="caption">{{ pagedata[0] }}</span>
       {% if pagedata.more %}
       <a href="{{ url_for('tutorial', tid=tid, page=page+1) }}">{{ pagedata.defaultlink }}</a><br />
       <a href="{{ url_for('tutorialmore', tid=tid, page=page+1) }}">{{ pagedata.morelink }}</a>

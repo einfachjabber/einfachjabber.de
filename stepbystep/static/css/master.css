@@ -122,14 +122,24 @@ ul {
 }
 
 #nav a img {
+    background-color: #fff;
     position: relative;
     top: 15px;
 }
+
+#nav li:hover a img {
+    background-color: #ffb400;
+}
+
 #nav a {
     color: #fff;
     display: block;
     font-size: 0.9em;
     text-decoration: none;
+}
+
+#nav li:hover a {
+    color: #ffb400;
 }
 
 #nav li {
@@ -194,6 +204,7 @@ ul#oslist li.top ul {
     position: absolute;
     text-align: left;
     top: 36px;
+    width: 150px;
 }
 
 ul#oslist li.top:hover ul {

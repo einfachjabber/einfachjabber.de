@@ -61,11 +61,11 @@ class OsCatalog(object):
             'MacOSX': [],
             'Mobil': [
                     { 'name': 'Android', 'short': 'android' },
-                    { 'name': 'Blackberry', 'short': 'blackberry'},
+                    #{ 'name': 'Blackberry', 'short': 'blackberry'},
                     { 'name': 'iPhone', 'short': 'iphone' },
-                    { 'name': 'Maemo', 'short': 'maemo'},
-                    { 'name': 'Palm (Pre) WebOS', 'short': 'webos'},
-                    { 'name': 'Symbian S60', 'short': 's60'}
+                    #{ 'name': 'Maemo', 'short': 'maemo'},
+                    #{ 'name': 'Palm (Pre) WebOS', 'short': 'webos'},
+                    #{ 'name': 'Symbian S60', 'short': 's60'}
                    ],
         }
         return listing

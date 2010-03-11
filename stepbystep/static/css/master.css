@@ -347,7 +347,7 @@ a.active:hover {
 }
 
 a.overten, a.overten:hover {
-    background-position: 5px;
+    padding: 5px;
 }
 
 #tut-navigation {

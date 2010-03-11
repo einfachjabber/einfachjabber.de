@@ -1,6 +1,7 @@
 /* imports */
 /***********/
 @import url(reset.css);
+@import url(typography.css);
 @import url(SimplyButtons.css);
 
 /* general stuff */
@@ -22,7 +23,7 @@ a {
 }
 
 a:hover {
-    color: #27282C;
+    color: #ffb400;
     text-decoration: underline;
     white-space:nowrap;
 }
@@ -37,8 +38,13 @@ p {
     text-align: left;
 }
 
+h1, h2, h3, h4 {
+    font-family: Comfortaa;
+    font-weight: bold;
+}
+
 h1 {
-    color: #498929;
+    color: #ffb400;
     font-size: 2em;
     margin: 10px 0 15px 0;
     text-align: center;
@@ -66,6 +72,15 @@ ul {
     list-style: none;
 }
 
+#logo {
+    background: url(../images/ui/logo.png) no-repeat;
+    float: left;
+    height: 60px;
+    left: 10px;
+    position: relative;
+    top: 5px;
+    width: 222px;
+}
 #content {
     border-left: 4px solid #27282C;
     border-right: 4px solid #27282C;
@@ -340,7 +355,7 @@ ul#clientlist span.overlaytext {
 /**************************/
 #tut-image {
     background-color: white;
-    border: 1px solid #74BF04;
+    border: 1px solid #27282C;
     -moz-box-shadow: rgba(0, 0, 0, 0.5) 5px 5px 5px;
     -webkit-box-shadow: rgba(0, 0, 0, 0.5) 5px 5px 5px;
     margin-top: 20px;
@@ -367,7 +382,9 @@ ul#links li {
 }
 
 #tut-navigation a {
+    color: #27282C;
     font-size: 6em;
+    text-decoration: none;
 }
 
 #tut-navigation a.nav-links-back {

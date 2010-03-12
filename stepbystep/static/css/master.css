@@ -73,15 +73,11 @@ ul {
 }
 
 #logo {
-    background: url(../images/ui/logo.png) no-repeat;
     float: left;
-    height: 60px;
     left: 10px;
     position: relative;
     top: 5px;
-    width: 222px;
 }
-
 
 #content {
     border-left: 4px solid #27282C;
@@ -107,6 +103,7 @@ ul {
 
 /* header.html specific */
 /************************/
+
 #navigation {
     background-color: #27282C;
     border-left: 4px solid #27282C;

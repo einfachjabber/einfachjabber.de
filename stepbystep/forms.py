@@ -37,8 +37,9 @@ class RegForm(Form):
                                                      Namen angeben.')
                                 ])
     domain  = SelectField(u'Domain')
-    email   = TextField(u'E-Mail',
-                                [validators.Email(message=u'Du hast leider\
+    email   = TextField(u'E-Mail (optional)',
+                                [validators.Optional(),\
+                                validators.Email(message=u'Du hast leider\
                                                     keine valide E-Mail\
                                                     Adresse angegeben. Bitte\
                                                     versuche es erneut.')

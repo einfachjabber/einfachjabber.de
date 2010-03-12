@@ -50,7 +50,11 @@
 {% block content %}
 {% if success %}
   <h1>Registrierung erfolgreich!</h1>
-  <p>Die Registrierung deines Benutzernames ({{ jid }}) war erfolgreich. Deine Zugangsdaten wurden die auch noch einmal per E-Mail an {{ email }} gesendet. Falls du Hilfe beim Einrichten eines Programmes zur Nutzung deines Jabber-Kontos brauchst, klicke bitte <a href="{{ url_for('start') }}">hier</a>.</p>  
+  <p>Die Registrierung deines Benutzernames ({{ jid }}) war erfolgreich. 
+  {% if email %}
+  Deine Zugangsdaten wurden dir auch noch einmal per E-Mail an {{ email }} gesendet.
+  {% endif %}
+  Falls du Hilfe beim Einrichten eines Programmes zur Nutzung deines Jabber-Kontos brauchst, klicke bitte <a href="{{ url_for('start') }}">hier</a>.</p>  
 {% else %}
 {% if regerror %}
   {% if regerror == 'conflict' %}
@@ -60,7 +64,7 @@
   {% endif %}
 {% else %}
   <h1>Hier kannst du einen neuen Jabber-Account anlegen.</h1>
-  <p>Dazu trage einfach deinen gewünschten Benutzernamen ein und wähle eine Domain aus. Deine E-Mail-Adresse benötigen wir nur um dir deinen Benutzernamen und dein Passwort zuzusenden. Sie wird nicht bei uns gespeichert! Als letztes fehlt nur noch ein Passwort und ein Klick auf "Anlegen".</p> 
+  <p>Dazu trage einfach deinen gewünschten Benutzernamen ein und wähle einen Server aus. Falls du deine Zugangsdaten als Erinnerung per E-Mail erhalten möchtest, fülle einfach das E-Mail Feld unten aus. Deine E-Mail Adresse wird nicht bei uns gespeichert! Als letztes fehlt nur noch ein Passwort und ein Klick auf "Anlegen".</p> 
 {% endif %}
 <div id="regform">
 <form action="{{ url_for('jabberreg') }}" method="post" accept-charset="utf-8">

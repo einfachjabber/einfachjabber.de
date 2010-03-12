@@ -156,7 +156,23 @@ ul {
 /************************/
 
 #footer img {
-    /*padding-right: 4px;*/
+    background-color: #fff;
+}
+
+#footer img:hover, #footer a:hover img {
+    background-color: #ffb400;
+}
+
+#footer a span {
+    color: #fff;
+    font-size: 0.8em;
+    padding: 0 2px 0 4px;
+    position: relative;
+    top: -7px;
+}
+
+#footer a:hover span {
+    color: #ffb400;
 }
 
 /* logo overlay text */
@@ -244,9 +260,6 @@ ul#oslist li ul li span.osname {
 }
 
 .reg-textfield {
-/*    border-radius: 5px;*/
-    /*-moz-border-radius: 5px;*/
-    /*-webkit-border-radius: 5px;*/
     font-size: 20px;
     height: 25px;
     width: 250px;
@@ -277,6 +290,7 @@ span.result{
     position: relative;
     top: -20px;
 }
+
 /* clientlist.html specific */
 /****************************/
 #clientlist {
@@ -335,7 +349,7 @@ ul#links li {
 
 .pagination {
     background: url(../images/ui/circle.png) 0px no-repeat;
-    font-size: 1.2em;
+    font-size: 1.1em;
     padding: 10px;
 }
 

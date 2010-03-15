@@ -350,7 +350,7 @@ ul#links li {
 .pagination {
     background: url(../images/ui/circle.png) 0px no-repeat;
     font-size: 1.1em;
-    padding: 10px;
+    padding: 11px;
 }
 
 a.pagination:hover {
@@ -369,7 +369,7 @@ a.active:hover {
 }
 
 a.overten, a.overten:hover {
-    padding: 5px;
+    padding: 5.5px;
 }
 
 #tut-navigation {

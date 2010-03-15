@@ -63,7 +63,7 @@ class OsCatalog(object):
                     { 'name': 'Android', 'short': 'android' },
                     #{ 'name': 'Blackberry', 'short': 'blackberry'},
                     { 'name': 'iPhone', 'short': 'iphone' },
-                    #{ 'name': 'Maemo', 'short': 'maemo'},
+                    { 'name': 'Maemo2008', 'short': 'maemo2008'},
                     #{ 'name': 'Palm (Pre) WebOS', 'short': 'webos'},
                     #{ 'name': 'Symbian S60', 'short': 's60'}
                    ],
@@ -83,6 +83,8 @@ class OsCatalog(object):
             system = ['iPhone', 'None']
         if self.osystem == 'kubuntu':
             system = ['Kubuntu', 'kopete']
+        if self.osystem == 'maemo2008':
+            system = ['Maemo OS2008', 'pidgin']
         if self.osystem == 'opensuse':
             system = ['OpenSUSE', 'kopete']
         if self.osystem == 'ubuntu':

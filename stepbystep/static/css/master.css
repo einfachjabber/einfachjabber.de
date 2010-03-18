@@ -101,6 +101,17 @@ ul {
     width: 952px;
 }
 
+/* start.html specific */
+/************************/
+
+#start p {
+    text-align: center;
+}
+
+#start img {
+    padding: 20px;
+}
+
 /* header.html specific */
 /************************/
 
@@ -341,10 +352,35 @@ ul#clientlist span.overlaytext {
     width: 70%;
 }
 
+#links p {
+    margin: 20px auto;
+    text-align: center;
+}
 
-ul#links li {
+#links h2 {
+    text-align: center;
+}
+
+#links h3 {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#links form {
+    display: inline;
+}
+
+ul.links li {
     display: block;
     padding: 5px;
+}
+
+ul.authordata {
+    margin-bottom: 20px;
+}
+
+#links a.cc-button {
+    padding-top: 20px;
 }
 
 .pagination {

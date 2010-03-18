@@ -6,7 +6,7 @@ from datetime import datetime
 from creoleparser.dialects import create_dialect, creole10_base, creole11_base
 from creoleparser.core import Parser
 from jinja2 import Environment, PackageLoader
-from stepbystep.config import TEMPLATE_PATH, IMAGE_PATH
+from stepbystep.config import TEMPLATE_PATH, IMAGE_PATH, ADMIN_MAIL
 from werkzeug import Local, LocalManager, Response
 from werkzeug.routing import Map, Rule
 from stepbystep.tutorialutils import OsCatalog
@@ -58,6 +58,7 @@ def navigation():
             (False, 'start', 'Home', 'home.png'),
             (False, 'oslist', 'Anleitungen', 'anleitungen.png'),
             (False, 'jabberreg', 'Neues Konto', 'neueskonto.png'),
+            (True, 'http://wiki.einfachjabber.de', 'Wiki', 'wiki.png'),
             (True, 'http://wiki.einfachjabber.de/jabber', 'Jabber?', 'jabber.png'),
             #(False, 'impressum', 'Impressum', 'impressum.png'),
     ]
@@ -84,5 +85,12 @@ def sendmail(email, subject, mailbody):
         subject,
         mailbody
     )
+
+def errormail(error):
+    """Send mail to admins on critical site errors"""
+    mailbody = u'Error on site in ' + error
+    subject = u'einfachJabber.de - Fehler auf der Seite'
+    email = ADMIN_MAIL
+    sendmail(email, subject, mailbody)
 
 my_parser = Parser(dialect=create_dialect(creole11_base), method='html', encoding=None)

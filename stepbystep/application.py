@@ -1,11 +1,13 @@
-from werkzeug import Request, Response, SharedDataMiddleware, ClosingIterator
+from werkzeug import BaseRequest, Response, SharedDataMiddleware,\
+        ClosingIterator, ETagRequestMixin
 from werkzeug.exceptions import HTTPException, NotFound
 
 from stepbystep.utils import url_map, local, local_manager
 from stepbystep.config import STATIC_PATH
 from stepbystep import views
 
-
+class Request(BaseRequest, ETagRequestMixin):
+    pass
 
 class Stepbystep(object):
 
@@ -28,7 +30,7 @@ class Stepbystep(object):
             handler = getattr(views, endpoint)
             response = handler(request, **values)
         except NotFound, e:
-            response= views.not_found(request)
+            response = views.not_found(request)
             #response = Response("Not found!")
             response.status_code = 404
         except HTTPException, e:

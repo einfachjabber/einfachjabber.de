@@ -4,7 +4,11 @@
 {% endblock %}
 {% block title %}{{ pagetitle }}{% endblock %}
 {% block content %}
-<h1>Willkommen</h1>
-<a href="{{ url_for('jabberreg') }}">Falls du noch kein Jabber-Konto hast, geht es hier weiter</a>
-<a href="{{ url_for('oslist') }}">Wenn du bereits einen Jabber-Konto besitzt, geht es hier direkt zur Einrichtung eines Clientprogrammes.</a>
+<h1>Willkommen auf einfachJabber.de</h1>
+<div id="start">
+  <p>Du möchtest über <a href="http://wiki.einfachjabber.de/jabber" title="Was ist Jabber eigentlich?">Jabber</a> mit deinen Freunden kommunizieren? Wir zeigen die wie es geht!</p>
+<p>Einfach eine der beiden Optionen unten wählen und unser Assistent führt dich durch die Installation.</p>
+<a href="{{ url_for('oslist') }}"><img src="{{ url_for('static', file='images/ui/yes.png') }}" alt="Ich habe bereits ein Jabber-Konto"/></a>
+<a href="{{ url_for('jabberreg') }}"><img src="{{ url_for('static', file='images/ui/no.png') }}" alt="Ich habe noch kein Jabber-Konto"/></a>
+</div>
 {% endblock %}

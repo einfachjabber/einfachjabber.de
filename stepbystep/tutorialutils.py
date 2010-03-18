@@ -16,11 +16,16 @@ class Tutorial(object):
     @cached_property
     def gettutorial(self):
         """Load the tutorial specified by id from the .json file"""
+        from stepbystep.utils import errormail
         filename = TUTORIAL_PATH + self.id + '.json'
         if os.path.isfile(filename):
             with open(filename, 'r') as f:
-                data = json.load(f)
-            return data
+                try:
+                    data = json.load(f)
+                    return data
+                except:
+                    #errormail('Error in JSON-Data')
+                    raise NotFound()
         else:
             raise NotFound()
 

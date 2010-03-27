@@ -121,6 +121,12 @@ def tutorialmore(request, tid, page, morepage):
                            morepage=morepage, page=page, flpage=flpage,\
                            jumpto=jumpto)
 
+@expose('/donate')
+def donate(request):
+    from stepbystep.config import PAYPAL_BUTTON
+    pagetitle = 'Spenden'
+    return render_template('donate.html', pagetitle=pagetitle, paypal=PAYPAL_BUTTON)
+
 @expose('/impressum/')
 def impressum(request):
     pagetitle = 'Impressum'

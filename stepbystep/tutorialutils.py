@@ -88,6 +88,8 @@ class OsCatalog(object):
             system = ['iPhone', 'None']
         if self.osystem == 'kubuntu':
             system = ['Kubuntu', 'kopete']
+        if self.osystem == 'macosx':
+            system = ['Mac OS X', 'iChat']
         if self.osystem == 'maemo2008':
             system = ['Maemo OS2008', 'pidgin']
         if self.osystem == 'opensuse':

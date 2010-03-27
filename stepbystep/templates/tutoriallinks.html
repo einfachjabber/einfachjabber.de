@@ -7,7 +7,7 @@
 <h1>schon fertig!</h1>
   {% include "tutorial-pagination.html"%}<br />
   <p>Weitere Informationen zur generellen Nutzung deines Clients, oder der Einrichtung von fortgeschrittenen Themen wie Chat-Verschlüsselung und Gruppenchats findest du in unserem Wiki unter:</p> <a href="http://wiki.einfachjabber.de/{{ metadata.client }}" title="{{ metadata.client }} im wiki.einfachjabber.de"><h2>http://wiki.einfachjabber.de/{{ metadata.client }}</h2></a>
-  <h3>sonstige Links:</h3>
+  <h3>weitere Links:</h3>
   <ul class="links">
   {% for link in linkdata %}
     <li><a href="{{ link.url }}">{{ link.linktext }}</a></li>
@@ -29,7 +29,7 @@
     <li>Webseite: <a href="{{ authordata.website }}" title="{{ authordata.website }}">{{ authordata.website }}</a></li>
     {% endif %}
    </ul>
-   <p>Wenn dir unser Tutorial weitergeholfen hat, wäre es schön, wenn du deinen Freunden von uns erzählen, oder eine monetäre Kleinigkeit zum Betrieb dieser Plattform beitragen würdest.</p>
+   <p>Wenn dir unser Tutorial weitergeholfen hat, wäre es schön, wenn du deinen Freunden von uns und Jabber erzählen, oder eine monetäre Kleinigkeit zum Betrieb dieser Plattform beitragen würdest.</p>
    <div id="sociallinks">
     <a href="http://twitter.com/home?status=Jabber! Wie E-Mail, nur schneller - http://einfachjabber.de" title="twitter.com"><img src="{{ url_for('static', file='images/ui/twitter-mb.png') }}" alt="Twitter" /></a>
     <a href="http://identi.ca/notice/new?status_textarea=Jabber! Wie E-Mail, nur schneller - http://einfachjabber.de" title="identi.ca"><img src="{{ url_for('static', file='images/ui/identica-mb.png') }}" alt="Identi.ca" /></a>

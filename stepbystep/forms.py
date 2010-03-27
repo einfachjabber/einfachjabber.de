@@ -64,10 +64,3 @@ verschiedene Client-Programme.'
     subject = u'jabber.zeroathome.de - Jabber-Konto Registrierung'
     email = [email]
     sendmail(email, subject, mailbody)
-
-def errormail(email, error):
-    """Inform admins about site-errors"""
-    mailbody = u''
-    subject = u'einfachJabber.de - Fehler auf der Seite'
-    email = [email]
-    sendmail(email, subject, mailbody)

@@ -20,12 +20,12 @@ class Tutorial(object):
         filename = TUTORIAL_PATH + self.id + '.json'
         if os.path.isfile(filename):
             with open(filename, 'r') as f:
-                try:
-                    data = json.load(f)
-                    return data
-                except:
-                    #errormail('Error in JSON-Data')
-                    raise NotFound()
+                #try:
+                data = json.load(f)
+                return data
+                #except:
+                    ##errormail('Error in JSON-Data')
+                    #raise NotFound()
         else:
             raise NotFound()
 

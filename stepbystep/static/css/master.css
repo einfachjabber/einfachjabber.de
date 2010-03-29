@@ -202,6 +202,14 @@ ul li.overlay span.overlaytext {
     min-width: 150px;
 }
 
+.overlaytext, .asterisk, .defaultclient {
+    color: #27282C;
+}
+
+ul li.overlay:hover .overlaytext, ul li.overlay:hover .asterisk, ul li.overlay:hover .defaultclient {
+    color: #e7a300;
+}
+
 /* oslist.html specific */
 /***********************/
 ul#oslist li {

@@ -9,7 +9,7 @@
   {% for client in clist|sort %}
   <li class="overlay"><a href="{{ url_for('tutorial', tid=osystem + '-' + client) }}">
     <img class="logos" src="{{ url_for('static', file='images/client/logo-' + client + '.png') }}" alt="{{ client }}" />
-    {% if client == defaultclient %}
+    {% if client|lower == defaultclient %}
       <span class="asterisk">*</span>
       <span class="defaultclient">Empfohlener Client</span>
     {% endif %}

@@ -1,6 +1,7 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
+import json
 import os, glob, re
 from werkzeug.exceptions import NotFound
 from werkzeug.utils import cached_property
@@ -20,9 +21,9 @@ class Clients(object):
         files = glob.glob(self.osystem + '*.json')
         if not files:
             raise NotFound()
-        for i in files:
-            i = re.sub(self.osystem + '-', '', i)
-            i = re.sub('.json', '', i)
-            clist = clist + [i]
+        for file in files:
+            with open(file, 'r') as f:
+                clname = json.load(f)['client']
+                clist = clist + [clname]
         return clist
 

@@ -56,10 +56,11 @@ def navigation():
     links = [
             #(outlink, url/endpoint, linktext, icon),
             (False, 'start', 'Home', 'home.png'),
-            (False, 'oslist', 'Anleitungen', 'anleitungen.png'),
-            (False, 'jabberreg', 'Neues Konto', 'neueskonto.png'),
-            (True, 'http://wiki.einfachjabber.de', 'Wiki', 'wiki.png'),
             (True, 'http://wiki.einfachjabber.de/jabber', 'Jabber?', 'jabber.png'),
+            (False, 'oslist', 'Anleitungen', 'anleitungen.png'),
+            (True, 'http://wiki.einfachjabber.de', 'Wiki', 'wiki.png'),
+            (False, 'jabberreg', 'Neues Konto', 'neueskonto.png'),
+            (False, 'help', 'Helfen', 'help.png'),
             #(False, 'impressum', 'Impressum', 'impressum.png'),
     ]
     return links

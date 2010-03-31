@@ -13,10 +13,11 @@
   Falls du Hilfe beim Einrichten eines Programmes zur Nutzung deines Jabber-Kontos brauchst, klicke bitte <a href="{{ url_for('start') }}">hier</a>.</p>  
 {% else %}
 {% if regerror %}
+  <h1>Ein Fehler ist aufgetreten!</h1>
   {% if regerror == 'conflict' %}
-  Der Benutzername {{ jid }} ist leider schon vergeben, wähle bitte einen anderen.
+    Der Benutzername {{ jid }} ist leider schon vergeben, wähle bitte einen anderen.
   {% else %}
-    unbekannt
+    Ein unbekannter Fehler ist aufgetreten. Bitte versuche es noch einmal. Eventuell hilft es einen anderen Server auszuwählen.
   {% endif %}
 {% else %}
   <h1>Hier kannst du einen neuen Jabber-Account anlegen.</h1>

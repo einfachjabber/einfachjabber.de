@@ -7,17 +7,23 @@ from wtforms import Form, TextField, TextAreaField, SelectField,\
 from stepbystep.utils import sendmail
 
 serverlist = [
-#    ('brauchen.info', 'brauchen.info'),
+    ('alpha-labs.net', 'alpha-labs.net'),
+    #('brauchen.info', 'brauchen.info'),
     #('deshalbfrei.org', 'deshalbfrei.org'),
     #('draugr.de', 'draugr.de'),
-    #('freies-im.de', 'freies-im.de'),
+    ('freies-im.de', 'freies-im.de'),
     #('jabber.ccc.de', 'jabber.ccc.de'),
-    #('jabber-server.de', 'jabber-server.de'),
+    ('jabber.rootbash.com', 'jabber.rootbash.com'),
+    ('jabber-server.de', 'jabber-server.de'),
+    ('jabberim.de', 'jabberim.de'),
+    ('jabme.de', 'jabme.de'),
+    ('na-di.de', 'na-di.de'),
+    ('neko.im', 'neko.im'),
     #('ubuntu-jabber.de', 'ubuntu-jabber.de'),
     #('ubuntu-jabber.net', 'ubuntu-jabber.net'),
     #('verdammung.org', 'verdammung.org'),
     #('xabber.de', 'xabber.de'),
-    ('firefly-it.de', 'firefly-it.de')
+    #('firefly-it.de', 'firefly-it.de'),
     ]
 
 def randomserver():

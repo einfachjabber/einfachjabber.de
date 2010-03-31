@@ -6,7 +6,7 @@
 <div id="links">
 <h1>schon fertig!</h1>
   {% include "tutorial-pagination.html"%}<br />
-  <p>Weitere Informationen zur generellen Nutzung deines Clients, oder der Einrichtung von fortgeschrittenen Themen wie Chat-Verschlüsselung und Gruppenchats findest du in unserem Wiki unter:</p> <a href="http://wiki.einfachjabber.de/{{ metadata.client }}" title="{{ metadata.client }} im wiki.einfachjabber.de"><h2>http://wiki.einfachjabber.de/{{ metadata.client }}</h2></a>
+  <p>Weitere Informationen zur generellen Nutzung deines Clients, oder der Einrichtung von fortgeschrittenen Themen wie Chat-Verschlüsselung und Gruppenchats findest du in unserem Wiki unter:</p><a href="http://wiki.einfachjabber.de/{{ metadata.client }}" title="{{ metadata.client }} im wiki.einfachjabber.de"><span class="h2">http://wiki.einfachjabber.de/{{ metadata.client }}</span></a>
   <h3>weitere Links:</h3>
   <ul class="links">
   {% for link in linkdata %}
@@ -33,7 +33,7 @@
    <div id="sociallinks">
     <a href="http://twitter.com/home?status=Jabber! Wie E-Mail, nur schneller - http://einfachjabber.de" title="twitter.com"><img src="{{ url_for('static', file='images/ui/twitter-mb.png') }}" alt="Twitter" /></a>
     <a href="http://identi.ca/notice/new?status_textarea=Jabber! Wie E-Mail, nur schneller - http://einfachjabber.de" title="identi.ca"><img src="{{ url_for('static', file='images/ui/identica-mb.png') }}" alt="Identi.ca" /></a>
-    <a href="http://www.facebook.com/share.php?u=http://einfachjabber.de&t=Jabber! Wie E-Mail, nur schneller!" title="facebook.com"><img src="{{ url_for('static', file='images/ui/facebook-mb.png') }}" alt="Facebook" /></a>
+    <a href="http://www.facebook.com/share.php?u=http://einfachjabber.de&amp;t=Jabber! Wie E-Mail, nur schneller!" title="facebook.com"><img src="{{ url_for('static', file='images/ui/facebook-mb.png') }}" alt="Facebook" /></a>
      {{ paypal }}
    </div>
      <br />

@@ -17,11 +17,14 @@ ADMIN_MAIL = u'bz@einfachjabber.de'
 
 PAYPAL_BUTTON = u'\
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post">\
-<input type="hidden" name="cmd" value="_s-xclick">\
-<input type="hidden" name="hosted_button_id" value="6PLNS8GTG4HCL">\
+<fieldset>\
+<input type="hidden" name="cmd" value="_s-xclick" />\
+<input type="hidden" name="hosted_button_id" value="6PLNS8GTG4HCL" />\
 <input type="image" src="/static/images/ui/\
-paypal-mb.png" border="0" name="submit"\
-alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal.">\
-<img alt="" border="0" src="https://www.paypal.com/de_DE/i/scr/pixel.gif"\
-width="1" height="1">\
-</form>'
+paypal-mb.png" name="submit"\
+ alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal." />\
+<img alt="" src="https://www.paypal.com/de_DE/i/scr/pixel.gif"\
+ width="1" height="1" />\
+</fieldset>\
+</form>\
+'

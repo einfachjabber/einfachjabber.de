@@ -6,9 +6,33 @@
 {% block content %}
 <h1>Willkommen auf einfachJabber.de</h1>
 <div id="start">
-  <p>Du möchtest über <a href="http://wiki.einfachjabber.de/jabber" title="Was ist Jabber eigentlich?">Jabber</a> mit deinen Freunden kommunizieren? Wir zeigen die wie es geht!</p>
-<p>Einfach eine der beiden Optionen unten wählen und unser Assistent führt dich durch die Installation.</p>
-<a href="{{ url_for('oslist') }}"><img src="{{ url_for('static', file='images/ui/yes.png') }}" alt="Ich habe bereits ein Jabber-Konto"/></a>
-<a href="{{ url_for('jabberreg') }}"><img src="{{ url_for('static', file='images/ui/no.png') }}" alt="Ich habe noch kein Jabber-Konto"/></a>
-</div>
+  <ul>
+    <li>Ein Freund hat dir <a href="http://wiki.einfachjabber.de/jabber" title="Was ist Jabber eigentlich?">Jabber</a> empfohlen und du möchtest es gerne testen?</li>
+    <li>Die Informationen, die du bisher gefunden hast haben dich eher verwirrt als dir geholfen?</li>
+  </ul>
+  <h3>Dann bist du hier richtig!</h3>
+  <p>Wir helfen dir beim einfachen Einstieg in die Jabber-Welt.<br /> Starten kannst du direkt einfach über einen der beiden Buttons unten.</p>
+
+  <div id="choice">
+    <div id="yes">
+      <span class="h3"><img class="" height="32" src="{{ url_for('static', file='images/ui/yes.png') }}" />
+        Ich habe schon ein 
+        <span class="mp">Jabber-Konto<a href="http://wiki.einfachjabber.de/Jabber-Konto" class="mp-tooltip">
+          <img class="mailprovider" src="{{ url_for('static', file='images/ui/mail-provider.png') }}" /><br />
+          Ein E-Mail-Konto bei 1&amp;1, GoogleMail, GMX und Web.de<br /> ist auch ein Jabber-Konto. Hier klicken für mehr Info.</a></span>, dann
+          
+        <a href="{{ url_for('oslist') }}" class="choice-button" title="Zu den Jabber-Anleitungen">Direkt zu den Anleitungen &raquo;</a>
+      </span>
+    </div> <!-- End div#yes -->
+    <div id="no">
+      <span class="h3">
+        <img class="" height="32" src="{{ url_for('static', file='images/ui/no.png') }}" />
+        <span>Ich habe noch kein Jabber-Konto, dann</span>
+        <a href="{{ url_for('jabberreg') }}" class="choice-button" title="Neues Jabber-Konto anlegen">Neues Jabber-Konto anlegen &raquo;</a>
+      </span>
+    </div> <!-- End div#no -->
+  </div> <!-- End div#choice -->
+  <h3>Du möchtest gerne mehr über Jabber erfahren?</h3>
+  <p>Zum Beispiel, warum Jabber die bessere Alternative zu ICQ, MSN und Co. ist, oder wie und wo große Unternehmen wie Google oder Facebook die Technik hinter Jabber einsetzen? Antworten darauf findest du im <a href="http://wiki.einfachjabber.de" title="einfachJabber.de - Wiki">einfachJabber.de - Wiki</a>.
+</div> <!-- End div#start -->
 {% endblock %}

@@ -5,8 +5,12 @@ import re
 from werkzeug.exceptions import NotFound
 from stepbystep.utils import expose, render_template
 
-
 @expose('/')
+def placeholder(request):
+    pagetitle = u'Jabber Tutorial Portal'
+    return render_template('index.html', pagetitle=pagetitle)
+
+@expose('/start')
 def start(request):
     pagetitle = u'Jabber Tutorial Portal'
     return render_template('start.html', pagetitle=pagetitle)
@@ -36,13 +40,13 @@ def jabberreg(request):
                                    form.recaptcha_response_field.data,
                                    '6LeIRwsAAAAAAHvwuh2jEJhK_vN5oSYl_aglyky-',
                                    '127.0.0.1')
-        if subresult.is_valid is False:
-            return render_template('jabberreg.html', form=form, success=False,
-                               pagetitle=pagetitle, captchahtml=captchahtml,
-                                   captchaerror=True)
+        #if subresult.is_valid is False:
+            #return render_template('jabberreg.html', form=form, success=False,
+                               #pagetitle=pagetitle, captchahtml=captchahtml,
+                                   #captchaerror=True)
         from stepbystep.xmppreg import RegError, xmppreg
-        #rr = xmppreg(nick, passwd, domain)
-        rr = [1, None]
+        rr = xmppreg(nick, passwd, domain)
+        #rr = [1, None]
         if rr[0] is 1:
             #composemail(email, jid, passwd)
             return render_template('jabberreg.html', form=form, regerror=False,
@@ -50,7 +54,8 @@ def jabberreg(request):
                                    pagetitle=pagetitle)
         else:
             return render_template('jabberreg.html', form=form, regerror=rr[1],
-                                   jid=jid, pagetitle=pagetitle)
+                                   jid=jid, pagetitle=pagetitle,
+                                   captchahtml=captchahtml)
     else:
         return render_template('jabberreg.html', form=form, success=False,
                                pagetitle=pagetitle, captchahtml=captchahtml)
@@ -124,7 +129,7 @@ def tutorialmore(request, tid, page, morepage):
 @expose('/help')
 def help(request):
     from stepbystep.config import PAYPAL_BUTTON
-    pagetitle = ''
+    pagetitle = u'einfachJabber.de unterstützen'
     return render_template('help.html', pagetitle=pagetitle, paypal=PAYPAL_BUTTON)
 
 @expose('/impressum/')

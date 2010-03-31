@@ -55,7 +55,17 @@ h2 {
     text-align: left;
 }
 
+span.h2 {
+    font-size: 1.6em;
+    text-align: left;
+}
+
 h3 {
+    font-size: 1.4em;
+    text-align: left;
+}
+
+span.h3 {
     font-size: 1.4em;
     text-align: left;
 }
@@ -101,15 +111,104 @@ ul {
     width: 952px;
 }
 
+ul.errors li {
+    color: red;
+    font-weight: bold;
+}
+
 /* start.html specific */
 /************************/
 
-#start p {
+#start p, h3 {
     text-align: center;
 }
 
-#start img {
-    padding: 20px;
+#start ul {
+    list-style: disc;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+#start ul li {
+    margin: 0 auto;
+    width: 70%;
+}
+
+#choice {
+    margin: -30px auto 30px auto;
+    text-align: left;
+    width: 90%
+}
+
+#choice img {
+    position: relative;
+    top: 10px;
+    z-index: 0;
+}
+
+#choice img.mailprovider {
+    margin: 10px 0;
+}
+
+#choice span.h3 {
+    font-size: 1.4em;
+}
+
+div#choice span.mp {
+    border-bottom: 1px dashed #27282C;
+    left: 0;
+    position: relative;
+    text-decoration: none;
+    top: 0;
+}
+div#choice div#yes a.mp:hover {
+    padding-bottom: 40px;
+}
+
+div#yes {
+    margin: 50px 0;
+}
+
+div#yes span.mp:hover a.mp-tooltip {
+    background-color: #27282C;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    color: #fff;
+    display: block;
+    font-size: 0.8em;
+    left: -170px;
+    padding: 10px 10px 15px 10px;
+    position: absolute;
+    text-align: center;
+    top: 30px;
+    width: 460px;
+    z-index: 25;
+}
+
+a.mp-tooltip {
+    display: none;
+    text-decoration: none;
+}
+
+a.choice-button {
+    background: #27282C url(../images/ui/alert-overlay.png) repeat-x;
+    border-bottom: 1px solid #27282C;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-box-shadow: 0 1px 5px #999;
+    -webkit-box-shadow: 0 1px 3px #999;
+    color: #ffb400;
+    margin-left: 10px;
+    padding: 6px 10px 5px 10px;
+    position: relative;
+    text-decoration: none;
+    text-shadow: 0 -1px 1px #27282C;
+}
+
+a.choice-button:hover {
+    background-color: #111;
 }
 
 /* header.html specific */
@@ -197,7 +296,7 @@ ul li.overlay span.overlaytext {
     bottom: 0px;
     left: 5px;
     opacity: 0.8;
-    padding: 2px -7px 2px -7px;
+    padding: 2px 0px 2px 0px;
     position: absolute;
     min-width: 150px;
 }
@@ -224,6 +323,7 @@ ul#oslist li.top {
 
 ul#oslist li.top ul {
     background-color: #fff;
+    border-radius: 0 0 10px 10px;
     -moz-border-radius: 0 0 10px 10px;
     -webkit-border-bottom-left-radius: 10px;
     -webkit-border-bottom-right-radius: 10px;
@@ -443,9 +543,9 @@ a.overten, a.overten:hover {
 /* 404 page */
 /************/
 
-#notfound {
-    color: #74BF04;
+h1.fourofour {
     font-size: 3em;
+    margin-top: 50px;
 }
 
 /* temporary stuff */

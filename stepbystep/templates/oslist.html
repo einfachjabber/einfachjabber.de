@@ -8,11 +8,11 @@
   <h1>Bitte wähle Dein Betriebssystem</h1>
   <ul id="oslist">
     {% for cat in oslist|sort %}
-    <li class="{% if oslist[cat] %}top {% endif %}overlay">{% if not oslist[cat] %}<a href="{{ url_for('clientlist', osystem=cat|lower) }}">{% endif %}<img src="{{ url_for('static', file='images/os/logo-' + cat|lower + '.png') }}" />{% if not oslist[cat] %}</a>{% endif %}<span class="overlaytext">{{ cat }}</span>
+    <li class="{% if oslist[cat] %}top {% endif %}overlay">{% if not oslist[cat] %}<a href="{{ url_for('clientlist', osystem=cat|lower) }}">{% endif %}<img src="{{ url_for('static', file='images/os/logo-' + cat|lower + '.png') }}" alt="{{ cat }}" />{% if not oslist[cat] %}</a>{% endif %}<span class="overlaytext">{{ cat }}</span>
       {% if oslist[cat] %}
       <ul>
         {% for os in oslist[cat]|sort %}
-        <li><a href="{{ url_for('clientlist', osystem=os.short) }}"><img height="24" width="24" src="{{ url_for('static', file='images/os/logo-' + os.short + '.png') }}" /><span class="osname">{{ os.name }}</span></a></li>
+        <li><a href="{{ url_for('clientlist', osystem=os.short) }}"><img height="24" width="24" src="{{ url_for('static', file='images/os/logo-' + os.short + '.png') }}" alt="os.name" /><span class="osname">{{ os.name }}</span></a></li>
         {% endfor %}
       </ul>
       {% endif %}

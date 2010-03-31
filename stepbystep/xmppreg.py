@@ -4,7 +4,7 @@
 import xmpp
 import xmpp.debug as dbug
 
-dbug.Debug = dbug.NoDebug
+#dbug.Debug = dbug.NoDebug
 
 class RegError(Exception):
     """Handle account registration errors"""
@@ -24,6 +24,7 @@ def xmppreg(username, passwd, domain):
     c = xmpp.Client(domain)
     c.connect()
     reg = xmpp.features.register(c, domain, {'username': username, 'password': passwd})
+    print(reg)
     if reg is None:
         return 0, c.lastErr
     else:

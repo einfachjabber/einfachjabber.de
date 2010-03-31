@@ -1,11 +1,11 @@
 <div id="navigation">
-  <div id="logo"><a href="{{ url_for('start') }}"><img src="{{ url_for('static', file='images/ui/logo.png') }}" alt="einfachJabber.de Logo" /></a></div>
+  <div id="logo"><a href="{{ url_for('start') }}" title="Home"><img src="{{ url_for('static', file='images/ui/logo.png') }}" alt="einfachJabber.de Logo" /></a></div>
   <ul id="nav">
     {% for outlink, url, text, icon in navigation %}
     {% if outlink %}
-    <li><a href="{{ url }}" title="{{ text }}"><img src="{{ url_for('static', file='images/ui/' + icon) }}" /></a><a href="{{ url }}" title="{{ text }}">{{ text }}</a></li>
+    <li><a href="{{ url }}" title="{{ text }}"><img src="{{ url_for('static', file='images/ui/' + icon) }}" alt="{{ text }}" /></a><a href="{{ url }}" title="{{ text }}">{{ text }}</a></li>
     {% else %}
-    <li><a href="{{ url_for(url) }}" title="{{ text }}"><img src="{{ url_for('static', file='images/ui/' + icon) }}" /></a><a href="{{ url_for(url) }}" title="{{ text }}">{{ text }}</a></li>
+    <li><a href="{{ url_for(url) }}" title="{{ text }}"><img src="{{ url_for('static', file='images/ui/' + icon) }}" alt="{{ text }}" /></a><a href="{{ url_for(url) }}" title="{{ text }}">{{ text }}</a></li>
     {% endif %}
     {% endfor %}
   </ul>

@@ -24,7 +24,7 @@ def oslist(request):
 def jabberreg(request):
     pagetitle = u'Account Registration'
     from recaptcha.client import captcha
-    captchahtml = captcha.displayhtml('6LeIRwsAAAAAAFM_vdWOyCyHjlGz2A4XDsw6DqcU')
+    captchahtml = captcha.displayhtml('6LdtjgsAAAAAAOFO0O1oFvuc_PjXicfqHD0JS3ik')
     from stepbystep.forms import RegForm, composemail, randomserver
     form = RegForm(request.form)
     #print(form.recaptcha_challenge_field.data)
@@ -38,7 +38,7 @@ def jabberreg(request):
         jid = nick + '@' + domain
         subresult = captcha.submit(form.recaptcha_challenge_field.data,
                                    form.recaptcha_response_field.data,
-                                   '6LeIRwsAAAAAAHvwuh2jEJhK_vN5oSYl_aglyky-',
+                                   '6LdtjgsAAAAAAKoeUmTihlyU4YsC0KXpYWiP6Auy',
                                    '127.0.0.1')
         #if subresult.is_valid is False:
             #return render_template('jabberreg.html', form=form, success=False,

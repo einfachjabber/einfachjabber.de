@@ -125,7 +125,7 @@ ul.errors li {
 
 #start ul {
     list-style: disc;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     text-align: left;
 }
 
@@ -140,14 +140,13 @@ ul.errors li {
     width: 90%
 }
 
-#choice img {
+#yes, #no {
+}
+
+#choice img.yes, img.no {
     position: relative;
     top: 10px;
     z-index: 0;
-}
-
-#choice img.mailprovider {
-    margin: 10px 0;
 }
 
 #choice span.h3 {
@@ -155,40 +154,29 @@ ul.errors li {
 }
 
 div#choice span.mp {
-    border-bottom: 1px dashed #27282C;
-    left: 0;
     position: relative;
     text-decoration: none;
-    top: 0;
-}
-div#choice div#yes a.mp:hover {
-    padding-bottom: 40px;
 }
 
 div#yes {
     margin: 50px 0;
 }
 
-div#yes span.mp:hover a.mp-tooltip {
-    background-color: #27282C;
+a.mailprovider {
+    background: #27282C url(../images/ui/alert-overlay.png) repeat-x;
     border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     color: #fff;
     display: block;
     font-size: 0.8em;
-    left: -170px;
-    padding: 10px 10px 15px 10px;
-    position: absolute;
+    margin: -10px auto;
+    padding: 10px 5px 5px 5px;
+    position: relative;
     text-align: center;
-    top: 30px;
-    width: 460px;
-    z-index: 25;
-}
-
-a.mp-tooltip {
-    display: none;
     text-decoration: none;
+    top: 30px;
+    width: 80%;
 }
 
 a.choice-button {
@@ -199,7 +187,7 @@ a.choice-button {
     -webkit-border-radius: 10px;
     -moz-box-shadow: 0 1px 5px #999;
     -webkit-box-shadow: 0 1px 3px #999;
-    color: #ffb400;
+    color: #fff;
     margin-left: 10px;
     padding: 6px 10px 5px 10px;
     position: relative;
@@ -207,8 +195,9 @@ a.choice-button {
     text-shadow: 0 -1px 1px #27282C;
 }
 
-a.choice-button:hover {
+a.choice-button:hover, a.mailprovider:hover {
     background-color: #111;
+    color: #ffb400;
 }
 
 /* header.html specific */

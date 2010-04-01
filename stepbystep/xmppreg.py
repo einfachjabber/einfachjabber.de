@@ -4,7 +4,7 @@
 import xmpp
 import xmpp.debug as dbug
 
-#dbug.Debug = dbug.NoDebug
+dbug.Debug = dbug.NoDebug
 
 class RegError(Exception):
     """Handle account registration errors"""

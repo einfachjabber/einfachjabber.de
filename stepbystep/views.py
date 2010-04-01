@@ -40,15 +40,15 @@ def jabberreg(request):
                                    form.recaptcha_response_field.data,
                                    '6LdtjgsAAAAAAKoeUmTihlyU4YsC0KXpYWiP6Auy',
                                    '127.0.0.1')
-        #if subresult.is_valid is False:
-            #return render_template('jabberreg.html', form=form, success=False,
-                               #pagetitle=pagetitle, captchahtml=captchahtml,
-                                   #captchaerror=True)
+        if subresult.is_valid is False:
+            return render_template('jabberreg.html', form=form, success=False,
+                               pagetitle=pagetitle, captchahtml=captchahtml,
+                                   captchaerror=True)
         from stepbystep.xmppreg import RegError, xmppreg
         rr = xmppreg(nick, passwd, domain)
         #rr = [1, None]
         if rr[0] is 1:
-            #composemail(email, jid, passwd)
+            composemail(email, jid, passwd)
             return render_template('jabberreg.html', form=form, regerror=False,
                                    success=True, jid=jid, email=email,
                                    pagetitle=pagetitle)

@@ -7,7 +7,7 @@
   <h1>{{ pagetitle }}</h1>
   <ul id="clientlist">
   {% for client in clist|sort %}
-  <li class="overlay"><a href="{{ url_for('tutorial', tid=osystem + '-' + client) }}">
+  <li class="overlay"><a href="{{ url_for('tutorial', tid=osystem + '-' + client|lower) }}">
     <img class="logos" src="{{ url_for('static', file='images/client/logo-' + client|lower + '.png') }}" alt="{{ client }}" />
     {% if client|lower == defaultclient %}
       <span class="asterisk">*</span>

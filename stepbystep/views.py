@@ -126,6 +126,11 @@ def tutorialmore(request, tid, page, morepage):
                            morepage=morepage, page=page, flpage=flpage,\
                            jumpto=jumpto)
 
+@expose('/jabber')
+def jabber(request):
+    pagetitle = u'Was ist Jabber?'
+    return render_template('jabber.html', pagetitle=pagetitle)
+
 @expose('/help')
 def help(request):
     from stepbystep.config import PAYPAL_BUTTON

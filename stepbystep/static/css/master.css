@@ -136,7 +136,7 @@ ul.errors li {
 
 #choice {
     margin: -30px auto 30px auto;
-    text-align: left;
+    text-align: center;
     width: 90%
 }
 
@@ -151,11 +151,6 @@ ul.errors li {
 
 #choice span.h3 {
     font-size: 1.4em;
-}
-
-div#choice span.mp {
-    position: relative;
-    text-decoration: none;
 }
 
 div#yes {

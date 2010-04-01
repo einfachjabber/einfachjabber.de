@@ -61,11 +61,11 @@ class RegForm(Form):
 
 def composemail(email, jid, passwd):
     """Use the form-contents to create an email to send"""
-    mailbody = u'Du hast eben über jabber.zeroathome.de einen neuen\
+    mailbody = u'Du hast eben über jabber.zeroathome.de einen neuen \
 Jabber-Account registriert.\n\
 Die Benutzerdaten dazu lauten:\n\n\
 Benutzername: ' + str(jid) + '\n' + u'Passwort: ' + str(passwd)\
-+ u'\n\nAuf http://jabber.zeroathome.de findest du Anleitungen zur für\
++ u'\n\nAuf http://jabber.zeroathome.de findest du Anleitungen zur für \
 verschiedene Client-Programme.'
     subject = u'jabber.zeroathome.de - Jabber-Konto Registrierung'
     email = [email]

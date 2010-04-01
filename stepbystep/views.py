@@ -5,12 +5,12 @@ import re
 from werkzeug.exceptions import NotFound
 from stepbystep.utils import expose, render_template
 
-@expose('/')
+@expose('/ph')
 def placeholder(request):
     pagetitle = u'Jabber Tutorial Portal'
     return render_template('index.html', pagetitle=pagetitle)
 
-@expose('/start')
+@expose('/')
 def start(request):
     pagetitle = u'Jabber Tutorial Portal'
     return render_template('start.html', pagetitle=pagetitle)
@@ -27,8 +27,6 @@ def jabberreg(request):
     captchahtml = captcha.displayhtml('6LdtjgsAAAAAAOFO0O1oFvuc_PjXicfqHD0JS3ik')
     from stepbystep.forms import RegForm, composemail, randomserver
     form = RegForm(request.form)
-    #print(form.recaptcha_challenge_field.data)
-    #print(form.recaptcha_response_field.data)
     form.domain.choices = randomserver()
     if request.method == 'POST' and form.validate():
         nick = form.nick.data
@@ -46,7 +44,6 @@ def jabberreg(request):
                                    captchaerror=True)
         from stepbystep.xmppreg import RegError, xmppreg
         rr = xmppreg(nick, passwd, domain)
-        #rr = [1, None]
         if rr[0] is 1:
             composemail(email, jid, passwd)
             return render_template('jabberreg.html', form=form, regerror=False,

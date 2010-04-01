@@ -6,11 +6,11 @@
 {% block content %}
 {% if success %}
   <h1>Registrierung erfolgreich!</h1>
-  <p>Die Registrierung deines Benutzernames ({{ jid }}) war erfolgreich. 
+  <p>Die Registrierung deines Benutzernames (<a href="xmpp:{{ jid }}" title="{{ jid }}">{{ jid }}</a>) war erfolgreich. 
   {% if email %}
-  Deine Zugangsdaten wurden dir auch noch einmal per E-Mail an {{ email }} gesendet.
+  Deine Zugangsdaten wurden dir auch noch einmal per E-Mail an {{ email }} gesendet.</p>
   {% endif %}
-  Falls du Hilfe beim Einrichten eines Programmes zur Nutzung deines Jabber-Kontos brauchst, klicke bitte <a href="{{ url_for('start') }}">hier</a>.</p>  
+  <p>Falls du Hilfe beim Einrichten eines Programmes zur Nutzung deines Jabber-Kontos brauchst, klicke bitte <a href="{{ url_for('oslist') }}">hier</a>.</p>  
 {% else %}
 {% if regerror %}
   <h1>Ein Fehler ist aufgetreten!</h1>

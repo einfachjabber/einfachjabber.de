@@ -61,7 +61,6 @@ def navigation():
             (True, 'http://wiki.einfachjabber.de', 'Wiki', 'wiki.png'),
             (False, 'jabberreg', 'Neues Konto', 'neueskonto.png'),
             (False, 'help', 'Helfen', 'help.png'),
-            #(False, 'impressum', 'Impressum', 'impressum.png'),
     ]
     return links
 jinja_env.globals['navigation'] = navigation()

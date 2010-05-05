@@ -61,7 +61,7 @@ class RegForm(Form):
 
 
 def composemail(email, jid, passwd):
-    if not email:
+    if email:
         """Use the form-contents to create an email to send"""
         mailbody = u'Du hast eben über http://einfachjabber.de einen neuen \
     Jabber-Account registriert.\n\

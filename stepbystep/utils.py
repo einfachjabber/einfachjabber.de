@@ -10,6 +10,14 @@ from stepbystep.config import TEMPLATE_PATH, IMAGE_PATH, ADMIN_MAIL
 from werkzeug import Local, LocalManager, Response
 from werkzeug.routing import Map, Rule
 from stepbystep.tutorialutils import OsCatalog
+import logging
+
+logger = logging.getLogger('einfachjabber.de')
+hdlr = logging.FileHandler('/var/log/einfachjabber.log')
+formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+hdlr.setFormatter(formatter)
+logger.addHandler(hdlr)
+logger.setLevel(logging.INFO)
 
 local = Local()
 local_manager = LocalManager([local])

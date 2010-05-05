@@ -22,6 +22,7 @@ def oslist(request):
 
 @expose('/reg')
 def jabberreg(request):
+    from stepbystep.utils import logger
     pagetitle = u'Account Registration'
     from recaptcha.client import captcha
     captchahtml = captcha.displayhtml('6LdtjgsAAAAAAOFO0O1oFvuc_PjXicfqHD0JS3ik')
@@ -46,6 +47,7 @@ def jabberreg(request):
         rr = xmppreg(nick, passwd, domain)
         if rr[0] is 1:
             composemail(email, jid, passwd)
+            logger.info('New registration')
             return render_template('jabberreg.html', form=form, regerror=False,
                                    success=True, jid=jid, email=email,
                                    pagetitle=pagetitle)

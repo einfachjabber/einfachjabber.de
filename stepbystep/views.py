@@ -132,9 +132,10 @@ def jabber(request):
 
 @expose('/help')
 def help(request):
-    from stepbystep.config import PAYPAL_BUTTON
+    from stepbystep.config import PAYPAL_BUTTON, FLATTR_BUTTON
     pagetitle = u'einfachJabber.de unterstützen'
-    return render_template('help.html', pagetitle=pagetitle, paypal=PAYPAL_BUTTON)
+    return render_template('help.html', pagetitle=pagetitle,
+                           paypal=PAYPAL_BUTTON, flattr=FLATTR_BUTTON)
 
 @expose('/impressum/')
 def impressum(request):

@@ -10,6 +10,7 @@ body {
     color: #27282C;
     font-family: Helvetica, Arial, sans-serif;
     overflow: auto;
+    overflow-y: scroll;
 }
 
 span {

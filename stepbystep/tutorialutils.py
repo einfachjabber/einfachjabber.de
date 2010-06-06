@@ -66,7 +66,7 @@ class OsCatalog(object):
             'MacOSX': [],
             'Mobil': [
                     { 'name': 'Android', 'short': 'android' },
-                    #{ 'name': 'Blackberry', 'short': 'blackberry'},
+                    { 'name': 'Blackberry', 'short': 'blackberry'},
                     { 'name': 'iPhone', 'short': 'iphone' },
                     { 'name': 'Maemo2008', 'short': 'maemo2008'},
                     #{ 'name': 'Palm (Pre) WebOS', 'short': 'webos'},
@@ -80,6 +80,8 @@ class OsCatalog(object):
         """Maps the OS short-names to their long pendants and their default client"""
         if self.osystem == 'android':
             system = ['Android', 'beem']
+        if self.osystem == 'blackberry':
+            system = ['Blackberry', 'None']
         if self.osystem == 'debian':
             system = ['Debian', 'pidgin']
         if self.osystem == 'fedora':

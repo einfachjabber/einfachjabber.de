@@ -90,7 +90,7 @@ def tutorial(request, tid, page):
 
 @expose('/tutorial/<tid>/links')
 def tutoriallinks(request, tid):
-    from stepbystep.config import PAYPAL_BUTTON
+    from stepbystep.config import PAYPAL_BUTTON, FLATTR_BUTTON
     from stepbystep.tutorialutils import Tutorial
     gt = Tutorial(tid).gettutorial
     pag = Tutorial(tid).pagination
@@ -103,7 +103,7 @@ def tutoriallinks(request, tid):
     return render_template('tutoriallinks.html', pagetitle=pagetitle,
                            metadata=metadata, linkdata=linkdata, tid=tid,
                            maxpage=maxpage, authordata=authordata,
-                           paypal=PAYPAL_BUTTON)
+                           paypal=PAYPAL_BUTTON, flattr=FLATTR_BUTTON)
 
 
 @expose('/tutorial/<tid>/<int:page>/more', defaults={'morepage':0})

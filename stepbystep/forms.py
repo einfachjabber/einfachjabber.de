@@ -16,7 +16,7 @@ serverlist = [
     ('jabber.rootbash.com', 'jabber.rootbash.com'),
     ('jabber-server.de', 'jabber-server.de'),
     ('jabberim.de', 'jabberim.de'),
-    ('jabme.de', 'jabme.de'),
+    #('jabme.de', 'jabme.de'),
     ('open-host.de', 'open-host.de'),
     #('na-di.de', 'na-di.de'),
     #('neko.im', 'neko.im'),

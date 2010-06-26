@@ -18,7 +18,7 @@ class Clients(object):
         """reads the list of clients from the tutorial directory"""
         clist = []
         os.chdir(TUTORIAL_PATH)
-        files = glob.glob(self.osystem + '*.json')
+        files = glob.glob(self.osystem + '-*.json')
         if not files:
             raise NotFound()
         for file in files:

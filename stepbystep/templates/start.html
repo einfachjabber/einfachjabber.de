@@ -6,32 +6,15 @@
 {% block content %}
 <h1>Willkommen auf einfachJabber.de</h1>
 <div id="start">
-  <ul>
-    <li>Ein Freund hat dir <a href="http://einfachjabber.de/jabber" title="Was ist Jabber eigentlich?">Jabber</a> empfohlen und du möchtest es gerne testen?</li>
-    <li>Die Informationen, die du bisher gefunden hast haben dich eher verwirrt als dir geholfen?</li>
-  </ul>
-  <h3>Dann bist du hier richtig!</h3>
-  <p>Wir helfen dir beim einfachen Einstieg in die Jabber-Welt.<br /> Starten kannst du direkt einfach über einen der beiden Buttons unten.</p>
-
-  <div id="choice">
-    <div id="yes">
-      <span class="h3"><img class="yes" src="{{ url_for('static', filename='images/ui/yes.png') }}" />
-        Ich habe schon ein Jabber-Konto, dann
-        <a href="{{ url_for('oslist') }}" class="choice-button" title="Zu den Jabber-Anleitungen">Direkt zu den Anleitungen &raquo;</a>
-      </span>
-        <a href="http://wiki.einfachjabber.de/Jabber-Provider" class="mailprovider">
-          <img class="mailprovider" src="{{ url_for('static', filename='images/ui/mail-provider.png') }}" /><br />
-          Ein E-Mail-Konto bei 1&amp;1, GoogleMail, GMX und Web.de ist auch ein Jabber-Konto. Hier klicken für mehr Info.</a>
-    </div> <!-- End div#yes -->
-    <div id="no">
-      <span class="h3">
-        <img class="no" src="{{ url_for('static', filename='images/ui/no.png') }}" />
-        <span>Ich habe noch kein Jabber-Konto, dann</span>
-        <a href="{{ url_for('jabberreg') }}" class="choice-button" title="Neues Jabber-Konto anlegen">Neues Jabber-Konto anlegen &raquo;</a>
-      </span>
-    </div> <!-- End div#no -->
-  </div> <!-- End div#choice -->
-  <h3>Du möchtest gerne mehr über Jabber erfahren?</h3>
+  <h3>Jabber - Was ist das eigentlich?</h3>
+  <p>Was Jabber genau ist und warum du es benutzen solltest, erklären wir Dir <a href="{{ url_for('jabber') }}" title="Was ist Jabber - wiki.einfachjabber.de">hier</a>.</p>
+  <h3>Wie und wo erstelle ich ein Konto?</h3>
+  <p>Viele haben bereits ein Jabber-Konto und wissen es gar nicht. Auf unserer <a href="http://wiki.einfachjabber.de/Jabber-Provider" title="Jabber Provider - wiki.einfachjabber.de">Anbieter-Übersicht</a> erfährst du ob du einer davon bist.<br /> Falls nicht, findest du <a href="http://wiki.einfachjabber.de/Neues-Konto" title="Neues Jabber Konto eröffnen - wiki.einfachjabber.de">hier</a> alles was du brauchst um ein neues Konto zu eröffnen.</p> 
+  <a href="{{ url_for('jabberreg') }}" class="choice-button" title="Neues Jabber-Konto anlegen">Neues Jabber-Konto anlegen &raquo;</a>
+  <h3>Was brauche ich noch?</h3>
+  <p>Auch hier gibt es wieder zwei mögliche Antworten (du siehst, bei Jabber geht es auch um Entscheidungsfreiheit).<br/ >Möchtest du lieber</p>
+  <a href="{{ url_for('oslist') }}" class="choice-button" title="Zu den Jabber-Anleitungen">Direkt im Browser chatten &raquo;</a> oder <a href="{{ url_for('oslist') }}" class="choice-button" title="Zu den Jabber-Anleitungen">Ein Chatprogramm  installieren&raquo;</a>
+  <h3>Wo kann ich mehr über Jabber erfahren?</h3>
   <p>Zum Beispiel, warum Jabber die bessere Alternative zu ICQ, MSN und Co. ist, oder wie und wo große Unternehmen wie Google oder Facebook die Technik hinter Jabber einsetzen? Antworten darauf findest du im <a href="http://wiki.einfachjabber.de" title="einfachJabber.de - Wiki">einfachJabber.de - Wiki</a>.
 </div> <!-- End div#start -->
 {% endblock %}

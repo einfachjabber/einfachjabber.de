@@ -26,7 +26,7 @@ class Clients(object):
                 try:
                     clname = json.load(f)['client']
                     clist = clist + [clname]
-                    return clist
                 except:
                     errormail('Error in JSON-Data')
                     raise NotFound()
+        return clist

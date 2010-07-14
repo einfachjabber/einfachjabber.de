@@ -62,6 +62,7 @@ class OsCatalog(object):
                     { 'name': 'Kubuntu', 'short': 'kubuntu' },
                     { 'name': 'OpenSUSE', 'short': 'opensuse' },
                     { 'name': 'Ubuntu', 'short': 'ubuntu' },
+                    { 'name': 'Ubuntu Netbook Edition', 'short': 'ubuntunbe' },
                     ],
             'MacOSX': [],
             'Mobil': [
@@ -94,10 +95,16 @@ class OsCatalog(object):
             system = ['Mac OS X', 'ichat']
         if self.osystem == 'maemo2008':
             system = ['Maemo OS2008', 'pidgin']
+        if self.osystem == 'opensolaris':
+            system = ['OpenSolaris', 'pidgin']
         if self.osystem == 'opensuse':
             system = ['OpenSUSE', 'kopete']
+        if self.osystem == 'pcbsd':
+            system = ['PC BSD', 'pidgin']
         if self.osystem == 'ubuntu':
             system = ['Ubuntu', 'empathy']
+        if self.osystem == 'ubuntunbe':
+            system = ['Ubuntu Netbook Edition', 'empathy']
         if self.osystem == 'win7':
             system = ['Windows Vista / 7', 'pidgin']
         if self.osystem == 'winxp':

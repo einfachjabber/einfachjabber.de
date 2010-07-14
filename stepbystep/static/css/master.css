@@ -108,8 +108,10 @@ ul {
     height: 30px;
     margin: -25px auto;
     padding: 8px 0 2px 0;
+    position:relative;
     text-align: right;
     width: 952px;
+    z-index:0;
 }
 
 ul.errors li {
@@ -279,7 +281,7 @@ ul li.overlay span.overlaytext {
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     bottom: 0px;
-    left: 5px;
+    left: -2px;
     opacity: 0.8;
     padding: 2px 0px 2px 0px;
     position: absolute;
@@ -316,12 +318,13 @@ ul#oslist li.top ul {
     -moz-box-shadow: 0px 5px 5px rgba(39,40,44,0.7);
     -webkit-box-shadow: 0px 5px 5px rgba(39,40,44,0.7);
     display: none;
-    left: -10px;
+    left: -30px;
     padding: 20px;
     position: absolute;
     text-align: left;
     top: 36px;
-    width: 150px;
+    width: 190px;
+    z-index:100;
 }
 
 ul#oslist li.top:hover ul {
@@ -378,7 +381,7 @@ ul#oslist li ul li span.osname {
     display: none;
     width: 1px;
     background-image: url(../images/passwordstrength.jpg);
-    height: 5px; 
+    height: 5px;
     float: left;
 }
 

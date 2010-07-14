@@ -52,10 +52,6 @@ class OsCatalog(object):
     def oslist(self):
         """docstring for oslist"""
         listing = {
-            'Windows': [
-                    { 'name': 'Windows Vista / 7', 'short': 'win7'},
-                    { 'name': 'Windows XP', 'short': 'winxp' }
-                   ],
             'Linux': [
                     { 'name': 'Debian', 'short': 'debian' },
                     { 'name': 'Fedora', 'short': 'fedora' },
@@ -65,13 +61,19 @@ class OsCatalog(object):
                     { 'name': 'Ubuntu Netbook Edition', 'short': 'ubuntunbe' },
                     ],
             'MacOSX': [],
+            'Windows': [
+                    { 'name': 'Windows Vista / 7', 'short': 'win7'},
+                    { 'name': 'Windows XP', 'short': 'winxp' }
+                   ],
             'Mobil': [
                     { 'name': 'Android', 'short': 'android' },
                     { 'name': 'Blackberry', 'short': 'blackberry'},
                     { 'name': 'iPhone', 'short': 'iphone' },
                     { 'name': 'Maemo2008', 'short': 'maemo2008'},
-                    #{ 'name': 'Palm (Pre) WebOS', 'short': 'webos'},
-                    #{ 'name': 'Symbian S60', 'short': 's60'}
+                   ],
+            'Andere': [
+                    { 'name': 'OpenSolaris', 'short': 'opensolaris'},
+                    { 'name': 'PC BSD', 'short': 'pcbsd' }
                    ],
         }
         return listing

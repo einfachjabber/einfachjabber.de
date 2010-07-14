@@ -21,7 +21,9 @@
   {% endif %}
 {% else %}
   <h1>Hier kannst du einen neuen Jabber-Account anlegen.</h1>
-  <p>Dazu trage einfach deinen gewünschten Benutzernamen ein und wähle einen Server aus. Falls du deine Zugangsdaten als Erinnerung per E-Mail erhalten möchtest, fülle einfach das E-Mail Feld unten aus. Deine E-Mail Adresse wird nicht bei uns gespeichert! Als letztes fehlt nur noch ein Passwort und ein Klick auf "Anlegen".</p> 
+  <p>Dazu trage einfach deinen gewünschten Benutzernamen ein und wähle einen
+  Server aus. Die hier verfügbaren Server sind nur eine kleine Auswahl, mehr Server und Informationen zu deren Betreibern findest du <a href="http://wiki.einfachjabber.de/Jabber-Provider" title="einfachjabber.de Wiki - Jabber Provider">hier</a>.<br />
+  Falls du deine Zugangsdaten als Erinnerung per E-Mail erhalten möchtest, fülle einfach das E-Mail Feld unten aus. Deine E-Mail Adresse wird nicht bei uns gespeichert! Als letztes fehlt nur noch ein Passwort und ein Klick auf "Anlegen".</p> 
 {% endif %}
 <div id="regform">
 <form action="{{ url_for('jabberreg') }}" method="post" accept-charset="utf-8">

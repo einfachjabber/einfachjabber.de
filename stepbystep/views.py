@@ -59,7 +59,7 @@ def jabberreg(request):
         return render_template('jabberreg.html', form=form, success=False,
                                pagetitle=pagetitle, captchahtml=captchahtml)
 
-@expose('/<osystem>')
+@expose('/os/<osystem>')
 def clientlist(request, osystem):
     from stepbystep.clientutils import Clients
     from stepbystep.tutorialutils import OsCatalog
@@ -145,5 +145,5 @@ def impressum(request):
 def not_found(request):
     """Handles 404s"""
     pagetitle = '404 - Seite nicht gefunden'
-    return render_template('not_found.html', pagetitle=pagetitle)
+    return render_template('404.html', pagetitle=pagetitle)
 

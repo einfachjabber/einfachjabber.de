@@ -9,7 +9,7 @@ from stepbystep.config import TUTORIAL_PATH
 
 class Clients(object):
     """Functions for managing the client-chooser"""
-    
+
     def __init__(self, osystem):
         self.osystem = osystem
 
@@ -23,7 +23,10 @@ class Clients(object):
             raise NotFound()
         for file in files:
             with open(file, 'r') as f:
-                clname = json.load(f)['client']
-                clist = clist + [clname]
-        return clist
-
+                try:
+                    clname = json.load(f)['client']
+                    clist = clist + [clname]
+                    return clist
+                except:
+                    errormail('Error in JSON-Data')
+                    raise NotFound()

@@ -1,8 +1,11 @@
 from cherrypy import wsgiserver
-from manage import make_app
+from stepbystep import app
 
-server = wsgiserver.CherryPyWSGIServer(('127.0.0.1', 9001), make_app())
-try:
-    server.start()
-except KeyboardInterrupt:
-    server.stop()
+d = wsgiserver.WSGIPathInfoDispatcher({'/': app})
+server = wsgiserver.CherryPyWSGIServer(('10.5.0.1', 9002), d)
+
+if __name__ == '__main__':
+   try:
+      server.start()
+   except KeyboardInterrupt:
+      server.stop()

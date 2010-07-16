@@ -60,17 +60,3 @@ class RegForm(Form):
 
 
 
-def composemail(email, jid, passwd):
-    if email:
-        """Use the form-contents to create an email to send"""
-        mailbody = u'Du hast eben über http://einfachjabber.de einen neuen \
-    Jabber-Account registriert.\n\
-    Die Benutzerdaten dazu lauten:\n\n\
-    Benutzername: ' + str(jid) + '\n' + u'Passwort: ' + str(passwd)\
-    + u'\n\nAuf http://einfachjabber.de findest du Anleitungen zur für \
-    verschiedene Client-Programme.'
-        subject = u'jabber.zeroathome.de - Jabber-Konto Registrierung'
-        email = [email]
-        sendmail(email, subject, mailbody)
-    else:
-        pass

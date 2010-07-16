@@ -1,5 +1,8 @@
 .DS_Store
 *.pyc
+stepbystep/config.py
+development.py
+production.py
 
 stepbystep/static/tutorials/*
 stepbystep/static/wiki/*

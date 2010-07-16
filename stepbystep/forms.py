@@ -1,5 +1,13 @@
-#!/usr/bin/python
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
+"""
+    stepbystep.forms
+    ~~~~~~~~~~~~~~~~
+
+    Definition of the jabber registration form
+
+    :copyright: (c) 2010 by Benjamin Zimmer.
+    :license: MIT, see LICENSE for more details.
+"""
 
 import random
 from wtforms import Form, TextField, TextAreaField, SelectField,\

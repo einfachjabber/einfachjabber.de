@@ -1,6 +1,17 @@
-<a href="http://www.facebook.com/pages/Jabber-Germany/282026123863" title="Einfachjabber.de auf Facebook"><img src="{{ url_for('static', file='images/ui/facebook.png') }}" alt="Facebook" /></a>
-  <a href="http://twitter.com/jabbergermany" title="Einfachjabber.de auf Twitter"><img src="{{ url_for('static', file='images/ui/twitter.png') }}" alt="Follow us on Twitter" /></a>
-<a href="http://identi.ca/jabbergermany" title="Einfachjabber.de auf identi.ca"><img src="{{ url_for('static', file='images/ui/identica.png') }}" alt="Follow us on identi.ca" /></a>
-<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/de/" title="Creative Commons - Namensnennung-Keine kommerzielle Nutzung-Weitergabe unter gleichen Bedingungen 3.0 Deutschland"><img src="{{ url_for('static', file='images/ui/cc.png') }}" alt="http://creativecommons.org/licenses/by-nc-sa/3.0/de/" /></a>
-<a href="{{ url_for('impressum') }}" title="Impressum"><img src="{{ url_for('static', file='images/ui/impressum.png') }}" alt="Impressum" /><span>Impressum</span></a>
-{{ trackingcode }}
+<a href="http://www.facebook.com/pages/Jabber-Germany/282026123863" title="Einfachjabber.de auf Facebook"><img src="{{ url_for('static', filename='images/ui/facebook.png') }}" alt="Facebook" /></a>
+  <a href="http://twitter.com/jabbergermany" title="Einfachjabber.de auf Twitter"><img src="{{ url_for('static', filename='images/ui/twitter.png') }}" alt="Follow us on Twitter" /></a>
+<a href="http://identi.ca/jabbergermany" title="Einfachjabber.de auf identi.ca"><img src="{{ url_for('static', filename='images/ui/identica.png') }}" alt="Follow us on identi.ca" /></a>
+<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/de/" title="Creative Commons - Namensnennung-Keine kommerzielle Nutzung-Weitergabe unter gleichen Bedingungen 3.0 Deutschland"><img src="{{ url_for('static', filename='images/ui/cc.png') }}" alt="http://creativecommons.org/licenses/by-nc-sa/3.0/de/" /></a>
+<a href="{{ url_for('impressum') }}" title="Impressum"><img src="{{ url_for('static', filename='images/ui/impressum.png') }}" alt="Impressum" /><span>Impressum</span></a>
+<!-- Piwik -->
+<script type="text/javascript">
+var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.firefly-it.de/" : "http://stats.firefly-it.de/");
+document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+try {
+var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 5);
+piwikTracker.trackPageView();
+piwikTracker.enableLinkTracking();
+} catch( err ) {}
+</script><noscript><p><img src="http://stats.firefly-it.de/piwik.php?idsite=5" style="border:0" alt=""/></p></noscript>
+<!-- End Piwik Tag -->

@@ -8,7 +8,7 @@
   {% include "tutorial-pagination.html"%}
   {% include "tutorial-navigation.html"%}
       {% if pagedata[1] %}
-        <img id="tut-image" src="{{ url_for('static', file='tutorials/' + tid|lower + '/' + pagedata[1]) }}" alt="{{ pagedata[1] }}" />
+        <img id="tut-image" src="{{ url_for('static', filename='tutorials/' + tid|lower + '/' + pagedata[1]) }}" alt="{{ pagedata[1] }}" />
       {% endif %}
       <div id="caption">{{ pagedata[0] }}</div>
       {% if pagedata.more %}

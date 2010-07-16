@@ -5,7 +5,7 @@
 {% block title %}{{ pagetitle }}{% endblock %}
 {% block content %}
 <h1 class="fourofour">404 - Not found</h1>
-<img src="{{ url_for('static', file='images/ui/404.png') }}" alt="404 error" />
+<img src="{{ url_for('static', filename='images/ui/404.png') }}" alt="404 error" />
 <h3>Wir haben überall gesucht, aber die Seite leider nicht gefunden</h3>
   Benutze den Zurück-Button deines Browsers oder kehre 
   <a href="{{ url_for('start') }}">zurück zur Startseite</a>

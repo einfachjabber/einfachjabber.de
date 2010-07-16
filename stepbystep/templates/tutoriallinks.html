@@ -31,10 +31,12 @@
    </ul>
    <p>Wenn dir unser Tutorial weitergeholfen hat, wäre es schön, wenn du deinen Freunden von uns und Jabber erzählen, oder eine monetäre Kleinigkeit zum Betrieb dieser Plattform beitragen würdest.</p>
    <div id="sociallinks">
-    <a href="http://twitter.com/home?status=Jabber! Wie E-Mail, nur schneller - http://einfachjabber.de" title="twitter.com"><img src="{{ url_for('static', file='images/ui/twitter-mb.png') }}" alt="Twitter" /></a>
-    <a href="http://identi.ca/notice/new?status_textarea=Jabber! Wie E-Mail, nur schneller - http://einfachjabber.de" title="identi.ca"><img src="{{ url_for('static', file='images/ui/identica-mb.png') }}" alt="Identi.ca" /></a>
-    <a href="http://www.facebook.com/share.php?u=http://einfachjabber.de&amp;t=Jabber! Wie E-Mail, nur schneller!" title="facebook.com"><img src="{{ url_for('static', file='images/ui/facebook-mb.png') }}" alt="Facebook" /></a>
+    <a href="http://twitter.com/home?status=Jabber! Wie E-Mail, nur schneller - http://einfachjabber.de" title="twitter.com"><img src="{{ url_for('static', filename='images/ui/twitter-mb.png') }}" alt="Twitter" /></a>
+    <a href="http://identi.ca/notice/new?status_textarea=Jabber! Wie E-Mail, nur schneller - http://einfachjabber.de" title="identi.ca"><img src="{{ url_for('static', filename='images/ui/identica-mb.png') }}" alt="Identi.ca" /></a>
+    <a href="http://www.facebook.com/share.php?u=http://einfachjabber.de&amp;t=Jabber! Wie E-Mail, nur schneller!" title="facebook.com"><img src="{{ url_for('static', filename='images/ui/facebook-mb.png') }}" alt="Facebook" /></a>
+    {% autoescape false %}
     {{ paypal }} {{ flattr }}
+    {% endautoescape %}
    </div>
      <br />
    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/de/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/de/88x31.png" /></a><br />Der Text und die Bilder dieses Tutorials stehen unter der <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/de/">Namensnennung-Keine kommerzielle Nutzung-Weitergabe unter gleichen Bedingungen 3.0 Deutschland Lizenz</a>.

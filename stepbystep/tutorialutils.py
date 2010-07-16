@@ -1,33 +1,29 @@
-#!/usr/bin/python
 #-*- coding: utf-8 -*-
 
 import json
 import os.path
-from werkzeug.exceptions import NotFound
-from werkzeug.utils import cached_property
-from stepbystep.config import TUTORIAL_PATH
+from flask import abort
+from stepbystep import app
 
-class Tutorial(object):
+class Tutorial():
     """Functions necessary for the tutorial-viewer to work"""
 
-    def __init__(self, id):
-        self.id = id
-
-    @cached_property
-    def gettutorial(self):
+    def gettutorial(self, id):
         """Load the tutorial specified by id from the .json file"""
         from stepbystep.utils import errormail
-        filename = TUTORIAL_PATH + self.id + '.json'
+        filename = app.config['TUTORIAL_PATH'] + id + '.json'
+        print filename
         if os.path.isfile(filename):
+            print "test"
             with open(filename, 'r') as f:
                 try:
                     data = json.load(f)
                     return data
                 except:
                     errormail('Error in JSON-Data')
-                    raise NotFound()
+                    abort(404)
         else:
-            raise NotFound()
+            abort(404)
 
     def pagination(self, page, maxpage):
         """pagination helper"""
@@ -40,10 +36,8 @@ class Tutorial(object):
             raise NotFound()
         return flpage
 
-class OsCatalog(object):
+class OsCatalog():
     """docstring for Oscatalog"""
-    def __init__(self, osystem):
-        self.osystem = osystem
 
     def catlist(self):
         """docstring for catlist"""
@@ -78,37 +72,36 @@ class OsCatalog(object):
         }
         return listing
 
-    @cached_property
-    def defclient(self):
+    def defclient(self, osystem):
         """Maps the OS short-names to their long pendants and their default client"""
-        if self.osystem == 'android':
+        if osystem == 'android':
             system = ['Android', 'beem']
-        if self.osystem == 'blackberry':
+        if osystem == 'blackberry':
             system = ['Blackberry', 'None']
-        if self.osystem == 'debian':
+        if osystem == 'debian':
             system = ['Debian', 'pidgin']
-        if self.osystem == 'fedora':
+        if osystem == 'fedora':
             system = ['Fedora', 'empathy']
-        if self.osystem == 'iphone':
+        if osystem == 'iphone':
             system = ['iPhone', 'None']
-        if self.osystem == 'kubuntu':
+        if osystem == 'kubuntu':
             system = ['Kubuntu', 'kopete']
-        if self.osystem == 'macosx':
+        if osystem == 'macosx':
             system = ['Mac OS X', 'ichat']
-        if self.osystem == 'maemo2008':
+        if osystem == 'maemo2008':
             system = ['Maemo OS2008', 'pidgin']
-        if self.osystem == 'opensolaris':
+        if osystem == 'opensolaris':
             system = ['OpenSolaris', 'pidgin']
-        if self.osystem == 'opensuse':
+        if osystem == 'opensuse':
             system = ['OpenSUSE', 'kopete']
-        if self.osystem == 'pcbsd':
+        if osystem == 'pcbsd':
             system = ['PC BSD', 'pidgin']
-        if self.osystem == 'ubuntu':
+        if osystem == 'ubuntu':
             system = ['Ubuntu', 'empathy']
-        if self.osystem == 'ubuntunbe':
+        if osystem == 'ubuntunbe':
             system = ['Ubuntu Netbook Edition', 'empathy']
-        if self.osystem == 'win7':
+        if osystem == 'win7':
             system = ['Windows Vista / 7', 'pidgin']
-        if self.osystem == 'winxp':
+        if osystem == 'winxp':
             system = ['Windows XP', 'pidgin']
         return system

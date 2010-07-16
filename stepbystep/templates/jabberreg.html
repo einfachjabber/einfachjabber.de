@@ -70,7 +70,9 @@
       <li>Das waren nicht die richtigen Worte, bitte versuche es erneut.</li>
     </ul>
   {% endif %}
+      {% autoescape false %}
       {{ captchahtml }}
+      {% endautoescape %}
   <p>
     <button type="submit" value="Absenden" class="submit">
       <span><span>Absenden</span></span>
@@ -80,7 +82,7 @@
 </div>
 {% endif %}
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-<script type="text/javascript" src="{{ url_for('static', file='js/passwordStrengthMeter.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/passwordStrengthMeter.js') }}"></script>
 <script language="javascript">
 	jQuery(document).ready(function() {
 

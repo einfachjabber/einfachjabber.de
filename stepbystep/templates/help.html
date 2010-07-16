@@ -15,7 +15,9 @@
 <p>Nichts im Leben ist umsonst. So auch nicht der Server, der dir diese Seite hier nach Hause liefert. Wenn dir diese Seite weitergeholfen hat, oder du uns einfach so unterstützen möchtest, findest du hier ein paar Möglichkeiten dies zu tun.</p>
 <h2>Flattr/Paypal</h2>
 <p>Wenn dir unser Service gefällt, würde wir uns über eine kleine Spende per <a href="http://flattr.com" title="Flattr">Flattr</a> oder <a href="http://paypal.com" title="PayPal">Paypal</a> sehr freuen.</p>
+{% autoescape false %}
 {{ flattr }}{{ paypal }}
+{% endautoescape %}
 <h2>T-Shirts</h2>
 <p>Gleich doppelt unterstützen kannst du uns durch den Kauf eines T-Shirts aus <a href="http://einfachjabber.spreadshirt.de" title="einfachJabber.de T-Shirt Shop">unserem Shop</a>. Einerseits erhalten wir einen Anteil des Preises des T-Shirts, andererseits kannst du so offline Werbung für uns machen.</p>
 <a class="boxl" href="http://einfachjabber.spreadshirt.de"><img src="http://image.spreadshirt.net/image-server/image/product/17968582/view/1/type/png/width/190/height/190" border="0" alt="test" title="12267675-17968582" /></a>
@@ -24,9 +26,9 @@
 <h2>Twitter, Facebook und Co.</h2>
 <p>Zu guter Letzt, kannst du uns natürlich helfen, indem du anderen von uns und Jabber erzählst:</p>
 <div id="sociallinks">
-  <a href="http://twitter.com/home?status=Jabber! Wie E-Mail, nur schneller - http://einfachjabber.de" title="twitter.com"><img src="{{ url_for('static', file='images/ui/twitter-mb.png') }}" alt="Twitter" /></a>
-  <a href="http://identi.ca/notice/new?status_textarea=Jabber! Wie E-Mail, nur schneller - http://einfachjabber.de" title="identi.ca"><img src="{{ url_for('static', file='images/ui/identica-mb.png') }}" alt="Identi.ca" /></a>
-  <a href="http://www.facebook.com/share.php?u=http://einfachjabber.de&t=Jabber! Wie E-Mail, nur schneller!" title="facebook.com"><img src="{{ url_for('static', file='images/ui/facebook-mb.png') }}" alt="Facebook" /></a>
+  <a href="http://twitter.com/home?status=Jabber! Wie E-Mail, nur schneller - http://einfachjabber.de" title="twitter.com"><img src="{{ url_for('static', filename='images/ui/twitter-mb.png') }}" alt="Twitter" /></a>
+  <a href="http://identi.ca/notice/new?status_textarea=Jabber! Wie E-Mail, nur schneller - http://einfachjabber.de" title="identi.ca"><img src="{{ url_for('static', filename='images/ui/identica-mb.png') }}" alt="Identi.ca" /></a>
+  <a href="http://www.facebook.com/share.php?u=http://einfachjabber.de&t=Jabber! Wie E-Mail, nur schneller!" title="facebook.com"><img src="{{ url_for('static', filename='images/ui/facebook-mb.png') }}" alt="Facebook" /></a>
 
 <h1>Generell</h1>
 <p>Wenn du denkst, dass du uns in irgendeiner Form, die nicht auf dieser Seite aufgeführt ist, helfen kannst, wollen wir dich natürlich nicht abhalten. Einfach melden per Mail (<a href="mailto:info@einfachjabber.de" title="Mail an info@einfachjabber.de">info@einfachjabber.de</a>) oder Jabber (<a href="xmpp:zeroathome@jabber.ccc.de" title="Jabber Kontakt zeroathome@jabber.ccc.de">zeroathome@jabber.ccc.de</a>).</p>

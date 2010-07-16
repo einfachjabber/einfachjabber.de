@@ -3,24 +3,18 @@
 
 import json
 import os, glob, re
-from werkzeug.exceptions import NotFound
-from werkzeug.utils import cached_property
-from stepbystep.config import TUTORIAL_PATH
+from stepbystep import app
 
-class Clients(object):
+class Clients():
     """Functions for managing the client-chooser"""
 
-    def __init__(self, osystem):
-        self.osystem = osystem
-
-    @cached_property
-    def clientlist(self):
+    def clientlist(self, osystem):
         """reads the list of clients from the tutorial directory"""
         clist = []
-        os.chdir(TUTORIAL_PATH)
-        files = glob.glob(self.osystem + '-*.json')
+        os.chdir(app.config['TUTORIAL_PATH'])
+        files = glob.glob(osystem + '-*.json')
         if not files:
-            raise NotFound()
+            abort(404)
         for file in files:
             with open(file, 'r') as f:
                 try:
@@ -28,5 +22,5 @@ class Clients(object):
                     clist = clist + [clname]
                 except:
                     errormail('Error in JSON-Data')
-                    raise NotFound()
+                    abort(404)
         return clist

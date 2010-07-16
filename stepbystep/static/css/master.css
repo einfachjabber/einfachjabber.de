@@ -217,8 +217,8 @@ a.choice-button:hover, a.mailprovider:hover {
 
 #nav a img {
     background-color: #fff;
-    position: relative;
-    top: 15px;
+    margin:0 0 -5px 0;
+    padding:0;
 }
 
 #nav li:hover a img {
@@ -227,7 +227,7 @@ a.choice-button:hover, a.mailprovider:hover {
 
 #nav a {
     color: #fff;
-    display: block;
+    display:block;
     font-size: 0.9em;
     text-decoration: none;
 }
@@ -238,14 +238,13 @@ a.choice-button:hover, a.mailprovider:hover {
 
 #nav li {
     float: left;
+    padding: 8px 8px 4px 8px;
     position: relative;
     text-align: center;
-    top: -10px;
 }
 
 #nav li a {
-    display: block;
-    padding: 4px 8px 4px 8px;
+    text-align:center;
 }
 
 

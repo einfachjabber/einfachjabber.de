@@ -17,8 +17,5 @@ Ok, tutorials could just have been written into static HTML-files, or presented 
 This approach uses a single JSON-formatted file together with a folder of screenshots per tutorial. This makes the tutorials easy to update if a new version of the software appears.
 
 ### Basics
-The application is based on the python WSGI-framework [Werkzeug](http://werkzeug.pocoo.org "Werkzeug") and uses [Jinja2](http://jinja.pocoo.org/2/ "Jinja2") as its templating engine.
+The original version was based on the python WSGI-framework [Werkzeug](http://werkzeug.pocoo.org "Werkzeug") and used [Jinja2](http://jinja.pocoo.org/2/ "Jinja2") as its templating engine. To be correct it still does, but is now powered by [Flask](http://flask.pocoo.org "Flask"), which is considered to be a micro-framework, but the effort of the extentioneers and the awesome documentation really make it a pleasure to work with.
 Currently it depends on JSON as storage for the tutorial information like the image names and the text to display underneath. The tutorials are kept in a separate git-repository, which you can find [here](http://github.com/zeroathome/jabber-tutorials "jabber-tutorials on github").
-
-### Further information
-If you're interested in more information have a look at the [wiki page](http://wiki.firefly-it.de/doku.php/jabber-projekt/app "Wiki for further information").

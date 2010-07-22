@@ -10,11 +10,11 @@
 import re
 from flask import Flask, request, session, g, redirect, url_for, \
         abort, render_template, flash
-from flaskext.mail import init_mail, Message
+from flaskext.mail import Mail, Message
 
 app = Flask(__name__)
 app.config.from_envvar('SBS_SETTINGS')
-init_mail(app)
+mail = Mail(app)
 
 if not app.debug:
     import logging

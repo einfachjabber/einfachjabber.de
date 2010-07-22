@@ -7,7 +7,7 @@ from datetime import datetime
 from creoleparser.dialects import create_dialect, creole10_base, creole11_base
 from creoleparser.core import Parser
 from flaskext.mail import Message
-from stepbystep import app
+from stepbystep import app, mail
 from flask import abort
 
 class Tutorial():
@@ -147,6 +147,6 @@ Auf http://einfachjabber.de findest du Anleitungen für
 verschiedene Client-Programme.
         ''' % (data[1], data[2])
     msg.recipients = [data[0]]
-    msg.send()
+    mail.send(msg)
 
 my_parser = Parser(dialect=create_dialect(creole11_base), method='html', encoding=None)

@@ -2,6 +2,7 @@
 *.pyc
 development.py
 production.py
+config.py
 
 stepbystep/static/tutorials/*
 stepbystep/static/wiki/*

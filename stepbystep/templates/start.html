@@ -6,14 +6,17 @@
 {% block content %}
 <h1>Willkommen auf einfachJabber.de</h1>
 <div id="start">
+  <img class="home_screenshot" src="{{ url_for('static', filename="images/ui/client_screenshot.png") }}" alt="Jabber Client" />
   <h3>Jabber - Was ist das eigentlich?</h3>
-  <p>Was Jabber genau ist und warum du es benutzen solltest, erklären wir Dir <a href="{{ url_for('jabber') }}" title="Was ist Jabber - wiki.einfachjabber.de">hier</a>.</p>
+  <p>Was Jabber genau ist und warum du es benutzen solltest, erklären wir dir <a href="{{ url_for('jabber') }}" title="Was ist Jabber - wiki.einfachjabber.de">hier</a>.</p>
+  <h3>Kann ich meine E-Mail Adresse für Jabber benutzen?</h3>
+  <p>Bei vielen E-Mail Anbietern kann die Adresse auch gleich als <a href="http://wiki.einfachjabber.de/Glossar#Jabber-ID" title="Jabber-ID - Glossar - wiki.einfachjabber.de">Jabber-ID</a> benutzt werden. Ob dein Anbieter dabei ist, erfährst du in der</p>
+  <a href="http://wiki.einfachjabber.de/E-Mail-Provider" class="choice-button" title="Kann ich meine E-Mail Adresse für Jabber benutzen?">Anbieter Übersicht &raquo;</a>
   <h3>Wie und wo erstelle ich ein Konto?</h3>
-  <p>Viele haben bereits ein Jabber-Konto und wissen es gar nicht. Auf unserer <a href="http://wiki.einfachjabber.de/Jabber-Provider" title="Jabber Provider - wiki.einfachjabber.de">Anbieter-Übersicht</a> erfährst du ob du einer davon bist.<br /> Falls nicht, findest du <a href="http://wiki.einfachjabber.de/Neues-Konto" title="Neues Jabber Konto eröffnen - wiki.einfachjabber.de">hier</a> alles was du brauchst um ein neues Konto zu eröffnen.</p> 
-  <a href="http://wiki.einfachjabber.de/Jabber-Provider" class="choice-button" title="Deine E-Mail als Jabber-ID">Deine E-Mail als Jabber-ID &raquo;</a>
-  <a href="{{ url_for('jabberreg') }}" class="choice-button" title="Neues Jabber-Konto anlegen">Neues Jabber-Konto anlegen &raquo;</a>
-  <h3>Was brauche ich noch?</h3>
-  <p>Auch hier gibt es wieder zwei mögliche Antworten (du siehst, bei Jabber geht es auch um Entscheidungsfreiheit).<br/ >Möchtest du lieber</p>
+  <p>Nicht alle E-Mail Anbieter haben Jabber schon im Programm. In diesem Fall kannst du direkt hier auf der Seite</p> 
+  <a href="{{ url_for('jabberreg') }}" class="choice-button" title="Neues Jabber-Konto anlegen">Ein neues Jabber-Konto anlegen &raquo;</a>
+  <h3>Wie chatte ich mit meinen Freunden?</h3>
+  <p>Hier gibt es zwei Möglichkeiten. Möchtest du lieber</p>
   <a href="{{ url_for('oslist') }}" class="choice-button" title="Zu den Jabber-Anleitungen">Direkt im Browser chatten &raquo;</a> oder <a href="{{ url_for('oslist') }}" class="choice-button" title="Zu den Jabber-Anleitungen">Ein Chatprogramm  installieren&raquo;</a>
   <h3>Wo kann ich mehr über Jabber erfahren?</h3>
   <p>Zum Beispiel, warum Jabber die bessere Alternative zu ICQ, MSN und Co. ist, oder wie und wo große Unternehmen wie Google oder Facebook die Technik hinter Jabber einsetzen? Antworten darauf findest du im <a href="http://wiki.einfachjabber.de" title="einfachJabber.de - Wiki">einfachJabber.de - Wiki</a>.

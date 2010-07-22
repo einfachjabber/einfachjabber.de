@@ -133,7 +133,7 @@ def sendmail(mailtype, data=None):
     '''
     if data:
         msg = Message('[einfachJabber.de] Jabber-Konto Registrierung')
-        msg.body = '''
+        msg.body = u'''
 einfachJabber.de
 
 Du hast eben über http://einfachjabber.de einen neuen

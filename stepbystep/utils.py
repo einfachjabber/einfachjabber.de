@@ -98,6 +98,8 @@ class OsCatalog():
             system = ['Ubuntu', 'empathy']
         if osystem == 'ubuntunbe':
             system = ['Ubuntu Netbook Edition', 'empathy']
+        if osystem == 'webchat':
+            system = ['Webchat', 'meebo']
         if osystem == 'win7':
             system = ['Windows Vista / 7', 'pidgin']
         if osystem == 'winxp':

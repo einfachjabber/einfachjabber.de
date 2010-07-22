@@ -86,7 +86,7 @@ ul#clientlist span.overlaytext {left:10px;}
 #caption p {color:black;font-size:1em;padding:0 25px 25px;margin:0 auto;text-align:center;width:70%;}
 #links p {margin:20px auto;text-align:center;}
 #links h2 {text-align:center;}
-#links h3 {margin-top:20px;}
+#links h3 {margin-top:20px;text-align:center;}
 #links form {display:inline;}
 ul.links li {display:block;padding:5px;}
 ul.authordata {margin-bottom:20px;}

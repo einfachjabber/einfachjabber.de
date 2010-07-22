@@ -17,14 +17,13 @@ class RegError(Exception):
             self.errtext = 'Ein Fehler ist aufgetreten. Bitte versuche es erneut.'
 
 
-        
+
 def xmppreg(username, passwd, domain):
     """docstring for xmppreg"""
 
     c = xmpp.Client(domain)
     c.connect()
     reg = xmpp.features.register(c, domain, {'username': username, 'password': passwd})
-    print(reg)
     if reg is None:
         return 0, c.lastErr
     else:

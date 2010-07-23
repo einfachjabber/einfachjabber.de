@@ -33,16 +33,6 @@ if not app.debug:
     file_handler.setLevel(logging.INFO)
     app.logger.addHandler(file_handler)
 
-@app.route('/mailer')
-def mailer():
-    from stepbystep.utils import sendmail
-    email = 'zeroathome@gmail.com'
-    jid = 'zeroathome@jabber.ccc.de'
-    passwd = 'vollgeheim'
-    sendmail('mailreminder', (email, jid, passwd))
-    app.logger.error(g.outbox[0].subject)
-    return redirect(url_for('start'))
-
 @app.route('/')
 def start():
     pagetitle = u'Jabber Tutorial Portal'

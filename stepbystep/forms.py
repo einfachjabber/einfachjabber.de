@@ -16,7 +16,7 @@ from stepbystep.utils import sendmail
 
 serverlist = [
     ('alpha-labs.net', 'alpha-labs.net'),
-    ('freies-im.de', 'freies-im.de'),
+    #('freies-im.de', 'freies-im.de'),
     ('jabber.rootbash.com', 'jabber.rootbash.com'),
     ('jabber-server.de', 'jabber-server.de'),
     ('jabberim.de', 'jabberim.de'),

@@ -130,25 +130,36 @@ def sendmail(mailtype, data=None):
     '''
     Mail dispatcher
 
-    :param mailtype: can be 'error' or 'mailreminder'
+    :param mailtype: can be 'error', 'rating' or 'mailreminder'
     :param data: data for mail-forming, depends on mailtype
     '''
     if data:
-        msg = Message('[einfachJabber.de] Jabber-Konto Registrierung')
-        msg.body = u'''
-einfachJabber.de
+        if mailtype is 'mailreminder':
+            msg = Message('[einfachJabber.de] Jabber-Konto Registrierung')
+            msg.body = u'''
+    einfachJabber.de
 
-Du hast eben über http://einfachjabber.de einen neuen
-Jabber-Account registriert.
-Die Benutzerdaten dazu lauten:
+    Du hast eben über http://einfachjabber.de einen neuen
+    Jabber-Account registriert.
+    Die Benutzerdaten dazu lauten:
 
-Benutzername: %s
-Passwort: %s
+    Benutzername: %s
+    Passwort: %s
 
-Auf http://einfachjabber.de findest du Anleitungen für
-verschiedene Client-Programme.
-        ''' % (data[1], data[2])
-    msg.recipients = [data[0]]
-    mail.send(msg)
+    Auf http://einfachjabber.de findest du Anleitungen für
+    verschiedene Client-Programme.
+            ''' % (data[1], data[2])
+            msg.recipients = [data[0]]
+
+        if mailtype is 'rating':
+            msg = Message('[einfachJabber.de] Tutorialbewertung')
+            msg.body = u'''
+    einfachJabber.de Tutorialbewertung
+
+    Bewertung: %s
+    Vorschlag: %s
+            ''' % (data[0], data[1])
+            msg.recipients = ['bz@einfachjabber.de']
+        mail.send(msg)
 
 my_parser = Parser(dialect=create_dialect(creole11_base), method='html', encoding=None)

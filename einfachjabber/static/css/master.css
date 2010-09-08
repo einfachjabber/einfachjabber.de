@@ -7,8 +7,8 @@
 /*****************/
 body {color:#27282C;font-family:Helvetica, Arial, sans-serif;overflow:auto;overflow-y:scroll;}
 span {font-size:1.0em;}
-a {color:#e7a300;text-decoration:none;white-space:nowrap;}
-a:hover {color:#27282C;text-decoration:underline;white-space:nowrap;}
+a {color:#e7a300;text-decoration:none;}
+a:hover {color:#27282C;text-decoration:underline;}
 ul a:hover {color:#27282C;text-decoration:none;}
 p {margin-bottom:10px;text-align:left;}
 h1, h2, h3, h4 {font-family:Comfortaa;font-weight:bold;}
@@ -17,11 +17,14 @@ h2 {font-size:1.6em;text-align:left;}
 span.h2 {font-size:1.6em;text-align:left;}
 h3 {font-size:1.4em;text-align:left;}
 span.h3 {font-size:1.4em;text-align:left;}
+.center {text-align:center;}
 img {border:none;}
 img.logos {padding:10px;}
 ul {list-style:none;}
 #logo {float:left;left:10px;position:relative;top:5px;}
 #content {border-left:4px solid #27282C;border-right:4px solid #27282C;margin:0 auto;min-height:400px;padding:1px 15px 35px 15px;text-align:center;width:922px;}
+#main {float:left;width:75%;}
+#sidebar {float:right;margin:0;width:25%;}
 #footer {background-color:#27282C;border-left:4px solid #27282C;border-right:4px solid #27282C;color:white;height:30px;margin:-25px auto;padding:8px 0 2px 0;text-align:right;width:952px;}
 ul.errors li {color:red;font-weight:bold;}
 /* start.html specific */
@@ -84,10 +87,13 @@ ul#clientlist span.overlaytext {left:10px;}
 /**************************/
 #tut-image {background-color:white;border:1px solid #27282C;-moz-box-shadow:rgba(0, 0, 0, 0.5) 5px 5px 5px;-webkit-box-shadow:rgba(0, 0, 0, 0.5) 5px 5px 5px;margin-top:20px;padding:15px;}
 #caption p {color:black;font-size:1em;padding:0 25px 25px;margin:0 auto;text-align:center;width:70%;}
-#links p {margin:20px auto;text-align:center;}
-#links h2 {text-align:center;}
-#links h3 {margin-top:20px;text-align:center;}
+#links {overflow:hidden;}
+#links #sidebar h3 {text-align:center;}
+#links p {margin:20px auto;}
+#links h2 {}
+#links h3 {margin-top:20px;}
 #links form {display:inline;}
+#sociallinks a {display:block;}
 ul.links li {display:block;padding:5px;}
 ul.authordata {margin-bottom:20px;}
 .pagination {background:url(../images/ui/circle.png) 0px no-repeat;font-size:1.1em;padding:11px;}
@@ -104,3 +110,17 @@ a.overten, a.overten:hover {padding:5.5px;}
 /************/
 h1.fourofour {font-size:3em;margin-top:50px;}
 h3.fourofour {text-align:center;}
+/* rating */
+/**********/
+#formwrap {text-align:left;margin:0 auto;width:400px;}
+.ui-stars-star {float:left;display:block;margin:0 4px 0 0;overflow:hidden;text-indent:-999em;cursor:pointer;}
+.ui-stars-star a {background:url(../images/ui/rating.png) no-repeat 0 0;display:block;height:24px;width:24px;}
+.ui-stars-star a {background-position:0 -40px;}
+.ui-stars-star-on a {background-position:0 0;}
+.ui-stars-star-hover a {background-position:0 0;}
+#star-cap {display:inline-block;height:20px;margin:24px 0 0 5px;position:absolute;}
+#hint {font-size:18px;height:70px;width:400px;}
+#ratebutton {position:relative;left:200px;}
+#starcontainer {margin:0 0 15px 0;overflow:hidden;}
+#hintcontainer {clear:both;}
+#thanks {background:#27282C;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;color:#ffb400;font-weight:normal;text-align:center;}

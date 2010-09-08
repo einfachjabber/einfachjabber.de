@@ -67,5 +67,7 @@ class RegForm(Form):
     recaptcha_challenge_field = TextAreaField()
     recaptcha_response_field = HiddenField()
 
-
+class RateForm(Form):
+    rating  = SelectField(u'Bewertung:')
+    hint    = TextAreaField(u'Verbesserungsvorschlag (optional)')
 

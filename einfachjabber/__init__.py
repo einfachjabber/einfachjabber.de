@@ -33,6 +33,8 @@ if not app.debug:
     file_handler.setLevel(logging.INFO)
     app.logger.addHandler(file_handler)
 
+from einfachjabber.utils import *
+
 @app.route('/')
 def start():
     pagetitle = u'Jabber Tutorial Portal'
@@ -41,7 +43,6 @@ def start():
 
 @app.route('/oslist')
 def oslist():
-    from einfachjabber.utils import OsCatalog
     oslist = OsCatalog().oslist()
     pagetitle = u'Jabber Tutorial Portal'
     return render_template('oslist.html', pagetitle=pagetitle, oslist=oslist)
@@ -74,7 +75,6 @@ def jabberreg():
         else:
             rr = (1, )
         if rr[0] is 1:
-            from einfachjabber.utils import sendmail
             sendmail('mailreminder', (email, jid, passwd))
             app.logger.info('New registration')
             return render_template('jabberreg.html', form=form, regerror=False,
@@ -90,7 +90,6 @@ def jabberreg():
 
 @app.route('/os/<osystem>')
 def clientlist(osystem):
-    from einfachjabber.utils import OsCatalog, Clients
     cl = Clients().clientlist(osystem)
     osys = OsCatalog().defclient(osystem)
     pagetitle = u'Clients für ' + osys[0]
@@ -101,7 +100,6 @@ def clientlist(osystem):
 @app.route('/tutorial/<tid>/', defaults={'page':0})
 @app.route('/tutorial/<tid>/<int:page>')
 def tutorial(tid, page):
-    from einfachjabber.utils import my_parser, Tutorial
     gt = Tutorial().gettutorial(tid)
     pag = Tutorial().pagination
     metadata = {'client':gt['client'], 'clientversion':gt['clientversion'],\
@@ -115,9 +113,13 @@ def tutorial(tid, page):
                            metadata=metadata, pagedata=pagedata, tid=tid,\
                            maxpage=maxpage, flpage=flpage, osystem=osystem)
 
-@app.route('/tutorial/<tid>/links')
+@app.route('/tutorial/<tid>/links', methods=['GET', 'POST'])
 def tutoriallinks(tid):
-    from einfachjabber.utils import Tutorial
+    from einfachjabber.forms import RateForm
+    form = RateForm(request.form)
+    form.rating.choices = [('1', u'Verbesserungswürdig'),
+                           ('2', u'OK'),
+                           ('3', u'Großartig!')]
     gt = Tutorial().gettutorial(tid)
     pag = Tutorial().pagination
     metadata = {'client':gt['client'], 'clientversion':gt['clientversion'],\
@@ -126,17 +128,25 @@ def tutoriallinks(tid):
     maxpage = len(gt['tutorial'])-1
     authordata = gt['author']
     pagetitle = 'Tutorial'
+    # replace by flash please!
+    success = False
+    if request.method == 'POST' and form.validate():
+        rating = form.rating.data
+        hint = form.hint.data
+        sendmail('rating', (rating, hint))
+        success = True
+
     return render_template('tutoriallinks.html', pagetitle=pagetitle,
                            metadata=metadata, linkdata=linkdata, tid=tid,
                            maxpage=maxpage, authordata=authordata,
                            paypal=app.config['PAYPAL_BUTTON'],
-                           flattr=app.config['FLATTR_BUTTON'])
+                           flattr=app.config['FLATTR_BUTTON'],
+                           form=form, success=success)
 
 
 @app.route('/tutorial/<tid>/<int:page>/more', defaults={'morepage':0})
 @app.route('/tutorial/<tid>/<int:page>/more/<int:morepage>')
 def tutorialmore(tid, page, morepage):
-    from einfachjabber.utils import Tutorial
     gt = Tutorial(tid).gettutorial
     pag = Tutorial(tid).pagination
     metadata = {'client':gt['client'], 'clientversion':gt['clientversion'],\

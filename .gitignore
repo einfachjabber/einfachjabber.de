@@ -3,6 +3,7 @@
 
 development.py
 production.py
+start_*.py
 fabfile.py
 *.egg
 *.egg-info

@@ -1,0 +1,2 @@
+recursive-include einfachjabber/static *
+recursive-include einfachjabber/templates *

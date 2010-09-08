@@ -158,7 +158,8 @@ def sendmail(mailtype, data=None):
 
     Bewertung: %s
     Vorschlag: %s
-            ''' % (data[0], data[1])
+    Tutorial: %s
+            ''' % (data[0], data[1], data[2])
             msg.recipients = ['bz@einfachjabber.de']
         mail.send(msg)
 

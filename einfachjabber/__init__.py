@@ -133,7 +133,7 @@ def tutoriallinks(tid):
     if request.method == 'POST' and form.validate():
         rating = form.rating.data
         hint = form.hint.data
-        sendmail('rating', (rating, hint))
+        sendmail('rating', (rating, hint, tid))
         success = True
 
     return render_template('tutoriallinks.html', pagetitle=pagetitle,

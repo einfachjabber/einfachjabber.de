@@ -5,7 +5,7 @@ TESTING = False
 
 from os import path
 
-STATIC_PATH = path.join(path.dirname(__file__), 'stepbystep/static')
+STATIC_PATH = path.join(path.dirname(__file__), 'einfachjabber/static')
 TUTORIAL_PATH = path.join(STATIC_PATH, 'tutorials/')
 
 MAIL_SERVER = ''

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    stepbystep
+    einfachjabber
     ~~~~~~~~~~
 
     :copyright: (c) 2010 by Benjamin Zimmer.
@@ -41,7 +41,7 @@ def start():
 
 @app.route('/oslist')
 def oslist():
-    from stepbystep.utils import OsCatalog
+    from einfachjabber.utils import OsCatalog
     oslist = OsCatalog().oslist()
     pagetitle = u'Jabber Tutorial Portal'
     return render_template('oslist.html', pagetitle=pagetitle, oslist=oslist)
@@ -51,7 +51,7 @@ def jabberreg():
     pagetitle = u'Account Registration'
     from recaptcha.client import captcha
     captchahtml = captcha.displayhtml('6LdtjgsAAAAAAOFO0O1oFvuc_PjXicfqHD0JS3ik')
-    from stepbystep.forms import RegForm, randomserver
+    from einfachjabber.forms import RegForm, randomserver
     form = RegForm(request.form)
     form.domain.choices = randomserver()
     if request.method == 'POST' and form.validate():
@@ -68,13 +68,13 @@ def jabberreg():
             return render_template('jabberreg.html', form=form, success=False,
                                pagetitle=pagetitle, captchahtml=captchahtml,
                                    captchaerror=True)
-        from stepbystep.xmppreg import RegError, xmppreg
+        from einfachjabber.xmppreg import RegError, xmppreg
         if not app.debug:
             rr = xmppreg(nick, passwd, domain)
         else:
             rr = (1, )
         if rr[0] is 1:
-            from stepbystep.utils import sendmail
+            from einfachjabber.utils import sendmail
             sendmail('mailreminder', (email, jid, passwd))
             app.logger.info('New registration')
             return render_template('jabberreg.html', form=form, regerror=False,
@@ -90,7 +90,7 @@ def jabberreg():
 
 @app.route('/os/<osystem>')
 def clientlist(osystem):
-    from stepbystep.utils import OsCatalog, Clients
+    from einfachjabber.utils import OsCatalog, Clients
     cl = Clients().clientlist(osystem)
     osys = OsCatalog().defclient(osystem)
     pagetitle = u'Clients für ' + osys[0]
@@ -101,7 +101,7 @@ def clientlist(osystem):
 @app.route('/tutorial/<tid>/', defaults={'page':0})
 @app.route('/tutorial/<tid>/<int:page>')
 def tutorial(tid, page):
-    from stepbystep.utils import my_parser, Tutorial
+    from einfachjabber.utils import my_parser, Tutorial
     gt = Tutorial().gettutorial(tid)
     pag = Tutorial().pagination
     metadata = {'client':gt['client'], 'clientversion':gt['clientversion'],\
@@ -117,7 +117,7 @@ def tutorial(tid, page):
 
 @app.route('/tutorial/<tid>/links')
 def tutoriallinks(tid):
-    from stepbystep.utils import Tutorial
+    from einfachjabber.utils import Tutorial
     gt = Tutorial().gettutorial(tid)
     pag = Tutorial().pagination
     metadata = {'client':gt['client'], 'clientversion':gt['clientversion'],\
@@ -136,7 +136,7 @@ def tutoriallinks(tid):
 @app.route('/tutorial/<tid>/<int:page>/more', defaults={'morepage':0})
 @app.route('/tutorial/<tid>/<int:page>/more/<int:morepage>')
 def tutorialmore(tid, page, morepage):
-    from stepbystep.utils import Tutorial
+    from einfachjabber.utils import Tutorial
     gt = Tutorial(tid).gettutorial
     pag = Tutorial(tid).pagination
     metadata = {'client':gt['client'], 'clientversion':gt['clientversion'],\

@@ -1,9 +1,12 @@
 .DS_Store
 *.pyc
 config.py
-stepbystep/config.py
+einfachjabber/config.py
 development.py
 production.py
 
-stepbystep/static/tutorials/*
-stepbystep/static/wiki/*
+einfachjabber/static/tutorials/*
+einfachjabber/static/wiki/*
+
+*.egg
+*.egg-info

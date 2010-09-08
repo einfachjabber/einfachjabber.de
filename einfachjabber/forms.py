@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    stepbystep.forms
+    einfachjabber.forms
     ~~~~~~~~~~~~~~~~
 
     Definition of the jabber registration form
@@ -12,7 +12,7 @@
 import random
 from wtforms import Form, TextField, TextAreaField, SelectField,\
                     PasswordField, HiddenField, validators
-from stepbystep.utils import sendmail
+from einfachjabber.utils import sendmail
 
 serverlist = [
     ('alpha-labs.net', 'alpha-labs.net'),

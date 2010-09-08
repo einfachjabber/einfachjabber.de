@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    test_stepbystep
+    test_einfachjabber
     ~~~~~~~~~~~~~~~
 
     :copyright: (c) 2010 by Benjamin Zimmer.
@@ -11,14 +11,14 @@
 from os import chdir
 from glob import glob
 import re
-import stepbystep
+import einfachjabber
 import unittest
 import tempfile
 
-class StepbystepTestCase(unittest.TestCase):
+class EinfachjabberTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.app = stepbystep.app.test_client()
+        self.app = einfachjabber.app.test_client()
 
     def tearDown(self):
         pass
@@ -29,7 +29,7 @@ class StepbystepTestCase(unittest.TestCase):
         assert '<div id="footer"' in rv.data
 
     def test_jsondata(self):
-        chdir(stepbystep.app.config['TUTORIAL_PATH'])
+        chdir(einfachjabber.app.config['TUTORIAL_PATH'])
         files = glob('*.json')
         for file in files:
             print file

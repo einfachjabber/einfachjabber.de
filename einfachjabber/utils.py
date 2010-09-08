@@ -7,7 +7,7 @@ from datetime import datetime
 from creoleparser.dialects import create_dialect, creole10_base, creole11_base
 from creoleparser.core import Parser
 from flaskext.mail import Message
-from stepbystep import app, mail
+from einfachjabber import app, mail
 from flask import abort
 
 class Tutorial():

@@ -1,0 +1,20 @@
+from setuptools import setup
+
+setup(
+    name='einfachjabber',
+    version='1.0',
+    long_description=__doc__,
+    packages=['einfachjabber'],
+    include_package_data=True,
+    zip_safe=False,
+    install_requires=[
+        'cherrpy',
+        'creoleparser',
+        'Flask',
+        'Flask-Mail',
+        'Flask-WTF',
+        'recaptcha-client',
+        'simplejson',
+        'xmpppy'
+    ]
+)

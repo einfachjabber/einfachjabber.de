@@ -25,7 +25,7 @@ serverlist = [
     #('deshalbfrei.org', 'deshalbfrei.org'),
     #('draugr.de', 'draugr.de'),
     #('jabber.ccc.de', 'jabber.ccc.de'),
-    #('jabme.de', 'jabme.de'),
+    ('jabme.de', 'jabme.de'),
     #('na-di.de', 'na-di.de'),
     #('neko.im', 'neko.im'),
     #('ubuntu-jabber.de', 'ubuntu-jabber.de'),

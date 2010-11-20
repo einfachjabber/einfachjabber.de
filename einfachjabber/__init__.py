@@ -75,7 +75,8 @@ def jabberreg():
         else:
             rr = (1, )
         if rr[0] is 1:
-            sendmail('mailreminder', (email, jid, passwd))
+            if email:
+                sendmail('mailreminder', (email, jid, passwd))
             app.logger.info('New registration')
             return render_template('jabberreg.html', form=form, regerror=False,
                                    success=True, jid=jid, email=email,

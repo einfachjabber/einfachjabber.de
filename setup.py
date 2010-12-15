@@ -12,6 +12,7 @@ setup(
         'creoleparser',
         'Flask',
         'Flask-Mail',
+        'Flask-Testing',
         'Flask-WTF',
         'recaptcha-client',
         'simplejson',

@@ -1,0 +1,18 @@
+{% extends "blog/layout.html" %}
+
+{% block feed %}
+<link href="{{ url_for('status_feed') }}"
+      rel="alternate"
+      title="einfachjabber.de Statusfeed" 
+      type="application/atom+xml">
+{% endblock %}
+{% block title %}Serverstatus{% endblock %}
+{% block content %}
+<h1>einfachJabber.de Serverstatus</h1>
+{% for status in statuses %}
+  <article class={{ status.indicator }}>
+    <h2><time>{{ status.date }}</time> <span>(<a href="http://en.wikipedia.org/wiki/Coordinated_Universal_Time" title="UTC on en.wikipedia.org">UTC</a>)</span></h2>
+    {{ status.text }}
+  </article>
+{% endfor%}
+{% endblock %}

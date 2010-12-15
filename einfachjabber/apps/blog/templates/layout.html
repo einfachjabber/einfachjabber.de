@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %} - blog.einfachjabber.de</title>
+    <meta name="google-site-verification" content="OE8IXvCRzKjJqLMAviSzgOcwQoz-AoOPQAuSW1__id0">
+    {% block feed %}
+    <link href="{{ url_for('recent_feed') }}"
+          rel="alternate"
+          title="einfachJabber.de Blog-Feed" 
+          type="application/atom+xml">
+    {% endblock %}
+    <link rel="icon" type="image/vnd.microsoft.icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}" type="text/css" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/typography.css') }}" type="text/css" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/master.css') }}" type="text/css" media="screen">
+    <script type="text/javascript">
+    /* <![CDATA[ */
+        (function() {
+            var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+
+            t.parentNode.insertBefore(s, t);
+        })();
+    /* ]]> */
+    </script>
+  </head>
+  <body>
+    <div id=wrapper>
+      <div id=header>
+      {% include 'header.html' %}
+      </div>
+      <div id=content>
+      {% block content %}
+      {% endblock %}
+      </div>
+      {% block sidebar %}
+      <aside id="sidebar">
+      {% include 'blog/sidebar.html' %}
+      </aside>
+      {% endblock %}
+      <div id=footer>
+      {% include 'blog/footer.html' %}
+      </div>
+    </div>
+    <!-- Piwik -->
+    <script type="text/javascript">
+    var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.firefly-it.de/" : "http://stats.firefly-it.de/");
+    document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+    </script><script type="text/javascript">
+    try {
+    var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 8);
+    piwikTracker.trackPageView();
+    piwikTracker.enableLinkTracking();
+    } catch( err ) {}
+    </script><noscript><p><img src="http://stats.firefly-it.de/piwik.php?idsite=8" style="border:0" alt="" /></p></noscript>
+    <!-- End Piwik Tag -->
+  </body>
+</html>

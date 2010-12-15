@@ -1,0 +1,33 @@
+{% extends "blog/layout.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<article>
+  <header>
+    <h1>{{ post.title }}</h1>
+    <div class=meta>
+      <time>{{ post.date }}</time>
+      <div class="author">
+        <span class=name>{{ post.author }}</span>
+        <span class=email><a href="mailto:{{ post.email }}" title="">Mail</a></span>
+        <span class=jabber><a href="xmpp:{{ post.jabber }}" title="">Jabber</a></span>
+        <a class="FlattrButton"
+            title="{{ post.title }}"
+            data-flattr-uid="zero"
+            data-flattr-tags="xmpp, jabber"
+            data-flattr-category="text"
+            data-flattr-button="compact"
+            href="http://blog.einfachjabber.de/{{ postslug }}">
+            Flattr
+        </a>
+      </div>
+    </div>
+  </header>
+  {{ post.text }}
+  <footer>
+    {% include 'blog/disqus_comments.html' %}
+  </footer>
+</article>
+{% endblock %}
+

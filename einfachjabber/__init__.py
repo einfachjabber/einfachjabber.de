@@ -7,7 +7,9 @@ def create_app(config_filename):
 
     # register views
     from einfachjabber.apps.mainsite.views import mainsite
+    from einfachjabber.apps.blog.views import blog
     app.register_module(mainsite)
+    app.register_module(blog, url_prefix='/blog')
 
     # initiate flask-extensions
     mail.init_app(app)
@@ -26,7 +28,7 @@ def create_app(config_filename):
                                     app.config['MAIL_PASSWORD']))
         mail_handler.setLevel(logging.ERROR)
         app.logger.addHandler(mail_handler)
-        file_handler = FileHandler(app.config['STATIC_PATH']+'/logs/einfachjabber.log')
+        file_handler = FileHandler(app.config['LOG_PATH'])
         file_handler.setLevel(logging.INFO)
         app.logger.addHandler(file_handler)
 

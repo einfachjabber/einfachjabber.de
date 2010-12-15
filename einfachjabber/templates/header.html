@@ -1,12 +1,12 @@
 <div id="navigation">
-  <div id="logo"><a href="{{ url_for('start') }}" title="Home"><img src="{{ url_for('static', filename='images/ui/logo.png') }}" alt="einfachJabber.de Logo" /></a></div>
+  <div id="logo"><a href="{{ url_for('mainsite.start') }}" title="Home"><img src="{{ url_for('.static', filename='images/ui/logo.png') }}" alt="einfachJabber.de Logo" /></a></div>
   <ul id="nav">
-    <li><a href="{{ url_for('start') }}" title="Home"><img src="{{ url_for('static', filename='images/ui/home.png') }}" alt="Home" /><br />Home</a></li>
-    <li><a href="{{ url_for('jabber') }}" title="Was ist Jabber?"><img src="{{ url_for('static', filename='images/ui/jabber.png') }}" alt="Was ist Jabber?" /><br />Jabber?</a></li>
-    <li><a href="{{ url_for('oslist') }}" title="Zu den Anleitungen"><img src="{{ url_for('static', filename='images/ui/anleitungen.png') }}" alt="Anleitungen" /><br />Anleitungen</a></li>
-    <li><a href="http://wiki.einfachjabber.de" title="Zum Wiki"><img src="{{ url_for('static', filename='images/ui/wiki.png') }}" alt="Wiki" /><br />Wiki</a></li>
-    <li><a href="{{ url_for('jabberreg') }}" title="Neues Jabber-Konto anlegen"><img src="{{ url_for('static', filename='images/ui/neueskonto.png') }}" alt="Neues Jabber-Konto anlegen" /><br />Neues Konto</a></li>
-    <li><a href="http://blog.einfachjabber.de" title="Blog"><img src="{{ url_for('static', filename='images/ui/blog.png') }}" alt="Blog" /><br />Blog</a></li>
-    <li><a href="{{ url_for('help') }}" title="Helfen"><img src="{{ url_for('static', filename='images/ui/help.png') }}" alt="Helfen" /><br />Helfen</a></li>
+    <li><a href="{{ url_for('mainsite.start') }}" title="Home"><img src="{{ url_for('.static', filename='images/ui/home.png') }}" alt="Home" /><br />Home</a></li>
+    <li><a href="{{ url_for('mainsite.jabber') }}" title="Was ist Jabber?"><img src="{{ url_for('.static', filename='images/ui/jabber.png') }}" alt="Was ist Jabber?" /><br />Jabber?</a></li>
+    <li><a href="{{ url_for('mainsite.oslist') }}" title="Zu den Anleitungen"><img src="{{ url_for('.static', filename='images/ui/anleitungen.png') }}" alt="Anleitungen" /><br />Anleitungen</a></li>
+    <li><a href="http://wiki.einfachjabber.de" title="Zum Wiki"><img src="{{ url_for('.static', filename='images/ui/wiki.png') }}" alt="Wiki" /><br />Wiki</a></li>
+    <li><a href="{{ url_for('mainsite.jabberreg') }}" title="Neues Jabber-Konto anlegen"><img src="{{ url_for('.static', filename='images/ui/neueskonto.png') }}" alt="Neues Jabber-Konto anlegen" /><br />Neues Konto</a></li>
+    <li><a href="{{ url_for('blog.list_posts') }}" title="Blog"><img src="{{ url_for('.static', filename='images/ui/blog.png') }}" alt="Blog" /><br />Blog</a></li>
+    <li><a href="{{ url_for('mainsite.help') }}" title="Helfen"><img src="{{ url_for('.static', filename='images/ui/help.png') }}" alt="Helfen" /><br />Helfen</a></li>
   </ul>
 </div>

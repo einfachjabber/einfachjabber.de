@@ -1,22 +1,21 @@
 # -*- coding: utf-8 -*-
 import re
 from flask import request, redirect, url_for, abort, render_template, flash, \
-        Module, current_app
+        current_app
 from einfachjabber.utils import *
+from einfachjabber.apps.mainsite import mainsite
 
-mainsite = Module(__name__)
 
 @mainsite.route('/')
 def start():
     pagetitle = u'Jabber Tutorial Portal'
-    return render_template('start.html', pagetitle=pagetitle)
-
+    return render_template('mainsite/start.html', pagetitle=pagetitle)
 
 @mainsite.route('/oslist')
 def oslist():
     oslist = OsCatalog().oslist()
     pagetitle = u'Jabber Tutorial Portal'
-    return render_template('oslist.html', pagetitle=pagetitle, oslist=oslist)
+    return render_template('mainsite/oslist.html', pagetitle=pagetitle, oslist=oslist)
 
 @mainsite.route('/reg', methods=['GET', 'POST'])
 def jabberreg():
@@ -57,7 +56,7 @@ def jabberreg():
                                    jid=jid, pagetitle=pagetitle,
                                    captchahtml=captchahtml)
     else:
-        return render_template('jabberreg.html', form=form, success=False,
+        return render_template('mainsite/jabberreg.html', form=form, success=False,
                                pagetitle=pagetitle, captchahtml=captchahtml)
 
 @mainsite.route('/os/<osystem>')
@@ -66,7 +65,7 @@ def clientlist(osystem):
     osys = OsCatalog().defclient(osystem)
     pagetitle = u'Clients für ' + osys[0]
     defaultclient = osys[1]
-    return render_template('clientlist.html', pagetitle=pagetitle, clist=cl,\
+    return render_template('mainsite/clientlist.html', pagetitle=pagetitle, clist=cl,\
                            osystem=osystem, defaultclient=defaultclient)
 
 @mainsite.route('/tutorial/<tid>/', defaults={'page':0})
@@ -81,7 +80,7 @@ def tutorial(tid, page):
     pagetitle = 'Tutorial'
     flpage = pag(page, maxpage)
     osystem = tid.partition('-')[0]
-    return render_template('tutorial.html', pagetitle=pagetitle, page=page,\
+    return render_template('mainsite/tutorial.html', pagetitle=pagetitle, page=page,\
                            metadata=metadata, pagedata=pagedata, tid=tid,\
                            maxpage=maxpage, flpage=flpage, osystem=osystem)
 
@@ -108,7 +107,7 @@ def tutoriallinks(tid):
         sendmail('rating', (rating, hint, tid))
         success = True
 
-    return render_template('tutoriallinks.html', pagetitle=pagetitle,
+    return render_template('mainsite/tutoriallinks.html', pagetitle=pagetitle,
                            metadata=metadata, linkdata=linkdata, tid=tid,
                            maxpage=maxpage, authordata=authordata,
                            paypal=current_app.config['PAYPAL_BUTTON'],
@@ -129,7 +128,7 @@ def tutorialmore(tid, page, morepage):
     data = gt['tutorial'][page]['more']
     pagetitle = 'Tutorial'
     flpage = pag(morepage, maxpage)
-    return render_template('more.html', pagetitle=pagetitle, data=data,\
+    return render_template('mainsite/more.html', pagetitle=pagetitle, data=data,\
                            metadata=metadata, maxpage=maxpage, tid=tid,\
                            morepage=morepage, page=page, flpage=flpage,\
                            jumpto=jumpto)
@@ -137,7 +136,7 @@ def tutorialmore(tid, page, morepage):
 @mainsite.route('/jabber')
 def jabber():
     pagetitle = u'Was ist Jabber?'
-    return render_template('jabber.html', pagetitle=pagetitle)
+    return render_template('mainsite/jabber.html', pagetitle=pagetitle)
 
 @mainsite.route('/help')
 def help():
@@ -148,4 +147,4 @@ def help():
 @mainsite.route('/impressum/')
 def impressum():
     pagetitle = 'Impressum'
-    return render_template('imprint.html', pagetitle=pagetitle)
+    return render_template('mainsite/imprint.html', pagetitle=pagetitle)

@@ -1,0 +1,33 @@
+{% extends "blog/layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% for key in postkeys %}
+<article>
+  <header>
+    <h1><a href="{{ url_for('post', postslug=key) }}">{{ posts[key].title }}</a></h1>
+    <div class=meta>
+      <time>{{ posts[key].date }}</time>
+      <div class="author">
+        <span class=name>{{ posts[key].author }}</span>
+        <span class=email><a href="mailto:{{ posts[key].email }}" title="">Mail</a></span>
+        <span class=jabber><a href="xmpp:{{ posts[key].jabber }}" title="">Jabber</a></span>
+        <a class="FlattrButton"
+            title="{{ posts[key].title }}"
+            data-flattr-uid="zero"
+            data-flattr-tags="xmpp, jabber"
+            data-flattr-category="text"
+            data-flattr-button="compact"
+            href="http://blog.einfachjabber.de/{{ postslug }}">
+            Flattr
+        </a>
+      </div>
+    </div>
+  </header>
+  {{ posts[key].text }}
+  <div class="footer">
+  </div>
+</article>
+{% endfor %}
+{% endblock %}

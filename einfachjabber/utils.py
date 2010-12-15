@@ -7,22 +7,22 @@ from datetime import datetime
 from creoleparser.dialects import create_dialect, creole10_base, creole11_base
 from creoleparser.core import Parser
 from flaskext.mail import Message
-from einfachjabber import app, mail
-from flask import abort
+from einfachjabber.extensions import mail
+from flask import abort, current_app
 
 class Tutorial():
     """Functions necessary for the tutorial-viewer to work"""
 
     def gettutorial(self, id):
         """Load the tutorial specified by id from the .json file"""
-        filename = app.config['TUTORIAL_PATH'] + id + '.json'
+        filename = current_app.config['TUTORIAL_PATH'] + id + '.json'
         if path.isfile(filename):
             with open(filename, 'r') as f:
                 try:
                     data = json.load(f)
                     return data
                 except:
-                    app.logger.error('Error in JSON-Data')
+                    current_app.logger.error('Error in JSON-Data')
                     abort(404)
         else:
             abort(404)
@@ -112,7 +112,7 @@ class Clients():
     def clientlist(self, osystem):
         """reads the list of clients from the tutorial directory"""
         clist = []
-        chdir(app.config['TUTORIAL_PATH'])
+        chdir(current_app.config['TUTORIAL_PATH'])
         files = glob(osystem + '-*.json')
         if not files:
             abort(404)
@@ -122,7 +122,7 @@ class Clients():
                     clname = json.load(f)['client']
                     clist = clist + [clname]
                 except:
-                    app.logger.error('Error in JSON-Data')
+                    current_app.logger.error('Error in JSON-Data')
                     abort(404)
         return clist
 

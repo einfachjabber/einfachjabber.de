@@ -3,8 +3,11 @@
 
 development.py
 production.py
+testing.py
 start_*.py
 fabfile.py
 *.egg
 *.egg-info
 dist
+
+einfachjabber/static/tutorials

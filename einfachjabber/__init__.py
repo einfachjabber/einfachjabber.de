@@ -70,10 +70,10 @@ def jabberreg():
                                pagetitle=pagetitle, captchahtml=captchahtml,
                                    captchaerror=True)
         from einfachjabber.xmppreg import RegError, xmppreg
-        if not app.debug:
-            rr = xmppreg(nick, passwd, domain)
-        else:
-            rr = (1, )
+        #if not app.debug:
+        rr = xmppreg(nick, passwd, domain)
+        #else:
+        #    rr = (1, )
         if rr[0] is 1:
             if email:
                 sendmail('mailreminder', (email, jid, passwd))

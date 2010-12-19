@@ -141,10 +141,10 @@ def jabber():
 @mainsite.route('/help')
 def help():
     pagetitle = u'einfachJabber.de unterstützen'
-    return render_template('help.html', pagetitle=pagetitle,
+    return render_template('mainsite/help.html', pagetitle=pagetitle,
                            paypal=current_app.config['PAYPAL_BUTTON'],
                            flattr=current_app.config['FLATTR_BUTTON'])
-@mainsite.route('/impressum/')
+@mainsite.route('/impressum')
 def impressum():
     pagetitle = 'Impressum'
     return render_template('mainsite/imprint.html', pagetitle=pagetitle)

@@ -12,7 +12,6 @@ import yaml
 from einfachjabber.apps.blog import blog
 from einfachjabber.apps.blog.utils import *
 
-
 @blog.before_request
 def before_request():
     statuses = gather_statuses(path.join(current_app.config['STATUSES'] + '*.status'))

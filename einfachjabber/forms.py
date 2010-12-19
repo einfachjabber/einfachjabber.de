@@ -16,24 +16,13 @@ from einfachjabber.utils import sendmail
 
 serverlist = [
     ('alpha-labs.net', 'alpha-labs.net'),
-    #('freies-im.de', 'freies-im.de'),
+    ('einfachjabber.de', 'einfachjabber.de'),
+    ('freies-im.de', 'freies-im.de'),
     ('jabber.rootbash.com', 'jabber.rootbash.com'),
     ('jabber-server.de', 'jabber-server.de'),
     ('jabberim.de', 'jabberim.de'),
-    ('open-host.de', 'open-host.de'),
-    #('brauchen.info', 'brauchen.info'),
-    #('deshalbfrei.org', 'deshalbfrei.org'),
-    #('draugr.de', 'draugr.de'),
-    #('jabber.ccc.de', 'jabber.ccc.de'),
     ('jabme.de', 'jabme.de'),
-    #('na-di.de', 'na-di.de'),
-    #('neko.im', 'neko.im'),
-    #('ubuntu-jabber.de', 'ubuntu-jabber.de'),
-    #('ubuntu-jabber.net', 'ubuntu-jabber.net'),
-    #('verdammung.org', 'verdammung.org'),
-    #('xabber.de', 'xabber.de'),
-    #('firefly-it.de', 'firefly-it.de'),
-    #('einfachjabber.de', 'einfachjabber.de'),
+    ('open-host.de', 'open-host.de')
     ]
 
 def randomserver():

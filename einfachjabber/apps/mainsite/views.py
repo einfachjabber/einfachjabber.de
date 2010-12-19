@@ -36,7 +36,7 @@ def jabberreg():
                                    '6LdtjgsAAAAAAKoeUmTihlyU4YsC0KXpYWiP6Auy',
                                    '127.0.0.1')
         if subresult.is_valid is False:
-            return render_template('jabberreg.html', form=form, success=False,
+            return render_template('mainsite/jabberreg.html', form=form, success=False,
                                pagetitle=pagetitle, captchahtml=captchahtml,
                                    captchaerror=True)
         from einfachjabber.xmppreg import RegError, xmppreg
@@ -48,11 +48,11 @@ def jabberreg():
             if email:
                 sendmail('mailreminder', (email, jid, passwd))
             current_app.logger.info('New registration')
-            return render_template('jabberreg.html', form=form, regerror=False,
+            return render_template('mainsite/jabberreg.html', form=form, regerror=False,
                                    success=True, jid=jid, email=email,
                                    pagetitle=pagetitle)
         else:
-            return render_template('jabberreg.html', form=form, regerror=rr[1],
+            return render_template('mainsite/jabberreg.html', form=form, regerror=rr[1],
                                    jid=jid, pagetitle=pagetitle,
                                    captchahtml=captchahtml)
     else:

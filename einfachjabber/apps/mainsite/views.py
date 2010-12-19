@@ -35,15 +35,15 @@ def jabberreg():
                                    form.recaptcha_response_field.data,
                                    '6LdtjgsAAAAAAKoeUmTihlyU4YsC0KXpYWiP6Auy',
                                    '127.0.0.1')
-        if subresult.is_valid is False:
+        if not subresult.is_valid and not current_app.debug:
             return render_template('mainsite/jabberreg.html', form=form, success=False,
                                pagetitle=pagetitle, captchahtml=captchahtml,
                                    captchaerror=True)
         from einfachjabber.xmppreg import RegError, xmppreg
-        if not current_app.debug:
-            rr = xmppreg(nick, passwd, domain)
-        else:
-            rr = (1, )
+        #if not current_app.debug:
+        rr = xmppreg(nick, passwd, domain)
+        #else:
+        #    rr = (1, )
         if rr[0] is 1:
             if email:
                 sendmail('mailreminder', (email, jid, passwd))

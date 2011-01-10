@@ -1,0 +1,19 @@
+{% extends "mainsite/layout.html" %}
+{% block head %}
+
+{% endblock %}
+{% block title %}{{ pagetitle }}{% endblock %}
+{% block content %}
+  <h1>{{ metadata.client }} {{ metadata.clientversion }} für {{ metadata.os }}</h1>
+  {% include "mainsite/tutorial-pagination.html"%}
+  {% include "mainsite/tutorial-navigation.html"%}
+      {% if pagedata[1] %}
+        <img id="tut-image" src="/images/{{ tid|lower + '/' + pagedata[1] }}" alt="{{ pagedata[1] }}" />
+      {% endif %}
+      <div id="caption">{{ pagedata[0] }}</div>
+      {% if pagedata.more %}
+      <a href="{{ url_for('mainsite.tutorial', tid=tid, page=page+1) }}">{{ pagedata.defaultlink }}</a><br />
+      <a href="{{ url_for('mainsite.tutorialmore', tid=tid, page=page+1) }}">{{ pagedata.morelink }}</a>
+      {% endif %}
+
+{% endblock %}

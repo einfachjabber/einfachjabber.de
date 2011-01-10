@@ -1,10 +1,10 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name='einfachjabber',
-    version='1.5',
+    version='1.6',
     long_description=__doc__,
-    packages=['einfachjabber'],
+    packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
     install_requires=[
@@ -12,7 +12,11 @@ setup(
         'creoleparser',
         'Flask',
         'Flask-Mail',
+        'Flask-Testing',
         'Flask-WTF',
+        'markdown2',
+        'pygments',
+        'pyyaml',
         'recaptcha-client',
         'simplejson',
         'xmpppy'

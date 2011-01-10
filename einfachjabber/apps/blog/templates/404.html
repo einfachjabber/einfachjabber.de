@@ -1,0 +1,11 @@
+{% extends "blog/layout.html" %}
+{% block title %}Seite wurde nicht gefunden{% endblock %}
+{% block content %}
+<div id=fourofour>
+  <h1>404 - Not found</h1>
+  <img src="{{ url_for('static', filename='images/ui/404.png') }}" alt="404 error">
+  <h3>Wir haben überall gesucht, aber die Seite leider nicht gefunden</h3>
+  Benutze den Zurück-Button deines Browsers<br>
+  oder kehre <a href="{{ url_for('blog.list_posts') }}">zurück zur Startseite</a>
+</div>
+{% endblock %}

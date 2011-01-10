@@ -30,4 +30,3 @@ def xmppreg(username, passwd, domain):
         return 1, 'None'
 
     c.disconnect
-

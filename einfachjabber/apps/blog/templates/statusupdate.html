@@ -1,0 +1,20 @@
+{% extends "blog/layout.html" %}
+
+{% block feed %}
+{% endblock %}
+{% block title %}Serverstatus Update{% endblock %}
+{% block content %}
+<form action="{{ url_for('status_update') }}" method=POST>
+  <label for=indicator>Rot</label>
+  <input type=radio name=indicator value=red>
+  <label for=indicator>Gelb</label>
+  <input type=radio name=indicator value=yellow>
+  <label for=indicator>Grün</label>
+  <input type=radio name=indicator value=green><br>
+  <label for=status>Status-Nachricht</label>
+  <textarea value="" name=status></textarea><br>
+  <label for=password>Passwort</label>
+  <input type=password value="" name=password>
+  <button>Update</button>
+</form>
+{% endblock %}

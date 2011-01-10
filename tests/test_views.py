@@ -28,9 +28,9 @@ class TestFrontend(TestCase):
         rv = self.client.get('/notthere')
         self.assert_404(rv)
 
-    def test_tutorial_images(self):
-        rv = self.client.get('/static/tutorials/android-beem/android-beem1.png')
-        self.assert_200(rv)
+    #def test_tutorial_images(self):
+    #    rv = self.client.get('/static/tutorials/android-beem/android-beem1.png')
+    #    self.assert_200(rv)
 
 
 class TestData(TestCase):

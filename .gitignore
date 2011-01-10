@@ -9,5 +9,6 @@ fabfile.py
 *.egg
 *.egg-info
 dist
+build
 
 einfachjabber/static/tutorials

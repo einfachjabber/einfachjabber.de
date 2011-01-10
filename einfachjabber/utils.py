@@ -50,6 +50,7 @@ class OsCatalog():
                     { 'name': 'OpenSUSE', 'short': 'opensuse' },
                     { 'name': 'Ubuntu', 'short': 'ubuntu' },
                     { 'name': 'Ubuntu Netbook Edition', 'short': 'ubuntunbe' },
+                    { 'name': 'Jolicloud', 'short': 'jolicloud' },
                     ],
             'MacOSX': [],
             'Windows': [
@@ -82,6 +83,8 @@ class OsCatalog():
             system = ['Fedora', 'empathy']
         if osystem == 'iphone':
             system = ['iPhone', 'None']
+        if osystem == 'jolicloud':
+            system = ['Jolicloud', 'pidgin']
         if osystem == 'kubuntu':
             system = ['Kubuntu', 'kopete']
         if osystem == 'macosx':

@@ -4,7 +4,7 @@ setup(
     name='einfachjabber',
     version='1.6',
     long_description=__doc__,
-    packages=['einfachjabber'],
+    packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
     install_requires=[

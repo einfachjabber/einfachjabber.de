@@ -8,8 +8,10 @@ def create_app(config_filename):
     # register views
     from einfachjabber.apps.mainsite.views import mainsite
     from einfachjabber.apps.blog.views import blog
+    from einfachjabber.apps.stats.views import stats
     app.register_module(mainsite)
     app.register_module(blog, url_prefix='/blog')
+    app.register_module(stats, url_prefix='/stats')
 
     # initiate flask-extensions
     mail.init_app(app)

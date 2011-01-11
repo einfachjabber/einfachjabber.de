@@ -34,10 +34,10 @@ def create_app(config_filename):
         file_handler.setLevel(logging.INFO)
         app.logger.addHandler(file_handler)
 
-    #@app.errorhandler(404)
-    #def not_found(e):
-    #    """Handles 404s"""
-    #    pagetitle = '404 - Seite nicht gefunden'
-    #    return render_template('404.html', pagetitle=pagetitle), 404
+    @app.errorhandler(404)
+    def not_found(e):
+        """Handles 404s"""
+        pagetitle = '404 - Seite nicht gefunden'
+        return render_template('404.html', pagetitle=pagetitle), 404
 
     return app

@@ -1,8 +1,14 @@
-<ul>
-{% for page in pages %}
-  <li>
-    {{ page.label }}<br>
-    {{ page.nb_visits }}<br>
-  </li>
+<table>
+  <tr>
+    <th>Seiten-ID</td>
+    <th>Besuche</td>
+    <th>Abgeschlossen</td>
+  </tr>
+{% for d in data %}
+  <tr>
+    <td>{{ d.label }}</td>
+    <td>{{ d.visits }}</td>
+    <td>{{ d.endpagevisits }}</td>
+  </tr>
 {% endfor %}
-</ul>
+</table>

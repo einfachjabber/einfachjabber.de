@@ -15,6 +15,7 @@ setup(
         'Flask-Testing',
         'Flask-WTF',
         'markdown2',
+        'piwik',
         'pygments',
         'pyyaml',
         'recaptcha-client',

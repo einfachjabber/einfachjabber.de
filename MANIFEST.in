@@ -5,3 +5,5 @@ recursive-include einfachjabber/apps/mainsite/static *
 recursive-include einfachjabber/apps/mainsite/templates *
 recursive-include einfachjabber/apps/blog/static *
 recursive-include einfachjabber/apps/blog/templates *
+recursive-include einfachjabber/apps/stats/static *
+recursive-include einfachjabber/apps/stats/templates *

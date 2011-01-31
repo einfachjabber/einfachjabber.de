@@ -22,14 +22,14 @@ img {border:none;}
 img.logos {padding:10px;}
 ul {list-style:none;}
 #logo {float:left;left:10px;position:relative;top:5px;}
-#content {border-left:4px solid #27282C;border-right:4px solid #27282C;margin:0 auto;min-height:400px;padding:1px 15px 35px 15px;text-align:center;width:922px;}
+#content {border-left:4px solid #27282C;border-right:4px solid #27282C;margin:0 auto;min-height:400px;overflow:hidden;padding:1px 15px 35px 15px;text-align:center;width:922px;}
 #main {float:left;width:75%;}
 #sidebar {float:right;margin:0;width:25%;}
 #footer {background-color:#27282C;border-left:4px solid #27282C;border-right:4px solid #27282C;color:white;height:30px;margin:-25px auto;padding:8px 0 2px 0;text-align:right;width:952px;}
 ul.errors li {color:red;font-weight:bold;}
 /* start.html specific */
 /************************/
-img.home_screenshot {float:right;margin: 0 0 0 -35px;position:relative;right:-15px;top:0px;z-index:-10;}
+img.home_screenshot {float:right;margin: 0 0 0 -35px;position:relative;right:-25px;top:0px;z-index:-10;z-index:100;}
 #start {position:relative;}
 #start p {text-align:left;}
 #start h3 {margin:10px 0 0 0;}

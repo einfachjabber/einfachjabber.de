@@ -22,3 +22,6 @@
   <p>Zum Beispiel, warum Jabber die bessere Alternative zu ICQ, MSN und Co. ist, oder wie und wo große Unternehmen wie Google oder Facebook die Technik hinter Jabber einsetzen? Antworten darauf findest du im <a href="http://wiki.einfachjabber.de" title="einfachJabber.de - Wiki">einfachJabber.de - Wiki</a>.
 </div> <!-- End div#start -->
 {% endblock %}
+{% block script %}
+<script src="{{ url_for('static', filename='js/start.js') }}"></script>
+{% endblock %}

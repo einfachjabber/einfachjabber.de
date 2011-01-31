@@ -70,16 +70,9 @@
     </div>
   </div>
 </div>
-<script type="text/javascript" src="{{ url_for('.static', filename='js/jquery-1.4.2.min.js') }}"></script>
+{% endblock %}
+{% block script %}
 <script type="text/javascript" src="{{ url_for('.static', filename='js/jquery-ui-1.8.4.custom.min.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('.static', filename='js/jquery.ui.stars.min.js') }}"></script>
-<script language="javascript">
-  jQuery(document).ready(function() {
-    $('#stars').stars({
-      inputType: 'select',
-      cancelShow: false,
-      captionEl: $('#star-cap')
-    });
-  });
-</script>
+<script type="text/javascript" src="{{ url_for('.static', filename='js/tutoriallinks.js') }}"></script>
 {% endblock %}

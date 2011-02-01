@@ -4,6 +4,7 @@ from flask import request, redirect, url_for, abort, render_template, flash, \
         current_app
 from einfachjabber.utils import *
 from einfachjabber.apps.mainsite import mainsite
+from .models import TutorialDoc
 
 
 @mainsite.route('/')
@@ -71,11 +72,14 @@ def clientlist(osystem):
 @mainsite.route('/tutorial/<tid>/', defaults={'page':0})
 @mainsite.route('/tutorial/<tid>/<int:page>')
 def tutorial(tid, page):
-    gt = Tutorial().gettutorial(tid)
+    gt = TutorialDoc.load(tid)
     pag = Tutorial().pagination
-    metadata = {'client':gt['client'], 'clientversion':gt['clientversion'],\
-                'os':gt['os']}
-    pagedata = my_parser.generate(gt['tutorial'][page]['text']), gt['tutorial'][page]['image']
+    metadata = {
+        'client':gt['client'],
+        'clientversion':gt['clientversion'],
+        'os':gt['os']
+    }
+    pagedata = gt['tutorial'][page]['text'], gt['tutorial'][page]['image']
     maxpage = len(gt['tutorial'])-1
     pagetitle = 'Tutorial'
     flpage = pag(page, maxpage)

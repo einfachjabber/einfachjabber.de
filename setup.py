@@ -11,6 +11,7 @@ setup(
         'cherrypy',
         'creoleparser',
         'Flask',
+        'Flask-CouchDB',
         'Flask-Mail',
         'Flask-Testing',
         'Flask-WTF',

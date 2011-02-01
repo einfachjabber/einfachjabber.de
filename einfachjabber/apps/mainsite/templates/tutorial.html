@@ -10,7 +10,7 @@
       {% if pagedata[1] %}
         <img id="tut-image" src="/images/{{ tid|lower + '/' + pagedata[1] }}" alt="{{ pagedata[1] }}" />
       {% endif %}
-      <div id="caption">{{ pagedata[0] }}</div>
+      <div id="caption">{{ pagedata[0]|to_mdown }}</div>
       {% if pagedata.more %}
       <a href="{{ url_for('mainsite.tutorial', tid=tid, page=page+1) }}">{{ pagedata.defaultlink }}</a><br />
       <a href="{{ url_for('mainsite.tutorialmore', tid=tid, page=page+1) }}">{{ pagedata.morelink }}</a>

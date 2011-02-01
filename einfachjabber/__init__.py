@@ -15,6 +15,7 @@ def create_app(config_filename):
 
     # initiate flask-extensions
     mail.init_app(app)
+    db.setup(app)
 
     # set up logging
     if not app.debug:

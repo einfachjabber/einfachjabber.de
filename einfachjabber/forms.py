@@ -15,14 +15,14 @@ from wtforms import Form, TextField, TextAreaField, SelectField,\
 from einfachjabber.utils import sendmail
 
 serverlist = [
-        ('alpha-labs.net', 'alpha-labs.net'),
-        ('einfachjabber.de', 'einfachjabber.de'),
-        ('freies-im.de', 'freies-im.de'),
-        ('jabber.rootbash.com', 'jabber.rootbash.com'),
-        ('jabber-server.de', 'jabber-server.de'),
-        ('jabberim.de', 'jabberim.de'),
-        ('jabme.de', 'jabme.de'),
-        ('open-host.de', 'open-host.de')
+    ('alpha-labs.net', 'alpha-labs.net'),
+    ('einfachjabber.de', 'einfachjabber.de'),
+    ('freies-im.de', 'freies-im.de'),
+    ('jabber.rootbash.com', 'jabber.rootbash.com'),
+    ('jabber-server.de', 'jabber-server.de'),
+    ('jabberim.de', 'jabberim.de'),
+    ('jabme.de', 'jabme.de'),
+    ('open-host.de', 'open-host.de')
     ]
 
 def randomserver():

@@ -79,7 +79,6 @@ def tutorial(tid, page):
         'clientversion':gt['clientversion'],
         'os':gt['os']
     }
-    #pagedata = my_parser.generate(gt['tutorial'][page]['text']), gt['tutorial'][page]['image']
     pagedata = gt['tutorial'][page]['text'], gt['tutorial'][page]['image']
     maxpage = len(gt['tutorial'])-1
     pagetitle = 'Tutorial'

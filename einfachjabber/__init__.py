@@ -1,4 +1,8 @@
-from flask import Flask, render_template
+from markdown2 import markdown
+
+from flask import Flask, Markup, render_template
+
+from einfachjabber.extensions import db
 from einfachjabber.extensions import mail
 
 def create_app(config_filename):
@@ -16,6 +20,11 @@ def create_app(config_filename):
     # initiate flask-extensions
     mail.init_app(app)
     db.setup(app)
+
+    # template filter setup
+    @app.template_filter('to_mdown')
+    def to_mdown(s):
+        return Markup(markdown(s))
 
     # set up logging
     if not app.debug:

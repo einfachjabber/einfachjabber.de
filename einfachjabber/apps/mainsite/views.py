@@ -4,7 +4,7 @@ from flask import request, redirect, url_for, abort, render_template, flash, \
         current_app
 from einfachjabber.utils import *
 from einfachjabber.apps.mainsite import mainsite
-from .models import TutorialDoc
+from einfachjabber.models import TutorialDoc
 
 
 @mainsite.route('/')
@@ -21,12 +21,11 @@ def oslist():
 
 @mainsite.route('/os/<osystem>')
 def clientlist(osystem):
-    cl = Clients().clientlist(osystem)
-    osys = OsCatalog().defclient(osystem)
-    pagetitle = u'Clients für ' + osys[0]
-    defaultclient = osys[1]
-    return render_template('mainsite/clientlist.html', pagetitle=pagetitle, clist=cl,\
-                           osystem=osystem, defaultclient=defaultclient)
+    c = re.compile(r'^'+osystem+'-')
+    clients = TutorialDoc.all_tutorials()
+    clist = [ client for client in clients if c.match(client.id) ]
+
+    return render_template('mainsite/clientlist.html', clist=clist)
 
 @mainsite.route('/tutorial/<tid>/', defaults={'page':0})
 @mainsite.route('/tutorial/<tid>/<int:page>')

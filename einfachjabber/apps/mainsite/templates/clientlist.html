@@ -2,18 +2,18 @@
 {% block head %}
 
 {% endblock %}
-{% block title %}{{ pagetitle }}{% endblock %}
+{% block title %}{{ clist[0].os.full }}{% endblock %}
 {% block content %}
-  <h1>{{ pagetitle }}</h1>
+  <h1>Clients für {{ clist[0].os.full }}</h1>
   <ul id="clientlist">
-  {% for client in clist|sort %}
-  <li class="overlay"><a href="{{ url_for('tutorial', tid=osystem + '-' + client|lower) }}">
-    <img class="logos" src="{{ url_for('static', filename='images/client/logo-' + client|lower + '.png') }}" alt="{{ client }}" />
-    {% if client|lower == defaultclient %}
+  {% for c in clist|sort %}
+  <li class="overlay"><a href="{{ url_for('tutorial', tid=c.id) }}">
+    <img class="logos" src="{{ url_for('static', filename='images/client/logo-' + c.client.short + '.png') }}" alt="{{ c.client.full }}" />
+    {% if c.default %}
       <span class="asterisk">*</span>
       <span class="defaultclient">Empfohlener Client</span>
     {% endif %}
-      <span class="overlaytext">{{ client }}</span>
+      <span class="overlaytext">{{ c.client.full }}</span>
   </a></li>
   {% endfor %}
   </ul>

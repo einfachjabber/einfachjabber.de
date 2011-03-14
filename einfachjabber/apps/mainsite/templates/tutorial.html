@@ -4,7 +4,7 @@
 {% endblock %}
 {% block title %}{{ pagetitle }}{% endblock %}
 {% block content %}
-  <h1>{{ metadata.client }} {{ metadata.clientversion }} für {{ metadata.os }}</h1>
+  <h1>{{ metadata.client.full }} {{ metadata.clientversion }} für {{ metadata.os.full }}</h1>
   {% include "mainsite/tutorial-pagination.html"%}
   {% include "mainsite/tutorial-navigation.html"%}
       {% if pagedata[1] %}

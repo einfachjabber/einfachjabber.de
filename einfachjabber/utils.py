@@ -70,65 +70,6 @@ class OsCatalog():
         }
         return listing
 
-    def defclient(self, osystem):
-        """Maps the OS short-names to their long pendants and their default client"""
-
-        if osystem == 'android':
-            system = ['Android', 'beem']
-        if osystem == 'blackberry':
-            system = ['Blackberry', 'None']
-        if osystem == 'debian':
-            system = ['Debian', 'pidgin']
-        if osystem == 'fedora':
-            system = ['Fedora', 'empathy']
-        if osystem == 'iphone':
-            system = ['iPhone', 'None']
-        if osystem == 'jolicloud':
-            system = ['Jolicloud', 'pidgin']
-        if osystem == 'kubuntu':
-            system = ['Kubuntu', 'kopete']
-        if osystem == 'macosx':
-            system = ['Mac OS X', 'ichat']
-        if osystem == 'maemo2008':
-            system = ['Maemo OS2008', 'pidgin']
-        if osystem == 'opensolaris':
-            system = ['OpenSolaris', 'pidgin']
-        if osystem == 'opensuse':
-            system = ['OpenSUSE', 'kopete']
-        if osystem == 'pcbsd':
-            system = ['PC BSD', 'pidgin']
-        if osystem == 'ubuntu':
-            system = ['Ubuntu', 'empathy']
-        if osystem == 'ubuntunbe':
-            system = ['Ubuntu Netbook Edition', 'empathy']
-        if osystem == 'webchat':
-            system = ['Webchat', 'meebo']
-        if osystem == 'win7':
-            system = ['Windows Vista / 7', 'pidgin']
-        if osystem == 'winxp':
-            system = ['Windows XP', 'pidgin']
-        return system
-
-class Clients():
-    """Functions for managing the client-chooser"""
-
-    def clientlist(self, osystem):
-        """reads the list of clients from the tutorial directory"""
-        clist = []
-        chdir(current_app.config['TUTORIAL_PATH'])
-        files = glob(osystem + '-*.json')
-        if not files:
-            abort(404)
-        for file in files:
-            with open(file, 'r') as f:
-                try:
-                    clname = json.load(f)['client']
-                    clist = clist + [clname]
-                except:
-                    current_app.logger.error('Error in JSON-Data')
-                    abort(404)
-        return clist
-
 def sendmail(mailtype, data=None):
     '''
     Mail dispatcher

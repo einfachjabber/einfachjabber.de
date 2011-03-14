@@ -28,7 +28,7 @@ class TutorialDoc(Document):
     all_tutorials = ViewField('tutorial', '''\
             function (doc) {
                 if (doc.doc_type == 'tutorial') {
-                    emit(doc.id, doc);
+                    emit(doc._id, doc);
                 };
             }''')
 

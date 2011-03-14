@@ -1,0 +1,6 @@
+body {font-family:'Helvetica Neue'}
+
+#oslist ul {margin:0 0 0 10px;}
+#oslist li {padding:5px 0;}
+#oslist select {left:230px;position:absolute;width:100px;}
+.notifier {background:green;border-radius:5px;color:#fff;display:none;left:350px;padding:3px 5px;position:absolute;}

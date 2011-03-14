@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>einfachjabber.de Admin Dashboard</title>
+
+  <link rel=stylesheet href="{{ url_for('.static', filename='css/reset.css') }}">
+  <link rel=stylesheet href="{{ url_for('static', filename='css/admin.css') }}">
+
+  <script src="{{ url_for('.static', filename='js/jquery-1.4.2.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+</head>
+<body>
+  {% block body %}
+  {% endblock %}
+</body>
+</html>

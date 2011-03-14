@@ -1,0 +1,44 @@
+{% extends 'admin/layout.html' %}
+
+{% block body %}
+<ul id=oslist>
+
+{% for cat in oslist.data %}
+
+<li>
+  {% if not oslist.data[cat] %}
+  <a href="{{ url_for('admin.clientlist', osystem=cat|lower) }}">{{ cat }}</a>
+  <select id=defaultclient-{{ cat|lower }} name=defaultclient>
+    {% for client in clients if client.os.short == cat|lower %}
+      <option value={{ client.os.short }}-{{ client.client.short }}>{{ client.client.full }}</option>
+    {% endfor %}
+  </select>
+  {% else %}
+  {{ cat }}
+  {% endif %}
+
+  <ul>
+
+    {% for os in oslist.data[cat] %}
+
+    <li>
+      <a href="{{ url_for('admin.clientlist', osystem=os.short) }}">{{ os.name }}</a>
+      <select id=defaultclient-{{ os.short }} name=defaultclient>
+      {% for client in clients if client.os.short == os.short %}
+        <option value={{ client.os.short }}-{{ client.client.short }} {% if
+      client.default %}selected{% endif %}>{{ client.client.full }}</option>
+      {% endfor %}
+      </select>
+      <span class="notifier">Test</span>
+    </li>
+
+    {% endfor %}
+
+  </ul>
+
+</li>
+
+{% endfor %}
+
+</ul>
+{% endblock %}

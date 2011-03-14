@@ -13,9 +13,11 @@ def create_app(config_filename):
     from einfachjabber.apps.mainsite.views import mainsite
     from einfachjabber.apps.blog.views import blog
     from einfachjabber.apps.stats.views import stats
+    from einfachjabber.apps.admin.views import admin
     app.register_module(mainsite)
     app.register_module(blog, url_prefix='/blog')
     app.register_module(stats, url_prefix='/stats')
+    app.register_module(admin, url_prefix='/admin')
 
     # initiate flask-extensions
     mail.init_app(app)

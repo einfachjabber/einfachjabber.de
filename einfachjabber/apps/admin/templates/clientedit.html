@@ -1,0 +1,13 @@
+{% extends 'admin/layout.html' %}
+
+{% block body %}
+<ul>
+{% for step in client.tutorial %}
+  <li>
+  <textarea id=text-{{ loop.index }} name=text-{{ loop.index }}>{{ step.text }}</textarea>
+  <img src="/images/{{ client.id + '/' + step.image }}">
+  <input type=file id=imageupload-{{ loop.index }} name=imageupload-{{ loop.index }}>
+  </li>
+{% endfor %}
+</ul>
+{% endblock %}

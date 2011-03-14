@@ -1,0 +1,32 @@
+{% extends 'admin/layout.html' %}
+
+{% block body %}
+<h1>Clients für {{ clients[0].os.full }}</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Client Name</th>
+      <th>Aktionen</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+  {% for c in clients %}
+
+    <tr>
+
+      <td>{{ c.client.full }}</td>
+      <td>
+        <a href="{{ url_for('admin.client_edit', osystem=c.os.short, client=c.client.short) }}">Edit</a>
+        <a href="">Show</a>
+        <a href="">Delete</a>
+      </td>
+
+    </tr>
+
+  {% endfor %}
+
+  </tbody>
+</table>
+{% endblock %}

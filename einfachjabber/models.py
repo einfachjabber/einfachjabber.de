@@ -33,3 +33,9 @@ class TutorialDoc(Document):
             }''')
 
 db.add_document(TutorialDoc)
+
+class OSList(Document):
+
+    pass
+
+db.add_document(OSList)

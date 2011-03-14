@@ -4,7 +4,7 @@ from flask import request, redirect, url_for, abort, render_template, flash, \
         current_app
 from einfachjabber.utils import *
 from einfachjabber.apps.mainsite import mainsite
-from einfachjabber.models import TutorialDoc
+from einfachjabber.models import OSList, TutorialDoc
 
 
 @mainsite.route('/')
@@ -14,10 +14,10 @@ def start():
 
 @mainsite.route('/oslist')
 def oslist():
-    oslist = OsCatalog().oslist()
-    pagetitle = u'Jabber Tutorial Portal'
+    oslist = OSList.load('oslist')
+    pagetitle = u'Bitte wähle dein Betriebssystem'
     return render_template('mainsite/oslist.html', pagetitle=pagetitle,
-                                oslist=oslist)
+                                oslist=oslist['data'])
 
 @mainsite.route('/os/<osystem>')
 def clientlist(osystem):

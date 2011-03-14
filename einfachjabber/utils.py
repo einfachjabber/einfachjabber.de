@@ -38,38 +38,6 @@ class Tutorial():
             raise NotFound()
         return flpage
 
-class OsCatalog():
-
-    def oslist(self):
-        """builds the menu for /os"""
-        listing = {
-            'Linux': [
-                    { 'name': 'Debian', 'short': 'debian' },
-                    { 'name': 'Fedora', 'short': 'fedora' },
-                    { 'name': 'Kubuntu', 'short': 'kubuntu' },
-                    { 'name': 'OpenSUSE', 'short': 'opensuse' },
-                    { 'name': 'Ubuntu', 'short': 'ubuntu' },
-                    { 'name': 'Ubuntu Netbook Edition', 'short': 'ubuntunbe' },
-                    { 'name': 'Jolicloud', 'short': 'jolicloud' },
-                    ],
-            'MacOSX': [],
-            'Windows': [
-                    { 'name': 'Windows Vista / 7', 'short': 'win7'},
-                    { 'name': 'Windows XP', 'short': 'winxp' }
-                   ],
-            'Mobil': [
-                    { 'name': 'Android', 'short': 'android' },
-                    { 'name': 'Blackberry', 'short': 'blackberry'},
-                    { 'name': 'iPhone', 'short': 'iphone' },
-                    { 'name': 'Maemo2008', 'short': 'maemo2008'},
-                   ],
-            'Andere': [
-                    { 'name': 'OpenSolaris', 'short': 'opensolaris'},
-                    { 'name': 'PC BSD', 'short': 'pcbsd' }
-                   ],
-        }
-        return listing
-
 def sendmail(mailtype, data=None):
     '''
     Mail dispatcher

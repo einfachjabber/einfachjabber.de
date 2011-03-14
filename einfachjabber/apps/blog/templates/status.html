@@ -3,7 +3,7 @@
 {% block feed %}
 <link href="{{ url_for('status_feed') }}"
       rel="alternate"
-      title="einfachjabber.de Statusfeed" 
+      title="einfachjabber.de Statusfeed"
       type="application/atom+xml">
 {% endblock %}
 {% block title %}Serverstatus{% endblock %}
@@ -11,7 +11,7 @@
 <h1>einfachJabber.de Serverstatus</h1>
 {% for status in statuses %}
   <article class={{ status.indicator }}>
-    <h2><time>{{ status.date }}</time> <span>(<a href="http://en.wikipedia.org/wiki/Coordinated_Universal_Time" title="UTC on en.wikipedia.org">UTC</a>)</span></h2>
+  <h2><time>{{ status.date }}</time> <span>(<a href="http://timeanddate.com/worldclock/fixedtime.html?year={{ status.date[0:4] }}&month={{ status.date[5:7] }}&day={{ status.date[8:10] }}&hour={{ status.date[11:13] }}&min={{ status.date[14:16] }}&sec={{ status.date[17:19] }}" title="The Fixed Time World Clock">UTC</a>)</span></h2>
     {{ status.text }}
   </article>
 {% endfor%}

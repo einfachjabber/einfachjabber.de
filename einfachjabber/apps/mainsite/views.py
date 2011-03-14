@@ -4,6 +4,7 @@ from flask import request, redirect, url_for, abort, render_template, flash, \
         current_app
 from einfachjabber.utils import *
 from einfachjabber.apps.mainsite import mainsite
+from einfachjabber.models import OSList, TutorialDoc
 
 
 @mainsite.route('/')
@@ -13,76 +14,38 @@ def start():
 
 @mainsite.route('/oslist')
 def oslist():
-    oslist = OsCatalog().oslist()
-    pagetitle = u'Jabber Tutorial Portal'
-    return render_template('mainsite/oslist.html', pagetitle=pagetitle, oslist=oslist)
-
-@mainsite.route('/reg', methods=['GET', 'POST'])
-def jabberreg():
-    pagetitle = u'Account Registration'
-    from recaptcha.client import captcha
-    captchahtml = captcha.displayhtml('6LdtjgsAAAAAAOFO0O1oFvuc_PjXicfqHD0JS3ik')
-    from einfachjabber.forms import RegForm, randomserver
-    form = RegForm(request.form)
-    form.domain.choices = randomserver()
-    if request.method == 'POST' and form.validate():
-        nick = form.nick.data
-        domain = form.domain.data
-        email = form.email.data
-        passwd = form.passwd.data
-        jid = nick + '@' + domain
-        subresult = captcha.submit(form.recaptcha_challenge_field.data,
-                                   form.recaptcha_response_field.data,
-                                   '6LdtjgsAAAAAAKoeUmTihlyU4YsC0KXpYWiP6Auy',
-                                   '127.0.0.1')
-        if not subresult.is_valid and not current_app.debug:
-            return render_template('mainsite/jabberreg.html', form=form, success=False,
-                               pagetitle=pagetitle, captchahtml=captchahtml,
-                                   captchaerror=True)
-        from einfachjabber.xmppreg import RegError, xmppreg
-        #if not current_app.debug:
-        rr = xmppreg(nick, passwd, domain)
-        #else:
-        #    rr = (1, )
-        if rr[0] is 1:
-            if email:
-                sendmail('mailreminder', (email, jid, passwd))
-            current_app.logger.info('New registration')
-            return render_template('mainsite/jabberreg.html', form=form, regerror=False,
-                                   success=True, jid=jid, email=email,
-                                   pagetitle=pagetitle)
-        else:
-            return render_template('mainsite/jabberreg.html', form=form, regerror=rr[1],
-                                   jid=jid, pagetitle=pagetitle,
-                                   captchahtml=captchahtml)
-    else:
-        return render_template('mainsite/jabberreg.html', form=form, success=False,
-                               pagetitle=pagetitle, captchahtml=captchahtml)
+    oslist = OSList.load('oslist')
+    pagetitle = u'Bitte wähle dein Betriebssystem'
+    return render_template('mainsite/oslist.html', pagetitle=pagetitle,
+                                oslist=oslist['data'])
 
 @mainsite.route('/os/<osystem>')
 def clientlist(osystem):
-    cl = Clients().clientlist(osystem)
-    osys = OsCatalog().defclient(osystem)
-    pagetitle = u'Clients für ' + osys[0]
-    defaultclient = osys[1]
-    return render_template('mainsite/clientlist.html', pagetitle=pagetitle, clist=cl,\
-                           osystem=osystem, defaultclient=defaultclient)
+    c = re.compile(r'^'+osystem+'-')
+    clients = TutorialDoc.all_tutorials()
+    clist = [ client for client in clients if c.match(client.id) ]
+
+    return render_template('mainsite/clientlist.html', clist=clist)
 
 @mainsite.route('/tutorial/<tid>/', defaults={'page':0})
 @mainsite.route('/tutorial/<tid>/<int:page>')
 def tutorial(tid, page):
-    gt = Tutorial().gettutorial(tid)
+    gt = TutorialDoc.load(tid)
     pag = Tutorial().pagination
-    metadata = {'client':gt['client'], 'clientversion':gt['clientversion'],\
-                'os':gt['os']}
-    pagedata = my_parser.generate(gt['tutorial'][page]['text']), gt['tutorial'][page]['image']
+    metadata = {
+        'client':gt['client'],
+        'clientversion':gt['clientversion'],
+        'os':gt['os']
+    }
+    pagedata = gt['tutorial'][page]['text'], gt['tutorial'][page]['image']
     maxpage = len(gt['tutorial'])-1
     pagetitle = 'Tutorial'
     flpage = pag(page, maxpage)
     osystem = tid.partition('-')[0]
-    return render_template('mainsite/tutorial.html', pagetitle=pagetitle, page=page,\
-                           metadata=metadata, pagedata=pagedata, tid=tid,\
-                           maxpage=maxpage, flpage=flpage, osystem=osystem)
+    return render_template('mainsite/tutorial.html', pagetitle=pagetitle,
+                           page=page, metadata=metadata, pagedata=pagedata,
+                           tid=tid, maxpage=maxpage, flpage=flpage,
+                           osystem=osystem)
 
 @mainsite.route('/tutorial/<tid>/links', methods=['GET', 'POST'])
 def tutoriallinks(tid):
@@ -128,10 +91,54 @@ def tutorialmore(tid, page, morepage):
     data = gt['tutorial'][page]['more']
     pagetitle = 'Tutorial'
     flpage = pag(morepage, maxpage)
-    return render_template('mainsite/more.html', pagetitle=pagetitle, data=data,\
-                           metadata=metadata, maxpage=maxpage, tid=tid,\
-                           morepage=morepage, page=page, flpage=flpage,\
-                           jumpto=jumpto)
+    return render_template('mainsite/more.html', pagetitle=pagetitle,
+                           data=data, metadata=metadata, maxpage=maxpage,
+                           tid=tid, morepage=morepage, page=page,
+                           flpage=flpage, jumpto=jumpto)
+
+@mainsite.route('/reg', methods=['GET', 'POST'])
+def jabberreg():
+    pagetitle = u'Account Registration'
+    from recaptcha.client import captcha
+    captchahtml = captcha.displayhtml('6LdtjgsAAAAAAOFO0O1oFvuc_PjXicfqHD0JS3ik')
+    from einfachjabber.forms import RegForm, randomserver
+    form = RegForm(request.form)
+    form.domain.choices = randomserver()
+    if request.method == 'POST' and form.validate():
+        nick = form.nick.data
+        domain = form.domain.data
+        email = form.email.data
+        passwd = form.passwd.data
+        jid = nick + '@' + domain
+        subresult = captcha.submit(form.recaptcha_challenge_field.data,
+                                   form.recaptcha_response_field.data,
+                                   '6LdtjgsAAAAAAKoeUmTihlyU4YsC0KXpYWiP6Auy',
+                                   '127.0.0.1')
+        if not subresult.is_valid and not current_app.debug:
+            return render_template('mainsite/jabberreg.html', form=form,
+                                   success=False, pagetitle=pagetitle,
+                                   captchahtml=captchahtml, captchaerror=True)
+        from einfachjabber.xmppreg import RegError, xmppreg
+        #if not current_app.debug:
+        rr = xmppreg(nick, passwd, domain)
+        #else:
+        #    rr = (1, )
+        if rr[0] is 1:
+            if email:
+                sendmail('mailreminder', (email, jid, passwd))
+            current_app.logger.info('New registration')
+            return render_template('mainsite/jabberreg.html', form=form,
+                                   regerror=False, success=True, jid=jid,
+                                   email=email, pagetitle=pagetitle)
+        else:
+            return render_template('mainsite/jabberreg.html', form=form,
+                                   regerror=rr[1], jid=jid,
+                                   pagetitle=pagetitle,
+                                   captchahtml=captchahtml)
+    else:
+        return render_template('mainsite/jabberreg.html', form=form,
+                               success=False, pagetitle=pagetitle,
+                               captchahtml=captchahtml)
 
 @mainsite.route('/jabber')
 def jabber():

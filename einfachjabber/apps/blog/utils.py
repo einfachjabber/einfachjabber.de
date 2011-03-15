@@ -74,7 +74,7 @@ def parse_statusfile(filename):
 
 def assemble_statuses(date, indicator, text):
     status = {}
-    status['date'] = str(extract_datetime(date))
+    status['date'] = extract_datetime(date)
     status['indicator'] = indicator
     status['text'] = text
     return status

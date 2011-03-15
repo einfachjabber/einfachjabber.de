@@ -45,7 +45,6 @@ def recent_feed():
     feed = AtomFeed('blog.einfachjabber.de - Feed',
                     feed_url=request.url, url=request.url_root)
     posts, postkeys = gather_posts(path.join(current_app.config['POSTS'] + '*.mkd'))
-    print postkeys
     counter = 0
     for key in postkeys:
         if counter < 10:
@@ -71,7 +70,6 @@ def status_update():
         filename = current_app.config['STATUSES'] + now + '.status'
         if request.form['password'] == current_app.config['PASSWORD']:
             if request.form['status']:
-                print request.form['status'], now
                 f = open(filename, 'w')
                 f.write(now + '\n'
                         + '%s' % request.form['indicator'] + '\n'

@@ -10,12 +10,12 @@ span {font-size:1.0em;}
 a {color:#e7a300;text-decoration:none;}
 a:hover {color:#27282C;text-decoration:underline;}
 ul a:hover {color:#27282C;text-decoration:none;}
-p {margin-bottom:10px;text-align:left;}
+p {margin-bottom:10px;line-height:1.5;text-align:left;}
 h1, h2, h3, h4 {font-family:Comfortaa;font-weight:bold;}
 h1 {color:#ffb400;font-size:2em;margin:10px 0 15px 0;text-align:center;}
-h2 {font-size:1.6em;text-align:left;}
+h2 {font-size:1.6em;margin:0 0 5px;text-align:left;}
 span.h2 {font-size:1.6em;text-align:left;}
-h3 {font-size:1.4em;text-align:left;}
+h3 {font-size:1.4em;margin:0 0 5px;text-align:left;}
 span.h3 {font-size:1.4em;text-align:left;}
 .center {text-align:center;}
 img {border:none;}
@@ -32,7 +32,7 @@ ul.errors li {color:red;font-weight:bold;}
 img.home_screenshot {float:right;margin: 0 0 0 -35px;position:relative;right:-25px;top:0px;z-index:-10;z-index:100;}
 #start {margin:0 -15px 0 0;overflow:hidden;position:relative;}
 #start p {text-align:left;}
-#start h3 {margin:10px 0 0 0;}
+#start h3 {margin-top:10px;}
 a.choice-button {background:#27282C url(../images/ui/alert-overlay.png) repeat-x;border-bottom:1px solid #27282C;border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px;-moz-box-shadow:0 1px 5px #999;-webkit-box-shadow:0 1px 3px #999;color:#fff;margin:0 10px;padding:6px 10px 5px 10px;position:relative;text-align:left;text-decoration:none;text-shadow:0 -1px 1px #27282C;}
 a.choice-button:hover {background-color:#111;color:#ffb400;}
 /* header.html specific */
@@ -42,7 +42,7 @@ a.choice-button:hover {background-color:#111;color:#ffb400;}
 #nav ul {float:right;position:relative;}
 #nav a img {background-color:#fff;margin:0 0 -5px 0;padding:0;}
 #nav li:hover a img {background-color:#ffb400;}
-#nav a {color:#fff;display:block;font-size:0.9em;text-decoration:none;}
+#nav a {color:#fff;display:block;font-size:0.9em;line-height:1.7;text-decoration:none;}
 #nav li:hover a {color:#ffb400;}
 #nav li {float:left;padding:8px 8px 4px 8px;position:relative;text-align:center;}
 #nav li a {text-align:center;}
@@ -86,7 +86,7 @@ ul#clientlist span.overlaytext {left:10px;}
 /* tutorial.html specific */
 /**************************/
 #tut-image {background-color:white;border:1px solid #27282C;-moz-box-shadow:rgba(0, 0, 0, 0.5) 5px 5px 5px;-webkit-box-shadow:rgba(0, 0, 0, 0.5) 5px 5px 5px;margin-top:20px;padding:15px;}
-#caption p {color:black;font-size:1em;padding:0 25px 25px;margin:0 auto;text-align:center;width:70%;}
+#caption p {color:black;font-size:1em;padding:0 25px 25px;margin:15px auto 0;text-align:center;width:70%;}
 #links {overflow:hidden;}
 #links #sidebar h3 {text-align:center;}
 #links p {margin:20px auto;}

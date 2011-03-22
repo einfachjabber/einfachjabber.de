@@ -1,8 +1,6 @@
 {% extends "mainsite/layout.html" %}
-{% block head %}
-
-{% endblock %}
-{% block title %}{{ pagetitle }}{% endblock %}
+{% block description %}Jabber Client-Tutorial: {{ metadata.client.full }} für {{ metadata.os.full }}{% endblock %}
+{% block title %}Jabber Client-Tutorial: {{ metadata.client.full }} für {{ metadata.os.full }}{% endblock %}
 {% block content %}
   <h1>{{ metadata.client.full }} {{ metadata.clientversion }} für {{ metadata.os.full }}</h1>
   {% include "mainsite/tutorial-pagination.html"%}

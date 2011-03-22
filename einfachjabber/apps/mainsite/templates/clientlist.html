@@ -1,8 +1,6 @@
 {% extends "mainsite/layout.html" %}
-{% block head %}
-
-{% endblock %}
-{% block title %}{{ clist[0].os.full }}{% endblock %}
+{% block description %}Jabber Client-Tutorials für {{ clist[0].os.full }}{% endblock %}
+{% block title %}Jabber Client-Tutorials für {{ clist[0].os.full }}{% endblock %}
 {% block content %}
   <h1>Clients für {{ clist[0].os.full }}</h1>
   <ul id="clientlist">

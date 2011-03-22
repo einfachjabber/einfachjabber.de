@@ -4,14 +4,14 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="jabber, tutorial, anleitungen, xmpp, pidgin, gajim, psi, windows, mac, linux, ubuntu, iphone, android" />
-    <meta name="description" content="Jabber Anleitungen für Einsteiger" />    
+    <meta name="description" content="{% block description %}{% endblock %}" />
     <meta name="robots" content="index,follow" />
     <meta name="google-site-verification" content="OE8IXvCRzKjJqLMAviSzgOcwQoz-AoOPQAuSW1__id0" />
     <link rel="icon" type="image/vnd.microsoft.icon" href="{{ url_for('.static', filename='images/favicon.ico') }}" />
     <link rel="stylesheet" href="{{ url_for('mainsite.static', filename='css/master.css') }}" type="text/css" media="screen" charset="utf-8" />
     {% block head %}
     {% endblock %}
-    <title>{% block title %}{% endblock %} • Jabber Tutorial</title>
+    <title>{% block title %}{% endblock %} • einfachJabber.de</title>
   </head>
   <body>
   {% include "header.html"%}

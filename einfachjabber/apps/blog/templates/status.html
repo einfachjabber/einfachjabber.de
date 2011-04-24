@@ -11,7 +11,7 @@
 <h1>einfachJabber.de Serverstatus</h1>
 {% for status in statuses %}
   <article class={{ status.indicator }}>
-  <h2><time>{{ status.date }}</time> <span>(<a href="http://timeanddate.com/worldclock/fixedtime.html?year={{ status.date[0:4] }}&month={{ status.date[5:7] }}&day={{ status.date[8:10] }}&hour={{ status.date[11:13] }}&min={{ status.date[14:16] }}&sec={{ status.date[17:19] }}" title="The Fixed Time World Clock">UTC</a>)</span></h2>
+  <h2><time>{{ status.date.strftime('%Y-%m-%d %H:%M') }}</time> <span>(<a href="http://timeanddate.com/worldclock/fixedtime.html?year={{ status.date.year }}&month={{ status.date.month }}&day={{ status.date.day }}&hour={{ status.date.hour }}&min={{ status.date.minute }}&sec={{ status.date.second }}" title="The Fixed Time World Clock">UTC</a>)</span></h2>
     {{ status.text }}
   </article>
 {% endfor%}

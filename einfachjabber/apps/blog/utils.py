@@ -89,4 +89,4 @@ def gather_statuses(statuspath):
     return statuses
 
 def make_external(url):
-    return urljoin(request.url_root, url)
+    return urljoin(request.url_root, '/blog/' + url)

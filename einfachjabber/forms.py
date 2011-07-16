@@ -21,8 +21,10 @@ serverlist = [
     ('jabber-server.de', 'jabber-server.de'),
     ('jabberim.de', 'jabberim.de'),
     ('jabme.de', 'jabme.de'),
+    ('labnote.org', 'labnote.org'),
     ('open-host.de', 'open-host.de'),
-    ('prosody.de', 'prosody.de')
+    ('prosody.de', 'prosody.de'),
+    ('tekst.me', 'tekst.me')
 ]
 
 def randomserver():

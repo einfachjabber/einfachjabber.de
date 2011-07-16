@@ -58,6 +58,8 @@ ul.errors li {color:red;font-weight:bold;}
 #footer img:hover, #footer a:hover img {background-color:#ffb400;}
 #footer a span {color:#fff;font-size:0.8em;padding:0 2px 0 4px;position:relative;top:-7px;}
 #footer a:hover span {color:#ffb400;}
+#footer .flattr_button, #footer .flattr_button:hover {background:transparent}
+#___plusone_0 {width:65px !important;}
 
 /* status.html specific */
 /************************/

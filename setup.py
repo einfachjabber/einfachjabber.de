@@ -17,6 +17,7 @@ setup(
         'Flask-WTF',
         'markdown2',
         'piwik',
+        'pydns',
         'pygments',
         'pyyaml',
         'simplejson',

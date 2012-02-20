@@ -78,7 +78,7 @@ ul#oslist li ul li span.osname {background:none;border:none;left:5px;position:re
 .colorbar {display:none;width:1px;background-image:url(../images/passwordstrength.jpg);height:5px;
     float:left;}
 span.percent {display:none;position:relative;top:-20px;}span.result{color:green;display:none;font-size:0.8em;position:relative;top:-20px;}
-/*.themostimportantfield {display:none;}*/
+.themostimportantfield {display:none;}
 /* clientlist.html specific */
 /****************************/
 #clientlist {margin-top:25px;}

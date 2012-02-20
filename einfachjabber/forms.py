@@ -55,8 +55,8 @@ class RegForm(Form):
                                                     message=u'Bitte gib ein\
                                                     Passwort ein.')
                                                 ])
-    recaptcha_challenge_field = TextAreaField()
-    recaptcha_response_field = HiddenField()
+    # honeypot
+    username = TextField(u'Username', [validators.Length(0, 0, 'Wrong error')])
 
 class RateForm(Form):
     rating  = SelectField(u'Bewertung:')

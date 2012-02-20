@@ -99,8 +99,6 @@ def tutorialmore(tid, page, morepage):
 @mainsite.route('/reg', methods=['GET', 'POST'])
 def jabberreg():
     pagetitle = u'Account Registration'
-    from recaptcha.client import captcha
-    captchahtml = captcha.displayhtml('6LdtjgsAAAAAAOFO0O1oFvuc_PjXicfqHD0JS3ik')
     from einfachjabber.forms import RegForm, randomserver
     form = RegForm(request.form)
     form.domain.choices = randomserver()
@@ -110,14 +108,6 @@ def jabberreg():
         email = form.email.data
         passwd = form.passwd.data
         jid = nick + '@' + domain
-        subresult = captcha.submit(form.recaptcha_challenge_field.data,
-                                   form.recaptcha_response_field.data,
-                                   '6LdtjgsAAAAAAKoeUmTihlyU4YsC0KXpYWiP6Auy',
-                                   '127.0.0.1')
-        if not subresult.is_valid and not current_app.debug:
-            return render_template('mainsite/jabberreg.html', form=form,
-                                   success=False, pagetitle=pagetitle,
-                                   captchahtml=captchahtml, captchaerror=True)
         from einfachjabber.xmppreg import RegError, xmppreg
         #if not current_app.debug:
         rr = xmppreg(nick, passwd, domain)
@@ -133,12 +123,10 @@ def jabberreg():
         else:
             return render_template('mainsite/jabberreg.html', form=form,
                                    regerror=rr[1], jid=jid,
-                                   pagetitle=pagetitle,
-                                   captchahtml=captchahtml)
+                                   pagetitle=pagetitle)
     else:
         return render_template('mainsite/jabberreg.html', form=form,
-                               success=False, pagetitle=pagetitle,
-                               captchahtml=captchahtml)
+                               success=False, pagetitle=pagetitle)
 
 @mainsite.route('/jabber')
 def jabber():

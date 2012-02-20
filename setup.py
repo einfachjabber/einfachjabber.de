@@ -19,7 +19,6 @@ setup(
         'piwik',
         'pygments',
         'pyyaml',
-        'recaptcha-client',
         'simplejson',
         'xmpppy'
     ]

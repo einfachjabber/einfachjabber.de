@@ -3,15 +3,20 @@
 {% block title %}Jabber Client-Tutorial: {{ metadata.client.full }} für {{ metadata.os.full }}{% endblock %}
 {% block content %}
   <h1>{{ metadata.client.full }} {{ metadata.clientversion }} für {{ metadata.os.full }}</h1>
-  {% include "mainsite/tutorial-pagination.html"%}
-  {% include "mainsite/tutorial-navigation.html"%}
-      {% if pagedata[1] %}
-        <img id="tut-image" src="/images/{{ tid|lower + '/' + pagedata[1] }}" alt="{{ pagedata[1] }}" />
-      {% endif %}
-      <div id="caption">{{ pagedata[0]|to_mdown }}</div>
-      {% if pagedata.more %}
-      <a href="{{ url_for('mainsite.tutorial', tid=tid, page=page+1) }}">{{ pagedata.defaultlink }}</a><br />
-      <a href="{{ url_for('mainsite.tutorialmore', tid=tid, page=page+1) }}">{{ pagedata.morelink }}</a>
-      {% endif %}
-
+    {% include "mainsite/tutorial-pagination.html"%}
+    {% include "mainsite/tutorial-navigation.html"%}
+    {% if pagedata[1] %}
+        {# last page #}
+        {% if flpage == 2 %}
+            <a href="{{ url_for('tutoriallinks', tid=tid) }}" title="Weiter zu den Links"><img id="tut-image" src="/images/{{ tid|lower + '/' + pagedata[1] }}" alt="{{ pagedata[1] }}" /></a>
+        {% else %}
+            <a href="{{ url_for('tutorial', tid=tid, page=page+1) }}" title="Weiter"><img id="tut-image" src="/images/{{ tid|lower + '/' + pagedata[1] }}" alt="{{ pagedata[1] }}" /></a>
+        {% endif %}
+    {% endif %}
+    <div id="caption">{{ pagedata[0]|to_mdown }}</div>
+    {% if pagedata.more %}
+        <a href="{{ url_for('mainsite.tutorial', tid=tid, page=page+1) }}">{{ pagedata.defaultlink }}</a><br />
+        <a href="{{ url_for('mainsite.tutorialmore', tid=tid, page=page+1) }}">{{ pagedata.morelink }}</a>
+    {% endif %}
 {% endblock %}
+

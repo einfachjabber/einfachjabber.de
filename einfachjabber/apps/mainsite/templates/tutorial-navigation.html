@@ -1,21 +1,22 @@
 <div id="tut-navigation">
     {% if not pagedata.more %}
-    {# middle page #}
-    {% if flpage == 1 %}
-      <a class="nav-all nav-back" href="{{ url_for('tutorial', tid=tid, page=page-1) }}" title="Zurück">&lt;</a>
-      <a class="nav-all nav-next" href="{{ url_for('tutorial', tid=tid, page=page+1) }}" title="Weiter">&gt;</a>
-    {% endif %}
-    {# first page #}
-    {% if flpage == 0 %}
-      <a class="nav-all nav-back" href="{{ url_for('clientlist', osystem=osystem) }}" title="Weiter">&lt;</a>
-      <a class="nav-all nav-next" href="{{ url_for('tutorial', tid=tid, page=page+1) }}" title="Weiter">&gt;</a>
-    {% endif %}
-    {# last page #}
-    {% if flpage == 2 %}
-      <a class="nav-all nav-back" href="{{ url_for('tutorial', tid=tid, page=page-1) }}" title="Zurück">&lt;</a>
-      <a class="nav-all nav-next" href="{{ url_for('tutoriallinks', tid=tid) }}" title="Weiter">&gt;</a>
-    {% endif %}
+        {# middle page #}
+        {% if flpage == 1 %}
+          <a class="nav-all nav-back" href="{{ url_for('tutorial', tid=tid, page=page-1) }}" title="Zurück">&lt;</a>
+          <a class="nav-all nav-next" href="{{ url_for('tutorial', tid=tid, page=page+1) }}" title="Weiter">&gt;</a>
+        {% endif %}
+        {# first page #}
+        {% if flpage == 0 %}
+          <a class="nav-all nav-back" href="{{ url_for('clientlist', osystem=osystem) }}" title="Zurück zur Übersicht">&lt;</a>
+          <a class="nav-all nav-next" href="{{ url_for('tutorial', tid=tid, page=page+1) }}" title="Weiter">&gt;</a>
+        {% endif %}
+        {# last page #}
+        {% if flpage == 2 %}
+          <a class="nav-all nav-back" href="{{ url_for('tutorial', tid=tid, page=page-1) }}" title="Zurück">&lt;</a>
+          <a class="nav-all nav-next" href="{{ url_for('tutoriallinks', tid=tid) }}" title="Weiter zu den Links">&gt;</a>
+        {% endif %}
     {% else %}
     <a class="nav-all nav-back" href="{{ url_for('tutorial', tid=tid, page=page-1) }}" title="Zurück">&lt;</a>
     {% endif %}
-  </div>
+</div>
+

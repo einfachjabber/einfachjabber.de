@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='einfachjabber',
-    version='1.7.4.1',
+    version='1.7.4.4',
     long_description=__doc__,
     packages=find_packages(),
     include_package_data=True,
@@ -10,7 +10,7 @@ setup(
     install_requires=[
         'cherrypy',
         'creoleparser',
-        'Flask',
+        'Flask==0.6.1',
         'Flask-CouchDB',
         'Flask-Mail',
         'Flask-Testing',

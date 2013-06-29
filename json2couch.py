@@ -25,30 +25,16 @@ def defclient(osystem):
         system = ['Blackberry', 'None']
     if osystem == 'debian':
         system = ['Debian', 'pidgin']
-    if osystem == 'fedora':
-        system = ['Fedora', 'empathy']
     if osystem == 'iphone':
         system = ['iPhone', 'None']
-    if osystem == 'jolicloud':
-        system = ['Jolicloud', 'pidgin']
-    if osystem == 'kubuntu':
-        system = ['Kubuntu', 'kopete']
     if osystem == 'macosx':
         system = ['Mac OS X', 'ichat']
-    if osystem == 'maemo2008':
-        system = ['Maemo OS2008', 'pidgin']
-    if osystem == 'opensolaris':
-        system = ['OpenSolaris', 'pidgin']
     if osystem == 'opensuse':
         system = ['OpenSUSE', 'kopete']
-    if osystem == 'pcbsd':
-        system = ['PC BSD', 'pidgin']
     if osystem == 'ubuntu':
         system = ['Ubuntu', 'empathy']
-    if osystem == 'ubuntunbe':
-        system = ['Ubuntu Netbook Edition', 'empathy']
-    if osystem == 'webchat':
-        system = ['Webchat', 'meebo']
+    #if osystem == 'webchat':
+        #system = ['Webchat', 'meebo']
     if osystem == 'win7':
         system = ['Windows Vista / 7', 'pidgin']
     if osystem == 'winxp':
@@ -61,27 +47,18 @@ def oslist():
         'data': {
             'Linux': [
                     { 'name': 'Debian', 'short': 'debian' },
-                    { 'name': 'Fedora', 'short': 'fedora' },
-                    { 'name': 'Kubuntu', 'short': 'kubuntu' },
                     { 'name': 'OpenSUSE', 'short': 'opensuse' },
                     { 'name': 'Ubuntu', 'short': 'ubuntu' },
-                    { 'name': 'Ubuntu Netbook Edition', 'short': 'ubuntunbe' },
-                    { 'name': 'Jolicloud', 'short': 'jolicloud' },
                     ],
             'MacOSX': [],
             'Windows': [
-                    { 'name': 'Windows Vista / 7', 'short': 'win7'},
+                    { 'name': 'Windows 7', 'short': 'win7'},
                     { 'name': 'Windows XP', 'short': 'winxp' }
                    ],
             'Mobil': [
                     { 'name': 'Android', 'short': 'android' },
                     { 'name': 'Blackberry', 'short': 'blackberry'},
                     { 'name': 'iPhone', 'short': 'iphone' },
-                    { 'name': 'Maemo2008', 'short': 'maemo2008'},
-                   ],
-            'Andere': [
-                    { 'name': 'OpenSolaris', 'short': 'opensolaris'},
-                    { 'name': 'PC BSD', 'short': 'pcbsd' }
                    ],
         }
     }
@@ -91,7 +68,7 @@ def oslist():
 
 def j2c():
     tutorials = {}
-    for filename in glob('einfachjabber.de-data/_tutorials/*.json'):
+    for filename in glob('../einfachjabber.de-data/_tutorials/*.json'):
         tid = path.split(filename)[-1][:-5]
 
         with open(filename, 'r') as f:
@@ -126,10 +103,11 @@ def j2c():
         os, cl = tid.split('-')
 
         # set default client information
-        if defclient(os)[1] == cl:
-            doc['default'] = True
-        else:
-            doc['default'] = False
+        if defclient(os):
+            if defclient(os)[1] == cl:
+                doc['default'] = True
+            else:
+                doc['default'] = False
 
         # amend short form to os-field
         doc_os = {

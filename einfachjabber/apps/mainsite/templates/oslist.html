@@ -6,9 +6,6 @@
   <h1>Bitte wähle Dein Betriebssystem</h1>
   <ul id="oslist">
     {% for cat in oslist|sort %}
-    {% if cat == 'Andere'%}
-      
-    {% else %}
     <li class="{% if oslist[cat] %}top {% endif %}overlay">{% if not oslist[cat] %}<a href="{{ url_for('clientlist', osystem=cat|lower) }}">{% endif %}<img src="{{ url_for('static', filename='images/os/logo-' + cat|lower + '.png') }}" alt="{{ cat }}" />{% if not oslist[cat] %}</a>{% endif %}<span class="overlaytext">{{ cat }}</span>
       {% if oslist[cat] %}
       <ul>
@@ -17,7 +14,6 @@
         {% endfor %}
       </ul>
       {% endif %}
-    {% endif %}
     </li>
     {% endfor %}
   </ul>

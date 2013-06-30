@@ -29,12 +29,12 @@ def defclient(osystem):
         system = ['iPhone', 'None']
     if osystem == 'macosx':
         system = ['Mac OS X', 'ichat']
+    if osystem == 'mint':
+        system = ['Linux Mint', 'None']
     if osystem == 'opensuse':
         system = ['OpenSUSE', 'kopete']
     if osystem == 'ubuntu':
         system = ['Ubuntu', 'empathy']
-    #if osystem == 'webchat':
-        #system = ['Webchat', 'meebo']
     if osystem == 'win7':
         system = ['Windows Vista / 7', 'pidgin']
     if osystem == 'winxp':
@@ -47,7 +47,8 @@ def oslist():
         'data': {
             'Linux': [
                     { 'name': 'Debian', 'short': 'debian' },
-                    { 'name': 'OpenSUSE', 'short': 'opensuse' },
+                    #{ 'name': 'OpenSUSE', 'short': 'opensuse' },
+                    { 'name': 'Linux Mint', 'short': 'mint' },
                     { 'name': 'Ubuntu', 'short': 'ubuntu' },
                     ],
             'MacOSX': [],

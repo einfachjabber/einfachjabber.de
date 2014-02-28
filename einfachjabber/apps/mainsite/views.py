@@ -7,6 +7,11 @@ from einfachjabber.apps.mainsite import mainsite
 from einfachjabber.models import OSList, TutorialDoc
 
 
+# Bad hard redirect, has to do for now
+@mainsite.route('/blog')
+def blog_redirect():
+    return redirect('http://www.einfachjabber.de/blog/')
+
 @mainsite.route('/')
 def start():
     pagetitle = u'Jabber Tutorial Portal'

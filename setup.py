@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='einfachjabber',
-    version='1.7.4.5',
+    version='1.7.4.6',
     long_description=__doc__,
     packages=find_packages(),
     include_package_data=True,
